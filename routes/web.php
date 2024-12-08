@@ -34,6 +34,11 @@ Route::get('/register', function () {
     return view('/auth/register', ['title' => 'Register Page']);
 });
 
+//dashboard
+Route::get('/dashboard_admin', function () {
+    return view('/admin/Dashboard_admin', ['title' => 'List Kamera']);
+});
+
 // // login
 // Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
 
