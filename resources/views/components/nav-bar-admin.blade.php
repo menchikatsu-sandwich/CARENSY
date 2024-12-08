@@ -3,7 +3,7 @@
         <a href="index.html" class="text-black text-3xl font-semibold uppercase ">Dashboard</a>
     </div>
     <nav class=" text-white text-base font-semibold pt-3">
-        <x-nav-link-admin href='/Dashboard_admin' :active="request()->is('Dashboard_admin')">List Kamera</x-nav-link-admin>
+        <x-nav-link-admin href='/dashboard_admin' :active="request()->is('Dashboard_admin')">List Kamera</x-nav-link-admin>
         <x-nav-link-admin>Form Input</x-nav-link-admin>
         <x-nav-link-admin>pemesanan</x-nav-link-admin>
         <x-nav-link-admin>History</x-nav-link-admin>
