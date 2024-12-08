@@ -9,10 +9,10 @@ export default defineConfig({
         }),
     ],
     server: {
-        host: 'piusapp3.test', // Sesuaikan dengan host di Laragon
+        host: 'carensy.test', // Sesuaikan dengan host di Laragon
         port: 5173, // Tetap gunakan port default Vite
         hmr: {
-          host: 'piusapp3.test',
+          host: 'carensy.test',
           port: 5173,
         },
       },
