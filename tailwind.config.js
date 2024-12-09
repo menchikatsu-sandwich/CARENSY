@@ -12,6 +12,9 @@ export default {
     ],
     theme: {
         extend: {
+            stroke: {
+                'black': '#000'
+            },
             fontFamily: {
                 sans: ['InterVariable', ...defaultTheme.fontFamily.sans],
             },

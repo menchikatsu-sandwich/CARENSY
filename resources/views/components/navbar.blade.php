@@ -3,14 +3,46 @@
       <div class="flex h-20 items-center justify-between">
         <div class="flex items-center">
           <div class="shrink-0">
-            <img class="h-32 w-32" src="/img/Carensy.png" alt="Camera-Rental-System">
+            <img class="h-32 w-32" src="" alt="Camera-Rental-System">
           </div>
           <div class="hidden md:block">
-            <div class="ml-10 flex items-baseline space-x-4">
+            <div class="ml-10 flex items-baseline space-x-4" >
               <x-nav-link href="/" :active="request()->is('/')">Home</x-nav-link>
-              <x-nav-link href="/kamera" :active="request()->is('kamera')">Kamera</x-nav-link>
+              <div class="relative group">
+                  <!-- Menu Kamera -->
+                  <x-nav-link href="/kamera" :active="request()->is('kamera')" class="cursor-pointer text-white">Kamera</x-nav-link>
+              
+                  <!-- Dropdown -->
+                  <div class="z-10 absolute left-0 mt-2 w-48 bg-white border border-gray-200 rounded-lg shadow-lg opacity-0 transform scale-95 transition-all duration-200 group-hover:opacity-100 group-hover:scale-100 z-50">
+                      <ul class="py-1">
+                          <!-- Canon -->
+                          <li>
+                              <a href="/kamera#canon" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Canon</a>
+                          </li>
+                          <!-- Nikon -->
+                          <li>
+                              <a href="/kamera#nikon" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Nikon</a>
+                          </li>
+                          <!-- Fujifilm -->
+                          <li>
+                              <a href="/kamera#fujifilm" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Fujifilm</a>
+                          </li>
+                          <!-- Sony -->
+                          <li>
+                              <a href="/kamera#sony" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Sony</a>
+                          </li>
+                          <!-- Panasonic -->
+                          <li>
+                              <a href="/kamera#panasonic" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Panasonic</a>
+                          </li>
+                          <!-- Olympus -->
+                          <li>
+                              <a href="/kamera#olympus" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Olympus</a>
+                          </li>
+                      </ul>
+                  </div>
+              </div>
               <x-nav-link href="/kategori" :active="request()->is('kategori')">Kategori</x-nav-link>
-              <x-nav-link href="/profil" :active="request()->is('profil')">Profile</x-nav-link>
             </div>
           </div>
         </div>
@@ -72,9 +104,9 @@
       <div class="space-y-1 px-2 pb-3 pt-2 sm:px-3">
         <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
         <x-nav-link href="/" :active="request()->is('/')">Home</x-nav-link>
-        <x-nav-link href="/posts" :active="request()->is('posts')">Blog</x-nav-link>
-        <x-nav-link href="/about" :active="request()->is('about')">About</x-nav-link>
-        <x-nav-link href="/contact" :active="request()->is('contact')">Contact</x-nav-link>
+        <x-nav-link href="/kamera" :active="request()->is('kamera')">Kamera</x-nav-link>
+        <x-nav-link href="/kategori" :active="request()->is('kategori')">Kategori</x-nav-link>
+        <x-nav-link href="/aksesori" :active="request()->is('aksesori')">Aksesori</x-nav-link>
       </div>
       <div class="border-t border-gray-700 pb-3 pt-4">
         <div class="flex items-center px-5">
@@ -94,7 +126,7 @@
           </button>
         </div>
         <div class="mt-3 space-y-1 px-2">
-          <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white">Your Profile</a>
+          <a href="/profile" class="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white">Your Profile</a>
           <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white">Settings</a>
           <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white">Sign out</a>
         </div>

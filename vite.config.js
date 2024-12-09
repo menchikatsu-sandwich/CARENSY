@@ -8,12 +8,4 @@ export default defineConfig({
             refresh: true,
         }),
     ],
-    server: {
-        host: 'carensy.test', // Sesuaikan dengan host di Laragon
-        port: 5173, // Tetap gunakan port default Vite
-        hmr: {
-          host: 'carensy.test',
-          port: 5173,
-        },
-      },
 });

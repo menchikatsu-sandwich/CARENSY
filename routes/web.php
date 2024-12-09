@@ -3,27 +3,22 @@
 use Illuminate\Support\Facades\Route;
 use App\Models\Post;
 
+// ! USER !
 // home
 Route::get('/', function () {
-    return view('/user/dashboard', ['title' => 'Dashboard']);
+    return view('/user/dashboard', ['title' => 'Home']);
 });
-// about
-Route::get('/profil', function () {
-    return view('/user/profil', ['nama' => 'SANTO EVORIUS'], ['title' => 'Profile']);
-});
-// post
+// kamera
 Route::get('/kamera', function () {
     return view('/user/kamera', ['title' => 'Kamera', 'posts' => Post::all()]);
 });
-// single post
+// detail kamera
 Route::get('/detailkamera/{post:slug}', function(Post $post){
-        // $post = Post::find($slug);
-
         return view('/user/detailkamera', ['title'=> 'Detail Kamera', 'post' => $post]);
 });
-// contact
+// kategori
 Route::get('/kategori', function () {
-    return view('/user/kategori', ['title' => 'CONTACT PAGE']);
+    return view('/user/kategori', ['title' => 'Kategori']);
 });
 // login
 Route::get('/login', function () {
@@ -33,8 +28,24 @@ Route::get('/login', function () {
 Route::get('/register', function () {
     return view('/auth/register', ['title' => 'Register Page']);
 });
+// profile
+Route::get('/profile', function () {
+    return view('/user/profile', ['title' => 'Profile Page']);
+});
+// cart
+Route::get('/cart', function () {
+    return view('/user/cart', ['title' => 'Cart']);
+});
 
-//dashboard
+
+
+
+
+
+
+
+//  ! ADMIN !
+//dashboard admin
 Route::get('/dashboard_admin', function () {
     return view('/admin/Dashboard_admin', ['title' => 'List Kamera']);
 });
