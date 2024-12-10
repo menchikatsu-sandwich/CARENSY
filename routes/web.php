@@ -49,6 +49,22 @@ Route::get('/cart', function () {
 Route::get('/dashboard_admin', function () {
     return view('/admin/Dashboard_admin', ['title' => 'List Kamera']);
 });
+//form
+Route::get('/form_input', function () {
+    return view('/admin/Form_input', ['title' => 'Form Input']);
+});
+//pemesanan
+Route::get('/pemesanan', function () {
+    return view('/admin/Pemesanan', ['title' => 'Pemesanan']);
+});
+//history
+Route::get('/history', function () {
+    return view('/admin/History', ['title' => 'History Pemesanan']);
+});
+//detai produk admin
+Route::get('/detail_produk', function () {
+    return view('/admin/Detail_kamera_admin', ['title' => 'Detail Produk']);
+});
 
 // // login
 // Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');

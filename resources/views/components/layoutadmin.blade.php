@@ -34,15 +34,14 @@
 <body class="bg-gray-100 font-family-popins flex">
 
     <x-nav-bar-admin></x-nav-bar-admin>
-    
+    <div>
         <div class="w-full h-screen overflow-x-hidden border-t flex flex-col">
             <main class="w-full flex-grow p-6">
-                
+                <div>
                 <h1 class="text-3xl text-black pb-6 text-center">{{ $title }}</h1>
-                
-                {{ $slot }}
-               
                 </div>
+                <div class="ml-4">{{ $slot }}</div>
+                
             </main>
     
             
