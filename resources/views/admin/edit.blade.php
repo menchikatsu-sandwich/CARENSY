@@ -4,6 +4,9 @@
     </x-slot:title>
 
     <div class="p-8">
+        <a href="/dashboard_admin" class="text-gray-600">
+                <i class="fa-solid fa-angle-left"></i>
+            </a>
         <!-- Formulir -->
         <form action="/submit" method="POST" enctype="multipart/form-data" class="grid grid-cols-2 gap-4 max-w-3xl mx-auto">
             @csrf
