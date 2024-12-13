@@ -1,135 +1,163 @@
-<nav class="bg-[#2B3442]" x-data="{ isOpen: false }">
-    <div class="mx-auto max-w-7xl">
-      <div class="flex h-20 items-center justify-between">
-        <div class="flex items-center">
-          <div class="shrink-0">
-            <img class="h-32 w-32" src="" alt="Camera-Rental-System">
-          </div>
-          <div class="hidden md:block">
-            <div class="ml-10 flex items-baseline space-x-4" >
-              <x-nav-link href="/" :active="request()->is('/')">Home</x-nav-link>
-              <div class="relative group">
-                  <!-- Menu Kamera -->
-                  <x-nav-link href="/kamera" :active="request()->is('kamera')" class="cursor-pointer text-white">Kamera</x-nav-link>
-              
-                  <!-- Dropdown -->
-                  <div class="z-10 absolute left-0 mt-2 w-48 bg-white border border-gray-200 rounded-lg shadow-lg opacity-0 transform scale-95 transition-all duration-200 group-hover:opacity-100 group-hover:scale-100 z-50">
-                      <ul class="py-1">
-                          <!-- Canon -->
-                          <li>
-                              <a href="/kamera#canon" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Canon</a>
-                          </li>
-                          <!-- Nikon -->
-                          <li>
-                              <a href="/kamera#nikon" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Nikon</a>
-                          </li>
-                          <!-- Fujifilm -->
-                          <li>
-                              <a href="/kamera#fujifilm" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Fujifilm</a>
-                          </li>
-                          <!-- Sony -->
-                          <li>
-                              <a href="/kamera#sony" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Sony</a>
-                          </li>
-                          <!-- Panasonic -->
-                          <li>
-                              <a href="/kamera#panasonic" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Panasonic</a>
-                          </li>
-                          <!-- Olympus -->
-                          <li>
-                              <a href="/kamera#olympus" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Olympus</a>
-                          </li>
-                      </ul>
-                  </div>
+<nav class="bg-gray-800">
+  <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+    <div class="relative flex items-center justify-between h-16">
+      <!-- Logo Section -->
+      <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
+        <!-- Mobile menu button -->
+        <button type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
+          <span class="sr-only">Open main menu</span>
+          <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16m-7 6h7" />
+          </svg>
+        </button>
+      </div>
+      <div class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
+        <div class="flex-shrink-0 text-white font-bold text-xl">Logo</div>
+        <!-- Desktop Menu -->
+        <div class="hidden sm:block sm:ml-6">
+          <div class="flex space-x-4">
+            <a href="/" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Home</a>
+
+            <!-- Kamera Menu dropdown -->
+            <div class="relative group">
+              <button type="button" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"><a href="/kamera">Kamera</a></button>
+              <div class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition duration-200 ease-in-out z-10">
+                <a href="/kamera#canon" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Canon</a>
+                <a href="/kamera#nikon" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Nikon</a>
+                <a href="/kamera#fujifilm" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">FujiFilm</a>
+                <a href="/kamera#sony" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Sony</a>
+                <a href="/kamera#dll" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Lainnya</a>
               </div>
-              <x-nav-link href="/kategori" :active="request()->is('kategori')">Kategori</x-nav-link>
+            </div>
+            <!-- Kategori Menu dropdown -->
+            <div class="relative group">
+              <button type="button" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"><a href="/kategori">Kategori</a></button>
+              <div class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition duration-200 ease-in-out z-10">
+                <a href="/kategori#camera" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Kamera</a>
+                <a href="/kategori#gimbal" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Gimbal</a>
+                <a href="/kategori#tripod" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Tripod</a>
+                <a href="/kategori#lensa" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Lensa</a>
+                <a href="/kategori#dlll" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Lainnya</a>
+              </div>
             </div>
           </div>
         </div>
-        <div class="hidden md:block">
-          <div class="ml-4 flex items-center md:ml-6">
-            <button type="button" class="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
-              <span class="absolute -inset-1.5"></span>
-              <span class="sr-only">View notifications</span>
-              <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0" />
-              </svg>
+      </div>
+
+      <!-- Profile & Cart -->
+      <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+        <!-- Cart Icon -->
+        <button type="button" class="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+          <span class="sr-only">View cart</span>
+          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2m0 0h13.2l.4-2H21M5.4 5L6.9 14.6a2 2 0 0 0 2 1.4h6.2a2 2 0 0 0 2-1.4L18.6 5M16 19a2 2 0 1 1-4 0M9 19a2 2 0 1 1-4 0" />
+          </svg>
+        </button>
+
+        <!-- Profile Dropdown -->
+        <div class="relative ml-3">
+          <div>
+            <button type="button" class="flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
+              <span class="sr-only">Open user menu</span>
+              <img class="h-8 w-8 rounded-full" src="https://via.placeholder.com/150" alt="Profile">
             </button>
-
-            <!-- Profile dropdown -->
-            <div class="relative ml-3">
-              <div>
-                <button type="button"  @click="isOpen = !isOpen" class="relative flex max-w-xs items-center rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
-                  <span class="absolute -inset-1.5"></span>
-                  <span class="sr-only">Open user menu</span>
-                  <img class="h-8 w-8 rounded-full" src="" alt="">
-                </button>
-              </div>
-
-              <div x-show="isOpen"
-    x-transition:enter="transition ease-out duration-100 transform"
-    x-transition:enter-start="opacity-0 scale-95"
-    x-transition:enter-end="opacity-100 scale-100"
-    x-transition:leave="transition ease-in duration-75 transform"
-    x-transition:leave-start="opacity-100 scale-100"
-    x-transition:leave-end="opacity-0 scale-95" class="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
-                <!-- Active: "bg-gray-100 outline-none", Not Active: "" -->
-                <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">Your Profile</a>
-                <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-1">Settings</a>
-                <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-2">Sign out</a>
-              </div>
-            </div>
           </div>
-        </div>
-        <div class="-mr-2 flex md:hidden">
-          <!-- Mobile menu button -->
-          <button type="button" @click="isOpen = !isOpen" class="relative inline-flex items-center justify-center rounded-md bg-gray-800 p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800" aria-controls="mobile-menu" aria-expanded="false">
-            <span class="absolute -inset-0.5"></span>
-            <span class="sr-only">Open main menu</span>
-            <!-- Menu open: "hidden", Menu closed: "block" -->
-            <svg  :class="{'hidden': isOpen, 'block': !isOpen }" class="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-            </svg>
-            <!-- Menu open: "block", Menu closed: "hidden" -->
-            <svg :class="{'block': isOpen, 'hidden': !isOpen }" class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
-            </svg>
-          </button>
+
+          <div class="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none hidden" id="user-menu" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button">
+            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Your Profile</a>
+            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Sign Out</a>
+          </div>
         </div>
       </div>
     </div>
+  </div>
 
-    <!-- Mobile menu, show/hide based on menu state. -->
-    <div x-show="isOpen" class="md:hidden" id="mobile-menu">
-      <div class="space-y-1 px-2 pb-3 pt-2 sm:px-3">
-        <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-        <x-nav-link href="/" :active="request()->is('/')">Home</x-nav-link>
-        <x-nav-link href="/kamera" :active="request()->is('kamera')">Kamera</x-nav-link>
-        <x-nav-link href="/kategori" :active="request()->is('kategori')">Kategori</x-nav-link>
-        <x-nav-link href="/aksesori" :active="request()->is('aksesori')">Aksesori</x-nav-link>
-      </div>
-      <div class="border-t border-gray-700 pb-3 pt-4">
-        <div class="flex items-center px-5">
-          <div class="shrink-0">
-            <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
-          </div>
-          <div class="ml-3">
-            <div class="text-base/5 font-medium text-white">Santo Evorius</div>
-            <div class="text-sm font-medium text-gray-400">santoevo357@gmail.com</div>
-          </div>
-          <button type="button" class="relative ml-auto shrink-0 rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
-            <span class="absolute -inset-1.5"></span>
-            <span class="sr-only">View notifications</span>
-            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0" />
-            </svg>
-          </button>
-        </div>
-        <div class="mt-3 space-y-1 px-2">
-          <a href="/profile" class="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white">Your Profile</a>
-          <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white">Settings</a>
-          <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white">Sign out</a>
+  <!-- Mobile Menu -->
+  <div class="sm:hidden" id="mobile-menu">
+    <div class="px-2 pt-2 pb-3 space-y-1">
+      <a href="/" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Home</a>
+
+      <!-- Kamera Dropdown for Mobile -->
+      <div class="relative">
+        <button type="button" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium" id="mobile-kamera-menu">
+          Kamera
+        </button>
+        <div class="hidden" id="mobile-kamera-dropdown">
+          <a href="/kamera#canon" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Canon</a>
+          <a href="/kamera#nikon" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Nikon</a>
+          <a href="/kamera#fujifilm" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">FujiFilm</a>
+          <a href="/kamera#sony" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Sony</a>
+          <a href="/kamera#dll" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Lainnya</a>
         </div>
       </div>
+
+      <!-- Kategori Dropdown for Mobile -->
+      <div class="relative">
+        <button type="button" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium" id="mobile-kategori-menu">
+          Kategori
+        </button>
+        <div class="hidden" id="mobile-kategori-dropdown">
+          <a href="/kategori#camera" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Kamera</a>
+          <a href="/kategori#gimbal" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Gimbal</a>
+          <a href="/kategori#tripod" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Tripod</a>
+          <a href="/kategori#lensa" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Lensa</a>
+          <a href="/kategori#dlll" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Lainnya</a>
+        </div>
+      </div>
+
+      <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Profile</a>
+      <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Cart</a>
+      <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Sign Out</a>
     </div>
-  </nav>
+  </div>
+</nav>
+
+<script>
+  // Function to add hover delay for dropdown menus
+  function addHoverDelay(menuSelector) {
+    const menu = document.querySelector(menuSelector);
+    const dropdown = menu.querySelector('div.absolute');
+    let hoverTimeout;
+
+    menu.addEventListener('mouseenter', () => {
+      clearTimeout(hoverTimeout);
+      dropdown.classList.add('opacity-100', 'visible');
+      dropdown.classList.remove('opacity-0', 'invisible');
+    });
+
+    menu.addEventListener('mouseleave', () => {
+      hoverTimeout = setTimeout(() => {
+        dropdown.classList.add('opacity-0', 'invisible');
+        dropdown.classList.remove('opacity-100', 'visible');
+      }, 100); // Add delay to prevent sensitivity
+    });
+  }
+
+  // Apply hover delay to both Kamera and Kategori menus
+  addHoverDelay('.group:nth-of-type(1)'); // Kamera menu
+  addHoverDelay('.group:nth-of-type(2)'); // Kategori menu
+
+  // Mobile dropdown toggle
+  const mobileKameraMenu = document.getElementById('mobile-kamera-menu');
+  const mobileKameraDropdown = document.getElementById('mobile-kamera-dropdown');
+
+  mobileKameraMenu.addEventListener('click', () => {
+    mobileKameraDropdown.classList.toggle('hidden');
+  });
+
+  // Profile dropdown toggle
+  const userMenuButton = document.getElementById('user-menu-button');
+  const userMenu = document.getElementById('user-menu');
+
+  userMenuButton.addEventListener('click', () => {
+    userMenu.classList.toggle('hidden');
+  });
+
+  // Mobile dropdown toggle for Kategori
+  const mobileKategoriMenu = document.getElementById('mobile-kategori-menu');
+  const mobileKategoriDropdown = document.getElementById('mobile-kategori-dropdown');
+
+  mobileKategoriMenu.addEventListener('click', () => {
+    mobileKategoriDropdown.classList.toggle('hidden');
+  });
+</script>
