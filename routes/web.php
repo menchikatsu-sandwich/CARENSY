@@ -65,6 +65,9 @@ Route::get('/history', function () {
 Route::get('/detail_produk', function () {
     return view('/admin/Detail_kamera_admin', ['title' => 'Detail Produk']);
 });
+Route::get('/edit_produk', function () {
+    return view('/admin/edit', ['title' => 'Edit Produk']);
+});
 
 // // login
 // Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
