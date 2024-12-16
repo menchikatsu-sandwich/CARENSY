@@ -44,7 +44,8 @@
           <div class="flex items-center">
             <div class="w-52 h-52 flex flex-col items-center justify-center border-2 border-dashed border-gray-300 rounded-md p-2 cursor-pointer hover:border-blue-400 hover:bg-blue-50">
               <label for="upload-image" class="flex flex-col items-center">
-                <img src="https://via.placeholder.com/100x100?text=Image" alt="Upload Icon" class="w-12 h-12 mb-2">
+                <i class="fa-regular fa-image"></i>
+                {{-- <img src="https://via.placeholder.com/100x100?text=Image" alt="Upload Icon" class="w-12 h-12 mb-2"> --}}
                 <span class="text-sm text-gray-500">Upload Image</span>
               </label>
               <input type="file" id="upload-image" name="image" class="hidden">

@@ -9,11 +9,14 @@
             </a>
             {{-- edit --}}
             <div class="flex space-x-2">
-                <button class="text-gray-600">
-                    <i class="fa-regular fa-pen-to-square">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7" />
-                    </i>
-                </button>
+                <a href="edit_produk">
+                    <button class="text-gray-600">
+                        <i class="fa-regular fa-pen-to-square">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7" />
+                        </i>
+                    </button>
+                </a>
+                
                 {{-- delete --}}
                 <button class="text-gray-600">
                     <i class="fa-regular fa-trash-can">
