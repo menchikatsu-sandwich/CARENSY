@@ -5,19 +5,26 @@
 
     <div class="p-8">
         <a href="/dashboard_admin" class="text-gray-600">
-                <i class="fa-solid fa-angle-left"></i>
-            </a>
+            <i class="fa-solid fa-angle-left"></i>
+        </a>
         <!-- Formulir -->
-        <form action="/submit" method="POST" enctype="multipart/form-data" class="grid grid-cols-2 gap-4 max-w-3xl mx-auto">
+        <form action="/submit" method="POST" enctype="multipart/form-data" class="grid grid-cols-2 gap-4 max-w-3xl mx-auto" x-data="{ fileName: '', fileUrl: '' }">
             @csrf
             <!-- UPLOAD IMAGE -->
             <div class="flex flex-col items-center">
                 <div class="w-52 h-52 flex flex-col items-center justify-center border-2 border-dashed border-gray-300 rounded-md p-2 cursor-pointer hover:border-blue-400 hover:bg-blue-50">
                     <label for="upload-image" class="flex flex-col items-center">
-                        <i class="fa-regular fa-image"></i>
-                        <span class="text-sm text-gray-500">Upload Image</span>
+                        <template x-if="!fileUrl">
+                            <svg class="w-12 h-12 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+                            </svg>
+                        </template>
+                        <template x-if="fileUrl">
+                            <img :src="fileUrl" alt="" class="w-full h-full object-cover">
+                        </template>
+                        <span class="text-sm text-gray-500" x-text="fileName || 'Upload Image'"></span>
                     </label>
-                    <input type="file" id="upload-image" name="image" class="hidden">
+                    <input type="file" id="upload-image" name="image" class="hidden" @change="fileName = $event.target.files[0].name; fileUrl = URL.createObjectURL($event.target.files[0])">
                 </div>
             </div>
 
@@ -27,7 +34,6 @@
                     <h3 class="text-lg font-semibold">Nama Camera</h3>
                     <p class="text-gray-600">Merek</p>
                     <p class="text-gray-600">Rp 100.000</p>
-
                 </div>
                 <p class="text-gray-600">Deskripsi/kelengkapan camera: Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
             </div>
