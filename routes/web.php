@@ -52,7 +52,7 @@ Route::get('/cart', function () {
 //  ! ADMIN !
 //dashboard admin
 Route::get('/dashboard_admin', function () {
-    return view('/admin/Dashboard_admin', ['title' => 'List Kamera']);
+    return view('/admin/Dashboard_admin', ['title' => 'List Produk']);
 });
 //form
 Route::get('/form_input', function () {
@@ -74,6 +74,10 @@ Route::get('/detail_produk', function () {
 //edit
 Route::get('/edit_produk', function () {
     return view('/admin/edit', ['title' => 'Edit Produk']);
+});
+//detail pemesanan
+Route::get('/detail_pemesanan', function () {
+    return view('/admin/DetailPemesanan', ['title' => 'Detail Pemesanan']);
 });
 
 // // login
