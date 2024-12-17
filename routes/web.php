@@ -2,20 +2,25 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Models\Post;
+use App\Http\Controllers\SearchController;
+
+
 
 // ! USER !
+// search
+Route::get('/search', [SearchController::class, 'index'])->name('search');
 // home
 Route::get('/', function () {
     return view('/user/dashboard', ['title' => 'Home']);
 });
 // kamera
 Route::get('/kamera', function () {
-    return view('/user/kamera', ['title' => 'Kamera', 'posts' => Post::all()]);
+    return view('/user/kamera', ['title' => 'Kamera']);
 });
 // detail kamera
-Route::get('/detailkamera/{post:slug}', function(Post $post){
-        return view('/user/detailkamera', ['title'=> 'Detail Kamera', 'post' => $post]);
-});
+// Route::get('/detailkamera/{post:slug}', function(Post $post){
+//         return view('/user/detailkamera', ['title'=> 'Detail Kamera', 'post' => $post]);
+// });
 // kategori
 Route::get('/kategori', function () {
     return view('/user/kategori', ['title' => 'Kategori']);
