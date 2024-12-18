@@ -44,15 +44,25 @@
         </div>
       </div>
 
-      <!-- Profile & Cart -->
-      <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+      <!-- RIGHT MENU -->
+      <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0 space-x-4">
+        <!-- search -->
+        <form action="" method="GET" class="relative hidden lg:block">
+          <button type="submit" class="absolute left-2 top-2 text-gray-500">
+            <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35M17 10A7 7 0 1 1 3 10a7 7 0 0 1 14 0z" />
+            </svg>
+          </button>
+          <input type="text" name="q" placeholder="Cari..." class="pl-10 pr-4 py-2 w-64 border rounded-md focus:outline-none">
+        </form>
+
         <!-- Cart Icon -->
-        <button type="button" class="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+        <a href="/cart" class="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
           <span class="sr-only">View cart</span>
           <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2m0 0h13.2l.4-2H21M5.4 5L6.9 14.6a2 2 0 0 0 2 1.4h6.2a2 2 0 0 0 2-1.4L18.6 5M16 19a2 2 0 1 1-4 0M9 19a2 2 0 1 1-4 0" />
           </svg>
-        </button>
+        </a>
 
         <!-- Profile Dropdown -->
         <div class="relative ml-3">
@@ -64,7 +74,7 @@
           </div>
 
           <div class="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none hidden" id="user-menu" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button">
-            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Your Profile</a>
+            <a href="/profile" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Your Profile</a>
             <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Sign Out</a>
           </div>
         </div>
@@ -105,15 +115,28 @@
         </div>
       </div>
 
-      <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Profile</a>
-      <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Cart</a>
+      <a href="/profile" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Profile</a>
+      <a href="/cart" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Cart</a>
       <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Sign Out</a>
+
+      <!-- Search Bar for Mobile -->
+      <form action="" method="GET" class="relative block lg:hidden px-3 py-2">
+        <button type="submit" class="absolute left-5 top-4 text-gray-500">
+          <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35M17 10A7 7 0 1 1 3 10a7 7 0 0 1 14 0z" />
+          </svg>
+        </button>
+        <input type="text" name="q" placeholder="Cari..." class="pl-10 pr-4 py-2 w-full border rounded-md focus:outline-none">
+      </form>
     </div>
   </div>
 </nav>
 
+
+
+<!-- JS -->
 <script>
-  // Function to add hover delay for dropdown menus
+  // hover delay dd
   function addHoverDelay(menuSelector) {
     const menu = document.querySelector(menuSelector);
     const dropdown = menu.querySelector('div.absolute');
@@ -129,15 +152,15 @@
       hoverTimeout = setTimeout(() => {
         dropdown.classList.add('opacity-0', 'invisible');
         dropdown.classList.remove('opacity-100', 'visible');
-      }, 100); // Add delay to prevent sensitivity
+      }, 100); // delay sensi
     });
   }
 
-  // Apply hover delay to both Kamera and Kategori menus
-  addHoverDelay('.group:nth-of-type(1)'); // Kamera menu
-  addHoverDelay('.group:nth-of-type(2)'); // Kategori menu
+  // hover delay apply
+  addHoverDelay('.group:nth-of-type(1)'); // Kamera
+  addHoverDelay('.group:nth-of-type(2)'); // Kategori
 
-  // Mobile dropdown toggle
+  // mobile dropdown
   const mobileKameraMenu = document.getElementById('mobile-kamera-menu');
   const mobileKameraDropdown = document.getElementById('mobile-kamera-dropdown');
 
@@ -145,7 +168,7 @@
     mobileKameraDropdown.classList.toggle('hidden');
   });
 
-  // Profile dropdown toggle
+  // oprofile dropdown
   const userMenuButton = document.getElementById('user-menu-button');
   const userMenu = document.getElementById('user-menu');
 
@@ -153,11 +176,29 @@
     userMenu.classList.toggle('hidden');
   });
 
-  // Mobile dropdown toggle for Kategori
+  // mobile dropdown Kategori
   const mobileKategoriMenu = document.getElementById('mobile-kategori-menu');
   const mobileKategoriDropdown = document.getElementById('mobile-kategori-dropdown');
 
   mobileKategoriMenu.addEventListener('click', () => {
     mobileKategoriDropdown.classList.toggle('hidden');
+  });
+
+  // close mobile menu
+  document.addEventListener('click', (event) => {
+    if (!mobileKameraMenu.contains(event.target) && !mobileKameraDropdown.contains(event.target)) {
+      mobileKameraDropdown.classList.add('hidden');
+    }
+    if (!mobileKategoriMenu.contains(event.target) && !mobileKategoriDropdown.contains(event.target)) {
+      mobileKategoriDropdown.classList.add('hidden');
+    }
+  });
+
+  // Mobile menu toggle
+  const mobileMenuButton = document.querySelector('button[aria-controls="mobile-menu"]');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  mobileMenuButton.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');
   });
 </script>

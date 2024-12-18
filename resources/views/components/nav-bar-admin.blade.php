@@ -3,7 +3,7 @@
         <a href="index.html" class="text-black text-3xl font-semibold uppercase ">Dashboard</a>
     </div>
     <nav class=" text-white text-base font-semibold pt-3">
-        <x-nav-link-admin href='/dashboard_admin' :active="request()->is('dashboard_admin')">List Kamera</x-nav-link-admin>
+        <x-nav-link-admin href='/dashboard_admin' :active="request()->is('dashboard_admin')">List Produk</x-nav-link-admin>
             <x-nav-link-admin href="/form_input" :active="request()->is('form_input')">Form Input</x-nav-link-admin>
             <x-nav-link-admin href='/pemesanan' :active="request()->is('pemesanan')">pemesanan</x-nav-link-admin>
             <x-nav-link-admin href='/history' :active="request()->is('history')">History</x-nav-link-admin>
@@ -29,7 +29,7 @@
 
         <!-- Dropdown Nav -->
         <nav :class="isOpen ? 'flex': 'hidden'" class="flex flex-col pt-4">
-            <x-nav-link-admin href='/dashboard_admin' :active="request()->is('dashboard_admin')">List Kamera</x-nav-link-admin>
+            <x-nav-link-admin href='/dashboard_admin' :active="request()->is('dashboard_admin')">List Produk</x-nav-link-admin>
             <x-nav-link-admin href="/form_input" :active="request()->is('form_input')">Form Input</x-nav-link-admin>
             <x-nav-link-admin href='/pemesanan' :active="request()->is('pemesanan')">pemesanan</x-nav-link-admin>
             <x-nav-link-admin href='/history' :active="request()->is('history')">History</x-nav-link-admin>

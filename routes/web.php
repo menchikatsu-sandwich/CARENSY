@@ -2,20 +2,25 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Models\Post;
+use App\Http\Controllers\SearchController;
+
+
 
 // ! USER !
+// search
+Route::get('/search', [SearchController::class, 'index'])->name('search');
 // home
 Route::get('/', function () {
     return view('/user/dashboard', ['title' => 'Home']);
 });
 // kamera
 Route::get('/kamera', function () {
-    return view('/user/kamera', ['title' => 'Kamera', 'posts' => Post::all()]);
+    return view('/user/kamera', ['title' => 'Kamera']);
 });
 // detail kamera
-Route::get('/detailkamera/{post:slug}', function(Post $post){
-        return view('/user/detailkamera', ['title'=> 'Detail Kamera', 'post' => $post]);
-});
+// Route::get('/detailkamera/{post:slug}', function(Post $post){
+//         return view('/user/detailkamera', ['title'=> 'Detail Kamera', 'post' => $post]);
+// });
 // kategori
 Route::get('/kategori', function () {
     return view('/user/kategori', ['title' => 'Kategori']);
@@ -47,7 +52,7 @@ Route::get('/cart', function () {
 //  ! ADMIN !
 //dashboard admin
 Route::get('/dashboard_admin', function () {
-    return view('/admin/Dashboard_admin', ['title' => 'List Kamera']);
+    return view('/admin/Dashboard_admin', ['title' => 'List Produk']);
 });
 //form
 Route::get('/form_input', function () {
@@ -64,6 +69,15 @@ Route::get('/history', function () {
 //detai produk admin
 Route::get('/detail_produk', function () {
     return view('/admin/Detail_kamera_admin', ['title' => 'Detail Produk']);
+});
+
+//edit
+Route::get('/edit_produk', function () {
+    return view('/admin/edit', ['title' => 'Edit Produk']);
+});
+//detail pemesanan
+Route::get('/detail_pemesanan', function () {
+    return view('/admin/DetailPemesanan', ['title' => 'Detail Pemesanan']);
 });
 
 // // login
