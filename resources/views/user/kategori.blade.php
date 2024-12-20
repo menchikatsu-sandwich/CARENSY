@@ -2,6 +2,7 @@
 <x-slot:title>{{ $title }}</x-slot:title>
 <!-- Produk Section -->
 <div class="container mx-auto mb-10 mt-10 px-4">
+  <h1 class="mb-6 text-2xl font-bold text-center"><img src="img/CARENSY.png" alt="LOGO CARENSY" style="width: 15%; height: auto; margin: 0 auto;"></h1>
   <!-- Judul Utama -->
   <div class="rounded-full px-4 py-2 text-center">
     <h2 class="text-gray-800 text-lg font-bold">LIST PRODUK</h2>

@@ -9,6 +9,7 @@
 <body class="flex items-center justify-center min-h-screen bg-gray-100">
 
   <div class="w-full max-w-md px-6 py-8 bg-white rounded-lg shadow-md">
+    <h1 class="mb-6 text-2xl font-bold text-center"><img src="img/CARENSY.png" alt="LOGO CARENSY" style="width: 60%; height: auto; margin: 0 auto;"></h1>
     <h1 class="mb-6 text-2xl font-bold text-center">Register</h1>
     <form action="#" method="POST">
       @csrf

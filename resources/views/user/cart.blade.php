@@ -2,6 +2,7 @@
     <x-slot:title>{{ $title }}</x-slot:title>
 
 <div class="font-sans w-full bg-white min-h-screen flex flex-col">
+    <h1 class="mb-6 text-2xl font-bold text-center"><img src="img/CARENSY.png" alt="LOGO CARENSY" style="width: 15%; height: auto; margin: 0 auto;"></h1>
     <!-- Konten Utama -->
     <div class="flex-1 py-4">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4 w-full">
