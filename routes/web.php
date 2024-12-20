@@ -1,9 +1,10 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 use App\Models\Post;
+use App\Models\Product;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SearchController;
-
+use App\Http\Controllers\ProductController;
 
 
 // ! USER !
@@ -51,9 +52,15 @@ Route::get('/cart', function () {
 
 //  ! ADMIN !
 //dashboard admin
+// Route::get('/dashboard_admin', function () {
+//     return view('/admin/Dashboard_admin', ['title' => 'List Produk']);
+// });
+
 Route::get('/dashboard_admin', function () {
-    return view('/admin/Dashboard_admin', ['title' => 'List Produk']);
-});
+    $products = Product::all();
+    $title = 'List Produk';
+    return view('admin/Dashboard_admin', compact('products', 'title'));
+})->name('product.index');
 //form
 Route::get('/form_input', function () {
     return view('/admin/Form_input', ['title' => 'Form Input']);
@@ -67,21 +74,43 @@ Route::get('/history', function () {
     return view('/admin/History', ['title' => 'History Pemesanan']);
 });
 //detai produk admin
-Route::get('/detail_produk', function () {
-    return view('/admin/Detail_kamera_admin', ['title' => 'Detail Produk']);
+Route::get('/detail_kamera/{product:id}', function (Product $product) {
+    return view('/admin/Detail_kamera_admin', ['title' => 'Detail Produk', 'product' => $product]);
 });
 
 //edit
-Route::get('/edit_produk', function () {
-    return view('/admin/edit', ['title' => 'Edit Produk']);
-});
+// Route::get('/edit_produk/{product:id}', function (Product $product) {
+//     return view('/admin/edit', ['title' => 'Edit Produk', 'product'=>$product]);
+// });
+Route::get('/edit_produk/{product:id}', function (Product $product) {
+    return view('admin.edit', ['title' => 'Edit Produk', 'product' => $product]);
+})->name('product.edit');
+
+
 //detail pemesanan
 Route::get('/detail_pemesanan', function () {
     return view('/admin/DetailPemesanan', ['title' => 'Detail Pemesanan']);
 });
+
+
+
+//route controller push product
+
+Route::get('/dashboard_admin', [ProductController::class, 'index'])->name('product.index');
+Route::post('/submit', [ProductController::class, 'store'])->name('product.store');
+
+// edit
+Route::get('/detail_produk/{product:id}', function (Product $product) {
+    return view('admin.Detail_kamera_admin', ['title' => 'Detail Produk', 'product' => $product]);
+})->name('product.show');
+Route::post('/update_produk/{product:id}', [ProductController::class, 'update'])->name('product.update');
+
+//delete
+Route::delete('/delete_produk/{product:id}', [ProductController::class, 'destroy'])->name('product.destroy');
 
 // // login
 // Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
 
 // // register
 // Route::get('/register', [AuthController::class, 'showRegisterForm'])->name('register');
+// routes/web.php

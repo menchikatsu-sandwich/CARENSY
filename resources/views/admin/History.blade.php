@@ -7,11 +7,11 @@
         </div>
         <!-- Bagian Informasi -->
         <div class="w-2/3 bg-gray-200 p-4">
-            <h2 class="text-lg font-bold">Nama Camera</h2>
+            <h2 class="text-lg font-bold">NAMA PRODUCT</h2>
             <p>Nama Peminjam</p>
             <p>Tanggal Peminjaman</p>
             <p>Tanggal Pengembalian</p>
         </div>
     </div>
-    
+
 </x-layoutadmin>

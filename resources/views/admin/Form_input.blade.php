@@ -4,8 +4,8 @@
     </x-slot:title>
 
     <div class="p-8">
-        <form action="/submit" method="POST" enctype="multipart/form-data" class="grid grid-cols-2 gap-4 max-w-3xl mx-auto"
-            x-data="{ fileName: '', fileUrl: '' }">
+        <form action="{{ route('product.store') }}" method="POST" enctype="multipart/form-data"
+            class="grid grid-cols-2 gap-4 max-w-3xl mx-auto" x-data="{ fileName: '', fileUrl: '' }">
             @csrf
             <!-- KODE PRODUCT -->
             <div class="flex flex-col">
@@ -14,42 +14,43 @@
                     class="border border-gray-300 rounded-md p-2 focus:outline-none focus:ring focus:ring-blue-200">
             </div>
 
-            <!-- NAMA CAMERA -->
+            <!-- NAMA PRODUCT -->
             <div class="flex flex-col">
-                <label for="nama-camera" class="mb-2 text-sm font-medium text-gray-700">NAMA CAMERA</label>
-                <input type="text" id="nama-camera" name="nama_camera"
+                <label for="nama-camera" class="mb-2 text-sm font-medium text-gray-700">NAMA PRODUCT</label>
+                <input type="text" id="nama-camera" name="nama_product"
                     class="border border-gray-300 rounded-md p-2 focus:outline-none focus:ring focus:ring-blue-200">
             </div>
 
-            <!-- MEREK CAMERA -->
-            <div class="flex flex-col"> <label for="merek-camera" class="mb-2 text-sm font-medium text-gray-700">MEREK
-                    CAMERA</label> <select id="merek-camera" name="merek_camera"
+            <!-- MEREK PRODUCT -->
+            <div class="flex flex-col">
+                <label for="merek-camera" class="mb-2 text-sm font-medium text-gray-700">MEREK PRODUCT</label>
+                <select id="merek-camera" name="merek_product"
                     class="border border-gray-300 rounded-md p-2 focus:outline-none focus:ring focus:ring-blue-200">
-
-                    <option value="Canon">Pilih merek</option>
                     <option value="Canon">Canon</option>
                     <option value="Sony">Sony</option>
                     <option value="Nikon">Nikon</option>
-                    <option value="Nikon">FujiFilm</option>
-                    <option value="Nikon">Dll</option>
-                </select> </div>
+                    <option value="FujiFilm">FujiFilm</option>
+                    <option value="Dll">Dll</option>
+                </select>
+            </div>
 
-                <!-- kategori CAMERA -->
-                <div class="flex flex-col"> <label for="merek-camera" class="mb-2 text-sm font-medium text-gray-700">KATEGORI</label> <select id="merek-camera" name="merek_camera"
+            <!-- KATEGORI CAMERA -->
+            <div class="flex flex-col">
+                <label for="kategori-camera" class="mb-2 text-sm font-medium text-gray-700">KATEGORI</label>
+                <select id="kategori-camera" name="kategori_product"
                     class="border border-gray-300 rounded-md p-2 focus:outline-none focus:ring focus:ring-blue-200">
-
-                    <option value="Canon">Pilih kategori</option>
-                    <option value="Canon">Kamera</option>
-                    <option value="Sony">Gimbal</option>
-                    <option value="Nikon">Tripod</option>
-                    <option value="Nikon">Lensa</option>
-                    <option value="Nikon">Dll</option>
-                </select> </div>
+                    <option value="Kamera">Kamera</option>
+                    <option value="Gimbal">Gimbal</option>
+                    <option value="Tripod">Tripod</option>
+                    <option value="Lensa">Lensa</option>
+                    <option value="Dll">Dll</option>
+                </select>
+            </div>
 
             <!-- DETAIL CAMERA -->
             <div class="flex flex-col">
                 <label for="detail-camera" class="mb-2 text-sm font-medium text-gray-700">DETAIL CAMERA</label>
-                <input type="text" id="detail-camera" name="detail_camera"
+                <input type="text" id="detail-camera" name="detail_product"
                     class="border border-gray-300 rounded-md p-2 focus:outline-none focus:ring focus:ring-blue-200">
             </div>
 
@@ -67,8 +68,6 @@
                     class="border border-gray-300 rounded-md p-2 focus:outline-none focus:ring focus:ring-blue-200">
             </div>
 
-           
-
             <!-- HARGA SEWA -->
             <div class="flex flex-col">
                 <label for="harga-sewa" class="mb-2 text-sm font-medium text-gray-700">HARGA SEWA</label>
@@ -76,7 +75,7 @@
                     class="border border-gray-300 rounded-md p-2 focus:outline-none focus:ring focus:ring-blue-200">
             </div>
 
-                 <!-- UPLOAD IMAGE -->
+            <!-- UPLOAD IMAGE -->
             <div class="flex items-center">
                 <div
                     class="w-52 h-52 flex flex-col items-center justify-center border-2 border-dashed border-gray-300 rounded-md p-2 cursor-pointer hover:border-blue-400 hover:bg-blue-50">
