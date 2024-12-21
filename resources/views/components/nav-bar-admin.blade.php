@@ -1,6 +1,6 @@
 <aside class="relative bg-sidebar h-screen w-64 hidden sm:block shadow-xl">
     <div class="p-6">
-        <a href="index.html" class="text-black text-3xl font-semibold uppercase ">Dashboard</a>
+        <a href="/dashboard_admin" class="text-black text-3xl font-semibold uppercase ">Dashboard</a>
     </div>
     <nav class=" text-white text-base font-semibold pt-3">
         <x-nav-link-admin href='/dashboard_admin' :active="request()->is('dashboard_admin')">List Produk</x-nav-link-admin>

@@ -8,8 +8,6 @@ use App\Http\Controllers\ProductController;
 
 
 // ! USER !
-// search
-Route::get('/search', [SearchController::class, 'index'])->name('search');
 // home
 Route::get('/', function () {
     return view('/user/dashboard', ['title' => 'Home','products'=> Product::all()]);
@@ -41,6 +39,8 @@ Route::get('/register', function () {
 Route::get('/profile', function () {
     return view('/user/profile', ['title' => 'Profile Page']);
 });
+// search produk
+Route::get('/search/search_result', [ProductController::class, 'search'])->name('search');
 // cart
 //route ini belum bisa menambahkan produk ke cart
 Route::get('/cart', function () {

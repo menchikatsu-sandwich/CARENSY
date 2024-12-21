@@ -94,4 +94,18 @@ class ProductController extends Controller
         $product->delete();
         return redirect()->route('product.index')->with('success', 'Product successfully deleted');
     }
+
+    //search
+    public function search(Request $request)
+    {
+        $query = $request->input('query');
+        $products = Product::where('nama_product', 'LIKE', "%$query%")->orWhere('kategori_product', 'LIKE', "%$query%")->get();
+        
+        $title = 'Hasil Pencarian'; // Definisikan variabel $title
+
+        return view('/search/search_result', compact('products', 'title', 'query'));
+    }
 }
+
+
+

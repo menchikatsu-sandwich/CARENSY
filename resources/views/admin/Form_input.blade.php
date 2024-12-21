@@ -76,14 +76,14 @@
             <!-- STOCK -->
             <div class="flex flex-col">
                 <label for="stock" class="mb-2 text-sm font-medium text-gray-700">STOCK</label>
-                <input type="number" id="stock" name="stock"
+                <input type="text" inputmode="numeric" id="stock" name="stock"
                     class="border border-gray-300 rounded-md p-2 focus:outline-none focus:ring focus:ring-blue-200">
             </div>
 
             <!-- HARGA SEWA -->
             <div class="flex flex-col">
                 <label for="harga-sewa" class="mb-2 text-sm font-medium text-gray-700">HARGA SEWA</label>
-                <input type="number" id="harga-sewa" name="harga_sewa"
+                <input type="text" inputmode="numeric" id="harga-sewa" name="harga_sewa"
                     class="border border-gray-300 rounded-md p-2 focus:outline-none focus:ring focus:ring-blue-200">
             </div>
 
