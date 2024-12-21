@@ -16,7 +16,7 @@ Route::get('/', function () {
 });
 // kamera
 Route::get('/kamera', function () {
-    return view('/user/kamera', ['title' => 'Kamera']);
+    return view('/user/kamera', ['title' => 'Kamera', 'products' => Product::all()]);
 });
 // detail kamera
 // Route::get('/detailkamera/{post:slug}', function(Post $post){
@@ -27,7 +27,7 @@ Route::get('/link_produk/{product:id}', function (Product $product) {
 });
 // kategori
 Route::get('/kategori', function () {
-    return view('/user/kategori', ['title' => 'Kategori']);
+    return view('/user/kategori', ['title' => 'Kategori','products' => Product::all() ]);
 });
 // login
 Route::get('/login', function () {

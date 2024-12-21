@@ -4,7 +4,7 @@
  <!-- Header -->
  <div class="flex items-center justify-between mb-4">
     {{-- back --}}
-    <a href="/dashboard_admin" class="text-gray-600">
+    <a href="/" class="text-gray-600">
         <i class="fa-solid fa-angle-left"></i>
     </a>
     {{-- keranjang --}}
@@ -25,8 +25,8 @@
     </div>
     <div>
         <h2 class="text-lg font-bold">{{ $product->nama_product }}</h2>
-        <p class="text-gray-600">Kategoy : {{ $product->merek_product }}</p>
-        <p class="text-gray-600">Merek : {{ $product->kategori_product }}</p>
+        <p class="text-gray-600">Kategoy : {{ $product->kategori_product }}</p>
+        <p class="text-gray-600">Merek : {{ $product->merek_product }}</p>
         <p class="text-gray-800 font-bold">Rp. {{ number_format($product->harga_sewa, 0, ',', '.') }}</p>
     </div>
 </div>

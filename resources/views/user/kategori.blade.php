@@ -14,50 +14,22 @@
     </div>
     <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 mt-6">
       <!-- Camera Produk Card -->
-      <a href="/link-produk" class="block transform transition-transform duration-300 hover:scale-105">
+      @foreach ($products->where('kategori_product','Kamera') as $product)
+        
+
+      <a href="/link_produk/{{ $product->id }}" class="block transform transition-transform duration-300 hover:scale-105">
         <div class="bg-white rounded-lg shadow p-4 text-center border border-black">
           <div class="bg-gray-200 h-48 rounded-lg overflow-hidden flex justify-center items-center">
-            <img src="/img/produk/cam1.jpeg" alt="gambar camera" class="h-full w-full object-cover">
+            <img src="{{ asset($product->image) }}" alt="gambar camera" class="h-full w-full object-cover">
           </div>
           <div class="bg-gray-200 mt-4 p-2 rounded-lg">
-            <h3 class="text-gray-700 font-medium">Canon EOS M50</h3>
-            <p class="text-gray-900 font-bold">Rp 100.000</p>
+            <h3 class="text-gray-700 font-medium">{{ $product->nama_product }}</h3>
+            <p class="text-gray-900 font-bold">Rp. {{ number_format($product->harga_sewa, 0, ',', '.') }}</p>
           </div>
         </div>
       </a>
-      <a href="/link-produk" class="block transform transition-transform duration-300 hover:scale-105">
-        <div class="bg-white rounded-lg shadow p-4 text-center border border-black">
-          <div class="bg-gray-200 h-48 rounded-lg overflow-hidden flex justify-center items-center">
-            <img src="/img/produk/cam1.jpeg" alt="gambar camera" class="h-full w-full object-cover">
-          </div>
-          <div class="bg-gray-200 mt-4 p-2 rounded-lg">
-            <h3 class="text-gray-700 font-medium">Canon EOS M50</h3>
-            <p class="text-gray-900 font-bold">Rp 100.000</p>
-          </div>
-        </div>
-      </a>
-      <a href="/link-produk" class="block transform transition-transform duration-300 hover:scale-105">
-        <div class="bg-white rounded-lg shadow p-4 text-center border border-black">
-          <div class="bg-gray-200 h-48 rounded-lg overflow-hidden flex justify-center items-center">
-            <img src="/img/produk/cam1.jpeg" alt="gambar camera" class="h-full w-full object-cover">
-          </div>
-          <div class="bg-gray-200 mt-4 p-2 rounded-lg">
-            <h3 class="text-gray-700 font-medium">Canon EOS M50</h3>
-            <p class="text-gray-900 font-bold">Rp 100.000</p>
-          </div>
-        </div>
-      </a>
-      <a href="/link-produk" class="block transform transition-transform duration-300 hover:scale-105">
-        <div class="bg-white rounded-lg shadow p-4 text-center border border-black">
-          <div class="bg-gray-200 h-48 rounded-lg overflow-hidden flex justify-center items-center">
-            <img src="/img/produk/cam1.jpeg" alt="gambar camera" class="h-full w-full object-cover">
-          </div>
-          <div class="bg-gray-200 mt-4 p-2 rounded-lg">
-            <h3 class="text-gray-700 font-medium">Canon EOS M50</h3>
-            <p class="text-gray-900 font-bold">Rp 100.000</p>
-          </div>
-        </div>
-      </a>
+      @endforeach
+
     </div>
   </div>
 
@@ -68,50 +40,21 @@
     </div>
     <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 mt-6">
       <!-- Gimbal Produk Card -->
-      <a href="/link-produk" class="block transform transition-transform duration-300 hover:scale-105">
+      @foreach ($products->where('kategori_product','Gimbal') as $product)
+        
+
+      <a href="/link_produk/{{ $product->id }}" class="block transform transition-transform duration-300 hover:scale-105">
         <div class="bg-white rounded-lg shadow p-4 text-center border border-black">
           <div class="bg-gray-200 h-48 rounded-lg overflow-hidden flex justify-center items-center">
-            <img src="/img/produk/cam2.jpeg" alt="gambar camera" class="h-full w-full object-cover">
+            <img src="{{ asset($product->image) }}" alt="gambar camera" class="h-full w-full object-cover">
           </div>
           <div class="bg-gray-200 mt-4 p-2 rounded-lg">
-            <h3 class="text-gray-700 font-medium">Nikon Z50</h3>
-            <p class="text-gray-900 font-bold">Rp 150.000</p>
+            <h3 class="text-gray-700 font-medium">{{ $product->nama_product }}</h3>
+            <p class="text-gray-900 font-bold">Rp. {{ number_format($product->harga_sewa, 0, ',', '.') }}</p>
           </div>
         </div>
       </a>
-      <a href="/link-produk" class="block transform transition-transform duration-300 hover:scale-105">
-        <div class="bg-white rounded-lg shadow p-4 text-center border border-black">
-          <div class="bg-gray-200 h-48 rounded-lg overflow-hidden flex justify-center items-center">
-            <img src="/img/produk/cam2.jpeg" alt="gambar camera" class="h-full w-full object-cover">
-          </div>
-          <div class="bg-gray-200 mt-4 p-2 rounded-lg">
-            <h3 class="text-gray-700 font-medium">Nikon Z50</h3>
-            <p class="text-gray-900 font-bold">Rp 150.000</p>
-          </div>
-        </div>
-      </a>
-      <a href="/link-produk" class="block transform transition-transform duration-300 hover:scale-105">
-        <div class="bg-white rounded-lg shadow p-4 text-center border border-black">
-          <div class="bg-gray-200 h-48 rounded-lg overflow-hidden flex justify-center items-center">
-            <img src="/img/produk/cam2.jpeg" alt="gambar camera" class="h-full w-full object-cover">
-          </div>
-          <div class="bg-gray-200 mt-4 p-2 rounded-lg">
-            <h3 class="text-gray-700 font-medium">Nikon Z50</h3>
-            <p class="text-gray-900 font-bold">Rp 150.000</p>
-          </div>
-        </div>
-      </a>
-      <a href="/link-produk" class="block transform transition-transform duration-300 hover:scale-105">
-        <div class="bg-white rounded-lg shadow p-4 text-center border border-black">
-          <div class="bg-gray-200 h-48 rounded-lg overflow-hidden flex justify-center items-center">
-            <img src="/img/produk/cam2.jpeg" alt="gambar camera" class="h-full w-full object-cover">
-          </div>
-          <div class="bg-gray-200 mt-4 p-2 rounded-lg">
-            <h3 class="text-gray-700 font-medium">Nikon Z50</h3>
-            <p class="text-gray-900 font-bold">Rp 150.000</p>
-          </div>
-        </div>
-      </a>
+      @endforeach
     </div>
   </div>
 
@@ -122,50 +65,22 @@
     </div>
     <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 mt-6">
       <!-- Lensa Produk Card -->
-      <a href="/link-produk" class="block transform transition-transform duration-300 hover:scale-105">
+      @foreach ($products->where('kategori_product','Lensa') as $product)
+        
+
+      <a href="/link_produk/{{ $product->id }}" class="block transform transition-transform duration-300 hover:scale-105">
         <div class="bg-white rounded-lg shadow p-4 text-center border border-black">
           <div class="bg-gray-200 h-48 rounded-lg overflow-hidden flex justify-center items-center">
-            <img src="/img/produk/cam3.jpeg" alt="gambar camera" class="h-full w-full object-cover">
+            <img src="{{ asset($product->image) }}" alt="gambar camera" class="h-full w-full object-cover">
           </div>
           <div class="bg-gray-200 mt-4 p-2 rounded-lg">
-            <h3 class="text-gray-700 font-medium">Fujifilm X-T4</h3>
-            <p class="text-gray-900 font-bold">Rp 200.000</p>
+            <h3 class="text-gray-700 font-medium">{{ $product->nama_product }}</h3>
+            <p class="text-gray-900 font-bold">Rp. {{ number_format($product->harga_sewa, 0, ',', '.') }}</p>
           </div>
         </div>
       </a>
-      <a href="/link-produk" class="block transform transition-transform duration-300 hover:scale-105">
-        <div class="bg-white rounded-lg shadow p-4 text-center border border-black">
-          <div class="bg-gray-200 h-48 rounded-lg overflow-hidden flex justify-center items-center">
-            <img src="/img/produk/cam3.jpeg" alt="gambar camera" class="h-full w-full object-cover">
-          </div>
-          <div class="bg-gray-200 mt-4 p-2 rounded-lg">
-            <h3 class="text-gray-700 font-medium">Fujifilm X-T4</h3>
-            <p class="text-gray-900 font-bold">Rp 200.000</p>
-          </div>
-        </div>
-      </a>
-      <a href="/link-produk" class="block transform transition-transform duration-300 hover:scale-105">
-        <div class="bg-white rounded-lg shadow p-4 text-center border border-black">
-          <div class="bg-gray-200 h-48 rounded-lg overflow-hidden flex justify-center items-center">
-            <img src="/img/produk/cam3.jpeg" alt="gambar camera" class="h-full w-full object-cover">
-          </div>
-          <div class="bg-gray-200 mt-4 p-2 rounded-lg">
-            <h3 class="text-gray-700 font-medium">Fujifilm X-T4</h3>
-            <p class="text-gray-900 font-bold">Rp 200.000</p>
-          </div>
-        </div>
-      </a>
-      <a href="/link-produk" class="block transform transition-transform duration-300 hover:scale-105">
-        <div class="bg-white rounded-lg shadow p-4 text-center border border-black">
-          <div class="bg-gray-200 h-48 rounded-lg overflow-hidden flex justify-center items-center">
-            <img src="/img/produk/cam3.jpeg" alt="gambar camera" class="h-full w-full object-cover">
-          </div>
-          <div class="bg-gray-200 mt-4 p-2 rounded-lg">
-            <h3 class="text-gray-700 font-medium">Fujifilm X-T4</h3>
-            <p class="text-gray-900 font-bold">Rp 200.000</p>
-          </div>
-        </div>
-      </a>
+      @endforeach
+
     </div>
   </div>
 
@@ -176,50 +91,21 @@
     </div>
     <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 mt-6">
       <!-- Tripod Produk Card -->
-      <a href="/link-produk" class="block transform transition-transform duration-300 hover:scale-105">
+      @foreach ($products->where('kategori_product','Tripod') as $product)
+        
+
+      <a href="/link_produk/{{ $product->id }}" class="block transform transition-transform duration-300 hover:scale-105">
         <div class="bg-white rounded-lg shadow p-4 text-center border border-black">
           <div class="bg-gray-200 h-48 rounded-lg overflow-hidden flex justify-center items-center">
-            <img src="/img/produk/cam4.jpeg" alt="gambar camera" class="h-full w-full object-cover">
+            <img src="{{ asset($product->image) }}" alt="gambar camera" class="h-full w-full object-cover">
           </div>
           <div class="bg-gray-200 mt-4 p-2 rounded-lg">
-            <h3 class="text-gray-700 font-medium">Sony Alpha A7 III</h3>
-            <p class="text-gray-900 font-bold">Rp 250.000</p>
+            <h3 class="text-gray-700 font-medium">{{ $product->nama_product }}</h3>
+            <p class="text-gray-900 font-bold">Rp. {{ number_format($product->harga_sewa, 0, ',', '.') }}</p>
           </div>
         </div>
       </a>
-      <a href="/link-produk" class="block transform transition-transform duration-300 hover:scale-105">
-        <div class="bg-white rounded-lg shadow p-4 text-center border border-black">
-          <div class="bg-gray-200 h-48 rounded-lg overflow-hidden flex justify-center items-center">
-            <img src="/img/produk/cam4.jpeg" alt="gambar camera" class="h-full w-full object-cover">
-          </div>
-          <div class="bg-gray-200 mt-4 p-2 rounded-lg">
-            <h3 class="text-gray-700 font-medium">Sony Alpha A7 III</h3>
-            <p class="text-gray-900 font-bold">Rp 250.000</p>
-          </div>
-        </div>
-      </a>
-      <a href="/link-produk" class="block transform transition-transform duration-300 hover:scale-105">
-        <div class="bg-white rounded-lg shadow p-4 text-center border border-black">
-          <div class="bg-gray-200 h-48 rounded-lg overflow-hidden flex justify-center items-center">
-            <img src="/img/produk/cam4.jpeg" alt="gambar camera" class="h-full w-full object-cover">
-          </div>
-          <div class="bg-gray-200 mt-4 p-2 rounded-lg">
-            <h3 class="text-gray-700 font-medium">Sony Alpha A7 III</h3>
-            <p class="text-gray-900 font-bold">Rp 250.000</p>
-          </div>
-        </div>
-      </a>
-      <a href="/link-produk" class="block transform transition-transform duration-300 hover:scale-105">
-        <div class="bg-white rounded-lg shadow p-4 text-center border border-black">
-          <div class="bg-gray-200 h-48 rounded-lg overflow-hidden flex justify-center items-center">
-            <img src="/img/produk/cam4.jpeg" alt="gambar camera" class="h-full w-full object-cover">
-          </div>
-          <div class="bg-gray-200 mt-4 p-2 rounded-lg">
-            <h3 class="text-gray-700 font-medium">Sony Alpha A7 III</h3>
-            <p class="text-gray-900 font-bold">Rp 250.000</p>
-          </div>
-        </div>
-      </a>
+      @endforeach
     </div>
   </div>
   <!-- Lainnya Section -->
@@ -229,50 +115,21 @@
     </div>
     <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 mt-6">
       <!-- Lainnya Produk Card -->
-      <a href="/link-produk" class="block transform transition-transform duration-300 hover:scale-105">
+      @foreach ($products->where('kategori_product','Dll') as $product)
+        
+
+      <a href="/link_produk/{{ $product->id }}" class="block transform transition-transform duration-300 hover:scale-105">
         <div class="bg-white rounded-lg shadow p-4 text-center border border-black">
           <div class="bg-gray-200 h-48 rounded-lg overflow-hidden flex justify-center items-center">
-            <img src="/img/produk/cam4.jpeg" alt="gambar camera" class="h-full w-full object-cover">
+            <img src="{{ asset($product->image) }}" alt="gambar camera" class="h-full w-full object-cover">
           </div>
           <div class="bg-gray-200 mt-4 p-2 rounded-lg">
-            <h3 class="text-gray-700 font-medium">Sony Alpha A7 III</h3>
-            <p class="text-gray-900 font-bold">Rp 250.000</p>
+            <h3 class="text-gray-700 font-medium">{{ $product->nama_product }}</h3>
+            <p class="text-gray-900 font-bold">Rp. {{ number_format($product->harga_sewa, 0, ',', '.') }}</p>
           </div>
         </div>
       </a>
-      <a href="/link-produk" class="block transform transition-transform duration-300 hover:scale-105">
-        <div class="bg-white rounded-lg shadow p-4 text-center border border-black">
-          <div class="bg-gray-200 h-48 rounded-lg overflow-hidden flex justify-center items-center">
-            <img src="/img/produk/cam4.jpeg" alt="gambar camera" class="h-full w-full object-cover">
-          </div>
-          <div class="bg-gray-200 mt-4 p-2 rounded-lg">
-            <h3 class="text-gray-700 font-medium">Sony Alpha A7 III</h3>
-            <p class="text-gray-900 font-bold">Rp 250.000</p>
-          </div>
-        </div>
-      </a>
-      <a href="/link-produk" class="block transform transition-transform duration-300 hover:scale-105">
-        <div class="bg-white rounded-lg shadow p-4 text-center border border-black">
-          <div class="bg-gray-200 h-48 rounded-lg overflow-hidden flex justify-center items-center">
-            <img src="/img/produk/cam4.jpeg" alt="gambar camera" class="h-full w-full object-cover">
-          </div>
-          <div class="bg-gray-200 mt-4 p-2 rounded-lg">
-            <h3 class="text-gray-700 font-medium">Sony Alpha A7 III</h3>
-            <p class="text-gray-900 font-bold">Rp 250.000</p>
-          </div>
-        </div>
-      </a>
-      <a href="/link-produk" class="block transform transition-transform duration-300 hover:scale-105">
-        <div class="bg-white rounded-lg shadow p-4 text-center border border-black">
-          <div class="bg-gray-200 h-48 rounded-lg overflow-hidden flex justify-center items-center">
-            <img src="/img/produk/cam4.jpeg" alt="gambar camera" class="h-full w-full object-cover">
-          </div>
-          <div class="bg-gray-200 mt-4 p-2 rounded-lg">
-            <h3 class="text-gray-700 font-medium">Sony Alpha A7 III</h3>
-            <p class="text-gray-900 font-bold">Rp 250.000</p>
-          </div>
-        </div>
-      </a>
+      @endforeach
     </div>
   </div>
 </div>
