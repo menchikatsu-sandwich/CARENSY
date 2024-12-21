@@ -8,6 +8,20 @@
         <a href="/dashboard_admin" class="text-gray-600">
             <i class="fa-solid fa-angle-left"></i>
         </a>
+        {{-- pesan gagal edit --}}
+        @if ($errors->any())
+            <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4" role="alert">
+                <strong class="font-bold">Oops!</strong> <span class="block sm:inline">Ada beberapa masalah dengan inputan
+                    Anda.</span>
+                <ul class="mt-2">
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
+
         <!-- Formulir -->
         <form action="{{ route('product.update', $product->id) }}" method="POST" enctype="multipart/form-data"
             class="grid grid-cols-2 gap-4 max-w-3xl mx-auto" x-data="{ fileName: '', fileUrl: '' }">
