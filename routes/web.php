@@ -12,7 +12,7 @@ use App\Http\Controllers\ProductController;
 Route::get('/search', [SearchController::class, 'index'])->name('search');
 // home
 Route::get('/', function () {
-    return view('/user/dashboard', ['title' => 'Home']);
+    return view('/user/dashboard', ['title' => 'Home','products'=> Product::all()]);
 });
 // kamera
 Route::get('/kamera', function () {
@@ -22,6 +22,9 @@ Route::get('/kamera', function () {
 // Route::get('/detailkamera/{post:slug}', function(Post $post){
 //         return view('/user/detailkamera', ['title'=> 'Detail Kamera', 'post' => $post]);
 // });
+Route::get('/link_produk/{product:id}', function (Product $product) {
+    return view('/user/detailkamera', ['title' => 'Detail Produk', 'product' => $product]);
+});
 // kategori
 Route::get('/kategori', function () {
     return view('/user/kategori', ['title' => 'Kategori']);
@@ -39,6 +42,7 @@ Route::get('/profile', function () {
     return view('/user/profile', ['title' => 'Profile Page']);
 });
 // cart
+//route ini belum bisa menambahkan produk ke cart
 Route::get('/cart', function () {
     return view('/user/cart', ['title' => 'Cart']);
 });

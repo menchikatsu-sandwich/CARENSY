@@ -47,138 +47,20 @@
     </div>
     <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 mt-6">
       <!-- Produk Card -->
-      <a href="/link-produk" class="block transform transition-transform duration-300 hover:scale-105 ">
+      @foreach ($products as $product)
+      <a href="/link_produk/{{ $product->id }}" class="block transform transition-transform duration-300 hover:scale-105 ">
         <div class="bg-white rounded-lg shadow p-4 text-center border border-black">
           <div class="bg-gray-200 h-48 rounded-lg overflow-hidden flex justify-center items-center">
-            <img src="/img/produk/cam1.jpeg" alt="gambar camera" class="h-full w-full object-cover">
+            <img src="{{ asset($product->image) }}" alt="{{ $product->nama_product }}" class="h-full w-full object-cover">
           </div>
           <div class="bg-gray-200 mt-4 p-2 rounded-lg">
-            <h3 class="text-gray-700 font-medium">Nama Kamera</h3>
-            <p class="text-gray-900 font-bold">Rp 100.000</p>
+            <h3 class="text-gray-700 font-medium">{{ $product->nama_product }}</h3>
+            <p class="text-gray-900 font-bold">Rp. {{ number_format($product->harga_sewa, 0, ',', '.') }}</p>
           </div>
         </div>
       </a>
-      <a href="/link-produk" class="block transform transition-transform duration-300 hover:scale-105">
-        <div class="bg-white rounded-lg shadow p-4 text-center border border-black">
-          <div class="bg-gray-200 h-48 rounded-lg flex justify-center items-center">
-            <img src="/img/produk/cam2.jpeg" alt="gambar camera" class="h-full w-full object-cover">
-          </div>
-          <div class="bg-gray-200 mt-4 p-2 rounded-lg">
-            <h3 class="text-gray-700 font-medium">Nama Kamera</h3>
-            <p class="text-gray-900 font-bold">Rp 100.000</p>
-          </div>
-        </div>
-      </a>
-      <a href="/link-produk" class="block transform transition-transform duration-300 hover:scale-105">
-        <div class="bg-white rounded-lg shadow p-4 text-center border border-black">
-          <div class="bg-gray-200 h-48 rounded-lg flex justify-center items-center">
-            <img src="/img/produk/cam3.jpeg" alt="gambar camera" class="h-full w-full object-cover">
-          </div>
-          <div class="bg-gray-200 mt-4 p-2 rounded-lg">
-            <h3 class="text-gray-700 font-medium">Nama Kamera</h3>
-            <p class="text-gray-900 font-bold">Rp 100.000</p>
-          </div>
-        </div>
-      </a>
-      <a href="/link-produk" class="block transform transition-transform duration-300 hover:scale-105">
-        <div class="bg-white rounded-lg shadow p-4 text-center border border-black">
-          <div class="bg-gray-200 h-48 rounded-lg flex justify-center items-center">
-            <img src="/img/produk/cam4.jpeg" alt="gambar camera" class="h-full w-full object-cover">
-          </div>
-          <div class="bg-gray-200 mt-4 p-2 rounded-lg">
-            <h3 class="text-gray-700 font-medium">Nama Kamera</h3>
-            <p class="text-gray-900 font-bold">Rp 100.000</p>
-          </div>
-        </div>
-      </a>
-      <a href="/link-produk" class="block transform transition-transform duration-300 hover:scale-105">
-        <div class="bg-white rounded-lg shadow p-4 text-center border border-black">
-          <div class="bg-gray-200 h-48 rounded-lg flex justify-center items-center">
-            <img src="/img/produk/cam5.jpeg" alt="gambar camera" class="h-full w-full object-cover">
-          </div>
-          <div class="bg-gray-200 mt-4 p-2 rounded-lg">
-            <h3 class="text-gray-700 font-medium">Nama Kamera</h3>
-            <p class="text-gray-900 font-bold">Rp 100.000</p>
-          </div>
-        </div>
-      </a>
-      <a href="/link-produk" class="block transform transition-transform duration-300 hover:scale-105">
-        <div class="bg-white rounded-lg shadow p-4 text-center border border-black">
-          <div class="bg-gray-200 h-48 rounded-lg flex justify-center items-center">
-            <img src="/img/produk/cam2.jpeg" alt="gambar camera" class="h-full w-full object-cover">
-          </div>
-          <div class="bg-gray-200 mt-4 p-2 rounded-lg">
-            <h3 class="text-gray-700 font-medium">Nama Kamera</h3>
-            <p class="text-gray-900 font-bold">Rp 100.000</p>
-          </div>
-        </div>
-      </a>
-      <a href="/link-produk" class="block transform transition-transform duration-300 hover:scale-105">
-        <div class="bg-white rounded-lg shadow p-4 text-center border border-black">
-          <div class="bg-gray-200 h-48 rounded-lg flex justify-center items-center">
-            <img src="/img/produk/cam2.jpeg" alt="gambar camera" class="h-full w-full object-cover">
-          </div>
-          <div class="bg-gray-200 mt-4 p-2 rounded-lg">
-            <h3 class="text-gray-700 font-medium">Nama Kamera</h3>
-            <p class="text-gray-900 font-bold">Rp 100.000</p>
-          </div>
-        </div>
-      </a>
-      <a href="/link-produk" class="block transform transition-transform duration-300 hover:scale-105">
-        <div class="bg-white rounded-lg shadow p-4 text-center border border-black">
-          <div class="bg-gray-200 h-48 rounded-lg flex justify-center items-center">
-            <img src="/img/produk/cam2.jpeg" alt="gambar camera" class="h-full w-full object-cover">
-          </div>
-          <div class="bg-gray-200 mt-4 p-2 rounded-lg">
-            <h3 class="text-gray-700 font-medium">Nama Kamera</h3>
-            <p class="text-gray-900 font-bold">Rp 100.000</p>
-          </div>
-        </div>
-      </a>
-      <a href="/link-produk" class="block transform transition-transform duration-300 hover:scale-105">
-        <div class="bg-white rounded-lg shadow p-4 text-center border border-black">
-          <div class="bg-gray-200 h-48 rounded-lg flex justify-center items-center">
-            <img src="/img/produk/cam2.jpeg" alt="gambar camera" class="h-full w-full object-cover">
-          </div>
-          <div class="bg-gray-200 mt-4 p-2 rounded-lg">
-            <h3 class="text-gray-700 font-medium">Nama Kamera</h3>
-            <p class="text-gray-900 font-bold">Rp 100.000</p>
-          </div>
-        </div>
-      </a>
-      <a href="/link-produk" class="block transform transition-transform duration-300 hover:scale-105">
-        <div class="bg-white rounded-lg shadow p-4 text-center border border-black">
-          <div class="bg-gray-200 h-48 rounded-lg flex justify-center items-center">
-            <img src="/img/produk/cam2.jpeg" alt="gambar camera" class="h-full w-full object-cover">
-          </div>
-          <div class="bg-gray-200 mt-4 p-2 rounded-lg">
-            <h3 class="text-gray-700 font-medium">Nama Kamera</h3>
-            <p class="text-gray-900 font-bold">Rp 100.000</p>
-          </div>
-        </div>
-      </a>
-      <a href="/link-produk" class="block transform transition-transform duration-300 hover:scale-105">
-        <div class="bg-white rounded-lg shadow p-4 text-center border border-black">
-          <div class="bg-gray-200 h-48 rounded-lg flex justify-center items-center">
-            <img src="/img/produk/cam2.jpeg" alt="gambar camera" class="h-full w-full object-cover">
-          </div>
-          <div class="bg-gray-200 mt-4 p-2 rounded-lg">
-            <h3 class="text-gray-700 font-medium">Nama Kamera</h3>
-            <p class="text-gray-900 font-bold">Rp 100.000</p>
-          </div>
-        </div>
-      </a>
-      <a href="/link-produk" class="block transform transition-transform duration-300 hover:scale-105">
-        <div class="bg-white rounded-lg shadow p-4 text-center border border-black">
-          <div class="bg-gray-200 h-48 rounded-lg flex justify-center items-center">
-            <img src="/img/produk/cam2.jpeg" alt="gambar camera" class="h-full w-full object-cover">
-          </div>
-          <div class="bg-gray-200 mt-4 p-2 rounded-lg">
-            <h3 class="text-gray-700 font-medium">Nama Kamera</h3>
-            <p class="text-gray-900 font-bold">Rp 100.000</p>
-          </div>
-        </div>
-      </a>
+      @endforeach
+     
     </div>
   </div>
 </x-layout>
