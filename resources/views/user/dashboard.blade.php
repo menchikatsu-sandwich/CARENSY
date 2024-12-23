@@ -39,11 +39,10 @@
     </template>
   </div>
 </div>
-
 <!-- Produk Section -->
 <div class="container mx-auto mb-10 mt-10 px-4">
     <div class="bg-gray-200 rounded-full px-4 py-2 text-center shadow">
-      <h2 class="text-gray-800 text-lg font-bold">LIST CAMERA</h2>
+      <h2 class="text-gray-800 text-lg font-bold">LIST PRODUK</h2>
     </div>
     <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 mt-6">
       <!-- Produk Card -->

@@ -2,7 +2,7 @@
     <div class="container mx-auto flex justify-between px-4">
       <div>
         <h3 class="font-bold text-gray-700">Tentang Kami</h3>
-        <p class="text-gray-600 text-sm mt-2">kajdkahskahskqj</p>
+        <p class="text-gray-600 text-sm mt-2">CARENSY</p>
       </div>
       <div>
         <h3 class="font-bold text-gray-700">Media Sosial</h3>
@@ -14,9 +14,9 @@
       </div>
       <div>
         <h3 class="font-bold text-gray-700">Kontak dan Alamat</h3>
-        <p class="text-gray-600 text-sm mt-2">+62 xxx-xxx-xxx</p>
-        <p class="text-gray-600 text-sm">xxx@gmail.com</p>
-        <p class="text-gray-600 text-sm">Jl. Kenangan</p>
+        <p class="text-gray-600 text-sm mt-2">+62 813-2975-6879</p>
+        <p class="text-gray-600 text-sm">poltekGjelas@gmail.com</p>
+        <p class="text-gray-600 text-sm">Jl. Udayana</p>
       </div>
     </div>
   </footer>

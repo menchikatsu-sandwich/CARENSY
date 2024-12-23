@@ -6,13 +6,6 @@
             <h2 class="text-gray-800 text-lg font-bold">Hasil Pencarian Produk</h2>
         </div>
         
-        <form action="{{ route('search') }}" method="GET" class="mt-6">
-            <div class="flex items-center">
-                <input type="text" name="query" class="w-full px-4 py-2 rounded-lg border border-gray-300" placeholder="Cari produk...">
-                <button type="submit" class="ml-4 px-4 py-2 bg-blue-500 text-white rounded-lg">Cari</button>
-            </div>
-        </form>
-        
         @if(isset($products))
             <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 mt-6">
                 @foreach ($products as $product)

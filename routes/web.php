@@ -17,9 +17,6 @@ Route::get('/kamera', function () {
     return view('/user/kamera', ['title' => 'Kamera', 'products' => Product::all()]);
 });
 // detail kamera
-// Route::get('/detailkamera/{post:slug}', function(Post $post){
-//         return view('/user/detailkamera', ['title'=> 'Detail Kamera', 'post' => $post]);
-// });
 Route::get('/link_produk/{product:id}', function (Product $product) {
     return view('/user/detailkamera', ['title' => 'Detail Produk', 'product' => $product]);
 });
@@ -46,20 +43,15 @@ Route::get('/search/search_result', [ProductController::class, 'search'])->name(
 Route::get('/cart', function () {
     return view('/user/cart', ['title' => 'Cart']);
 });
-
-
-
-
-
+// profile
+Route::get('/profile', function () {
+    return view('/user/profile', ['title' => 'Edit Profile']);
+});
 
 
 
 //  ! ADMIN !
 //dashboard admin
-// Route::get('/dashboard_admin', function () {
-//     return view('/admin/Dashboard_admin', ['title' => 'List Produk']);
-// });
-
 Route::get('/dashboard_admin', function () {
     $products = Product::all();
     $title = 'List Produk';
