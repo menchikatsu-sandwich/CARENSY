@@ -4,6 +4,8 @@ use App\Models\Post;
 use App\Models\Product;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SearchController;
+use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\ProductController;
 
 
@@ -11,7 +13,7 @@ use App\Http\Controllers\ProductController;
 // home
 Route::get('/', function () {
     return view('/user/dashboard', ['title' => 'Home','products'=> Product::all()]);
-});
+})->name('home')->middleware('auth');
 // kamera
 Route::get('/kamera', function () {
     return view('/user/kamera', ['title' => 'Kamera', 'products' => Product::all()]);
@@ -26,12 +28,15 @@ Route::get('/kategori', function () {
 });
 // login
 Route::get('/login', function () {
-    return view('/auth/login', ['title' => 'Login Page']);
-});
+    return view('/auth/login', ['title' => 'showLoginForm']);
+})->name('login');
+Route::post('/login', [LoginController::class, 'login']);
 // register
 Route::get('/register', function () {
     return view('/auth/register', ['title' => 'Register Page']);
 });
+Route::post('/register', [RegisterController::class, 'register']);
+
 // profile
 Route::get('/profile', function () {
     return view('/user/profile', ['title' => 'Profile Page']);

@@ -1,16 +1,20 @@
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{$title}}</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
+
 <body class="flex items-center justify-center min-h-screen bg-gray-100">
+  
 
   <div class="w-full max-w-md px-6 py-8 bg-white rounded-lg shadow-md">
-    <h1 class="mb-6 text-2xl font-bold text-center">Register</h1>
-    <form action="#" method="POST">
+    <h1 class="mb-6 text-2xl font-bold text-center">REGISTER</h1>
+    <form action="{{url('/register')}}" method="POST">
       @csrf
       <div class="mb-4">
         <label for="name" class="block mb-2 font-medium">Nama</label>
@@ -47,6 +51,9 @@
       </button>
     </form>
   </div>
+  
 
 </body>
+
 </html>
+
