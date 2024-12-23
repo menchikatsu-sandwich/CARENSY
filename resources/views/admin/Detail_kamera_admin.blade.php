@@ -1,48 +1,57 @@
 <x-layoutadmin>
     <x-slot:title>{{ $title }}</x-slot:title>
-    
-        <!-- Header -->
-        <div class="flex items-center justify-between mb-4">
-            {{-- back --}}
-            <a href="/dashboard_admin" class="text-gray-600">
-                <i class="fa-solid fa-angle-left"></i>
-            </a>
-            {{-- edit --}}
-            <div class="flex space-x-2">
-                <a href="edit_produk">
-                    <button class="text-gray-600">
-                        <i class="fa-regular fa-pen-to-square">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7" />
-                        </i>
-                    </button>
-                </a>
-                
-                {{-- delete --}}
+    {{-- pesan berhasil edit --}}
+    @if (session('success'))
+        <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative mb-4" role="alert">
+            <strong class="font-bold">Success!</strong> <span class="block sm:inline">{{ session('success') }}</span>
+        </div>
+    @endif
+
+    <!-- Header -->
+    <div class="flex items-center justify-between mb-4">
+        {{-- back --}}
+        <a href="/dashboard_admin" class="text-gray-600">
+            <i class="fa-solid fa-angle-left"></i>
+        </a>
+        {{-- edit --}}
+        <div class="flex space-x-2">
+            <a href="/edit_produk/{{ $product->id }}">
                 <button class="text-gray-600">
-                    <i class="fa-regular fa-trash-can">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    <i class="fa-regular fa-pen-to-square">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M5 12h14M12 5l7 7-7 7" />
                     </i>
                 </button>
-            </div>
+            </a>
+
+            {{-- delete --}}
+            <form action="{{ route('product.destroy', $product->id) }}" method="POST"
+                onsubmit="return confirm('Are you sure you want to delete this product?');"> @csrf @method('DELETE')
+                <button type="submit" class="text-gray-600"> <i class="fa-regular fa-trash-can">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M6 18L18 6M6 6l12 12" />
+                    </i> </button>
+            </form>
         </div>
-        <!-- Content -->
-        <div class="flex items-start space-x-4">
-            <div class="w-24 h-24 bg-gray-200 rounded-md flex items-center justify-center">
-                <img src="img/produk/cam1.jpeg" alt="">
-            </div>
-            <div>
-                <h2 class="text-lg font-bold">Nama Camera</h2>
-                <p class="text-gray-600">Kategoy : kamera</p>
-                <p class="text-gray-600">Merek : canon</p>
-                <p class="text-gray-800 font-bold">Rp 100.000</p>
-            </div>
+    </div>
+    <!-- Content -->
+    <div class="flex items-start space-x-4">
+        <div class="w-24 h-24 bg-gray-200 rounded-md flex items-center justify-center">
+            <img src="{{ asset($product->image) }}" alt="">
         </div>
-        <!-- Description -->
-        <div class="mt-6">
-            <h3 class="font-semibold text-gray-800 mb-2">Deskripsi/kelengkapan camera :</h3>
-            <p class="text-gray-600 text-sm leading-relaxed">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent justo felis, tempus quis semper ac, auctor at orci. Sed ut magna ut dolor porta ultrices vitae vitae quam. Curabitur vitae egestas nulla.
-            </p>
+        <div>
+            <h2 class="text-lg font-bold">{{ $product->nama_product }}</h2>
+            <p class="text-gray-600">Kategoy : {{ $product->kategori_product }}</p>
+            <p class="text-gray-600">Merek : {{ $product->merek_product }}</p>
+            <p class="text-gray-800 font-bold">Rp. {{ number_format($product->harga_sewa, 0, ',', '.') }}</p>
         </div>
+    </div>
+    <!-- Description -->
+    <div class="mt-6">
+        <h3 class="font-semibold text-gray-800 mb-2">Deskripsi/kelengkapan camera :</h3>
+        <p class="text-gray-600 text-sm leading-relaxed">
+            {{ $product->detail_product }}
+        </p>
+    </div>
 
 </x-layoutadmin>
