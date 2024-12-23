@@ -1,3 +1,4 @@
+<!-- resources/views/admin/Edit_produk.blade.php -->
 <x-layoutadmin>
     <x-slot:title>
         {{ $title }}
@@ -7,16 +8,35 @@
         <a href="/dashboard_admin" class="text-gray-600">
             <i class="fa-solid fa-angle-left"></i>
         </a>
+        {{-- pesan gagal edit --}}
+        @if ($errors->any())
+            <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4" role="alert">
+                <strong class="font-bold">Oops!</strong> <span class="block sm:inline">Ada beberapa masalah dengan inputan
+                    Anda.</span>
+                <ul class="mt-2">
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
+
         <!-- Formulir -->
-        <form action="/submit" method="POST" enctype="multipart/form-data" class="grid grid-cols-2 gap-4 max-w-3xl mx-auto" x-data="{ fileName: '', fileUrl: '' }">
+        <form action="{{ route('product.update', $product->id) }}" method="POST" enctype="multipart/form-data"
+            class="grid grid-cols-2 gap-4 max-w-3xl mx-auto" x-data="{ fileName: '', fileUrl: '' }">
             @csrf
+            @method('POST')
             <!-- UPLOAD IMAGE -->
             <div class="flex flex-col items-center">
-                <div class="w-52 h-52 flex flex-col items-center justify-center border-2 border-dashed border-gray-300 rounded-md p-2 cursor-pointer hover:border-blue-400 hover:bg-blue-50">
+                <div
+                    class="w-52 h-52 flex flex-col items-center justify-center border-2 border-dashed border-gray-300 rounded-md p-2 cursor-pointer hover:border-blue-400 hover:bg-blue-50">
                     <label for="upload-image" class="flex flex-col items-center">
                         <template x-if="!fileUrl">
-                            <svg class="w-12 h-12 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+                            <svg class="w-12 h-12 text-gray-400" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 4v16m8-8H4"></path>
                             </svg>
                         </template>
                         <template x-if="fileUrl">
@@ -24,94 +44,103 @@
                         </template>
                         <span class="text-sm text-gray-500" x-text="fileName || 'Upload Image'"></span>
                     </label>
-                    <input type="file" id="upload-image" name="image" class="hidden" @change="fileName = $event.target.files[0].name; fileUrl = URL.createObjectURL($event.target.files[0])">
+                    <input type="file" id="upload-image" name="image" class="hidden"
+                        @change="fileName = $event.target.files[0].name; fileUrl = URL.createObjectURL($event.target.files[0])">
                 </div>
             </div>
 
             <!-- Informasi Kamera -->
             <div class="bg-gray-200 p-4 rounded-lg mb-4">
-                <div>
-                    <h3 class="text-lg font-semibold">Nama Camera</h3>
-                    <p class="text-gray-600">Merek</p>
-                    <p class="text-gray-600">Rp 100.000</p>
+                <div class="flex items-start">
+                    <div class="w-24 h-24 bg-gray-200 rounded-md flex items-center justify-center">
+                        <img src="{{ asset($product->image) }}" alt="">
+                    </div>
+                    <div class="ml-2">
+                        <h3 class="text-lg font-semibold">{{ $product->nama_product }}</h3>
+                        <p class="text-gray-600">Merek: {{ $product->merek_product }}</p>
+                        <p class="text-gray-600">Rp. {{ number_format($product->harga_sewa, 0, ',', '.') }}</p>
+                    </div>
                 </div>
-                <p class="text-gray-600">Deskripsi/kelengkapan camera: Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
+                <p class="font-bold">Deskripsi/detail Produk</p>
+                <p class="text-gray-600">{{ $product->detail_product }}</p>
             </div>
 
-             <!-- KODE PRODUCT -->
-             <div class="flex flex-col">
-                <label for="kode-product" class="mb-2 text-sm font-medium text-gray-700">KODE PRODUCT</label>
-                <input type="text" id="kode-product" name="kode_product"
-                    class="border border-gray-300 rounded-md p-2 focus:outline-none focus:ring focus:ring-blue-200">
-            </div>
-
-            <!-- NAMA CAMERA -->
+            <!-- KODE PRODUCT -->
             <div class="flex flex-col">
-                <label for="nama-camera" class="mb-2 text-sm font-medium text-gray-700">NAMA CAMERA</label>
-                <input type="text" id="nama-camera" name="nama_camera"
+                <label for="kode-product" class="mb-2 text-sm font-medium text-gray-700">KODE PRODUCT</label>
+                <input type="text" id="kode-product" name="kode_product" value="{{ $product->kode_product }}"
                     class="border border-gray-300 rounded-md p-2 focus:outline-none focus:ring focus:ring-blue-200">
             </div>
 
-            <!-- MEREK CAMERA -->
-            <div class="flex flex-col"> <label for="merek-camera" class="mb-2 text-sm font-medium text-gray-700">MEREK
-                    CAMERA</label> <select id="merek-camera" name="merek_camera"
+            <!-- NAMA PRODUCT -->
+            <div class="flex flex-col">
+                <label for="nama-camera" class="mb-2 text-sm font-medium text-gray-700">NAMA PRODUCT</label>
+                <input type="text" id="nama-camera" name="nama_product" value="{{ $product->nama_product }}"
                     class="border border-gray-300 rounded-md p-2 focus:outline-none focus:ring focus:ring-blue-200">
+            </div>
 
-                    <option value="Canon">Pilih merek</option>
-                    <option value="Canon">Canon</option>
-                    <option value="Sony">Sony</option>
-                    <option value="Nikon">Nikon</option>
-                    <option value="Nikon">FujiFilm</option>
-                    <option value="Nikon">Dll</option>
-                </select> </div>
-
-                <!-- kategori CAMERA -->
-                <div class="flex flex-col"> <label for="merek-camera" class="mb-2 text-sm font-medium text-gray-700">KATEGORI</label> <select id="merek-camera" name="merek_camera"
+            <!-- MEREK PRODUCT -->
+            <div class="flex flex-col">
+                <label for="merek-camera" class="mb-2 text-sm font-medium text-gray-700">MEREK PRODUCT</label>
+                <select id="merek-camera" name="merek_product"
                     class="border border-gray-300 rounded-md p-2 focus:outline-none focus:ring focus:ring-blue-200">
+                    <option value="Canon" {{ $product->merek_product == 'Canon' ? 'selected' : '' }}>Canon</option>
+                    <option value="Sony" {{ $product->merek_product == 'Sony' ? 'selected' : '' }}>Sony</option>
+                    <option value="Nikon" {{ $product->merek_product == 'Nikon' ? 'selected' : '' }}>Nikon</option>
+                    <option value="FujiFilm" {{ $product->merek_product == 'FujiFilm' ? 'selected' : '' }}>FujiFilm
+                    </option>
+                    <option value="Dll" {{ $product->merek_product == 'Dll' ? 'selected' : '' }}>Dll</option>
+                </select>
+            </div>
 
-                    <option value="Canon">Pilih kategori</option>
-                    <option value="Canon">Kamera</option>
-                    <option value="Sony">Gimbal</option>
-                    <option value="Nikon">Tripod</option>
-                    <option value="Nikon">Lensa</option>
-                    <option value="Nikon">Dll</option>
-                </select> </div>
+            <!-- KATEGORI CAMERA -->
+            <div class="flex flex-col">
+                <label for="kategori-camera" class="mb-2 text-sm font-medium text-gray-700">KATEGORI</label>
+                <select id="kategori-camera" name="kategori_product"
+                    class="border border-gray-300 rounded-md p-2 focus:outline-none focus:ring focus:ring-blue-200">
+                    <option value="Kamera" {{ $product->kategori_product == 'Kamera' ? 'selected' : '' }}>Kamera
+                    </option>
+                    <option value="Gimbal" {{ $product->kategori_product == 'Gimbal' ? 'selected' : '' }}>Gimbal
+                    </option>
+                    <option value="Tripod" {{ $product->kategori_product == 'Tripod' ? 'selected' : '' }}>Tripod
+                    </option>
+                    <option value="Lensa" {{ $product->kategori_product == 'Lensa' ? 'selected' : '' }}>Lensa</option>
+                    <option value="Dll" {{ $product->kategori_product == 'Dll' ? 'selected' : '' }}>Dll</option>
+                </select>
+            </div>
 
             <!-- DETAIL CAMERA -->
             <div class="flex flex-col">
                 <label for="detail-camera" class="mb-2 text-sm font-medium text-gray-700">DETAIL CAMERA</label>
-                <input type="text" id="detail-camera" name="detail_camera"
+                <input type="text" id="detail-camera" name="detail_product" value="{{ $product->detail_product }}"
                     class="border border-gray-300 rounded-md p-2 focus:outline-none focus:ring focus:ring-blue-200">
             </div>
 
             <!-- TAHUN RILIS -->
             <div class="flex flex-col">
                 <label for="tahun-rilis" class="mb-2 text-sm font-medium text-gray-700">TAHUN RILIS</label>
-                <input type="date" id="tahun-rilis" name="tahun_rilis"
+                <input type="date" id="tahun-rilis" name="tahun_rilis" value="{{ $product->tahun_rilis }}"
                     class="border border-gray-300 rounded-md p-2 focus:outline-none focus:ring focus:ring-blue-200">
             </div>
 
             <!-- STOCK -->
             <div class="flex flex-col">
                 <label for="stock" class="mb-2 text-sm font-medium text-gray-700">STOCK</label>
-                <input type="number" id="stock" name="stock"
+                <input type="number" id="stock" name="stock" value="{{ $product->stock }}"
                     class="border border-gray-300 rounded-md p-2 focus:outline-none focus:ring focus:ring-blue-200">
             </div>
-
-           
 
             <!-- HARGA SEWA -->
             <div class="flex flex-col">
                 <label for="harga-sewa" class="mb-2 text-sm font-medium text-gray-700">HARGA SEWA</label>
-                <input type="number" id="harga-sewa" name="harga_sewa"
+                <input type="number" id="harga-sewa" name="harga_sewa" value="{{ $product->harga_sewa }}"
                     class="border border-gray-300 rounded-md p-2 focus:outline-none focus:ring focus:ring-blue-200">
             </div>
 
-                 
-        
             <!-- BUTTON SUBMIT -->
             <div class="col-span-2 flex justify-end">
-                <button type="submit" class="bg-gray-500 text-white px-6 py-2 rounded-md hover:bg-gray-600 transition">SUBMIT</button>
+                <button type="submit"
+                    class="bg-gray-500 text-white px-6 py-2 rounded-md hover:bg-gray-600 transition">SUBMIT</button>
             </div>
         </form>
     </div>
