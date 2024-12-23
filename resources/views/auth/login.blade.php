@@ -10,7 +10,19 @@
 
   <div class="w-full max-w-md px-6 py-8 bg-white rounded-lg shadow-md">
     <h1 class="mb-6 text-2xl font-bold text-center">Login</h1>
-    <form action="#" method="POST">
+
+    <!-- Pesan error jika ada -->
+    @if ($errors->any())
+      <div class="bg-red-100 text-red-700 p-4 mb-4 rounded-lg">
+          <ul>
+              @foreach ($errors->all() as $error)
+                  <li>{{ $error }}</li>
+              @endforeach
+          </ul>
+      </div>
+    @endif
+    
+    <form action="{{url('/login')}}" method="POST">
       @csrf
       <div class="mb-4">
         <label for="username" class="block mb-2 font-medium">Username</label>
