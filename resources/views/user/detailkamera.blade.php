@@ -4,6 +4,7 @@
  <!-- Header -->
  <div class="flex items-center justify-between mb-4">
     {{-- back --}}
+    <!-- <a href="{{ session('previous_page', route('product.index')) }}" class="text-gray-600"> Nunggu role cuy -->
     <a href="/" class="text-gray-600">
         <i class="fa-solid fa-angle-left"></i>
     </a>

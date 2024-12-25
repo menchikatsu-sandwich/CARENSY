@@ -69,13 +69,22 @@
           <div>
             <button type="button" class="flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
               <span class="sr-only">Open user menu</span>
-              <img class="h-8 w-8 rounded-full" src="https://via.placeholder.com/150" alt="Profile">
+              @if(Auth::user()->profile?->foto_profile)
+                  <img class="h-8 w-8 rounded-full object-cover" src="{{ asset('storage/' . Auth::user()->profile->foto_profile) }}" alt="Profile">
+              @else
+                  <div class="h-8 w-8 rounded-full bg-gray-500 flex items-center justify-center text-white">
+                      {{ substr(Auth::user()->name, 0, 1) }}
+                  </div>
+              @endif
             </button>
           </div>
 
           <div class="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none hidden" id="user-menu" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button">
-            <a href="/profile" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Your Profile</a>
-            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Sign Out</a>
+            <a href="{{ route('edit-profile') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Edit Profile</a>
+            <form action="{{ route('logout') }}" method="POST" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+              @csrf
+              <button type="submit" class="w-full text-left">Sign Out</button>
+            </form>
           </div>
         </div>
       </div>

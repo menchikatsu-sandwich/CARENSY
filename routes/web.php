@@ -1,12 +1,11 @@
 <?php
 
-use App\Models\Post;
 use App\Models\Product;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\SearchController;
-use App\Http\Controllers\Auth\RegisterController;
-use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\RegisterController;
 
 
 // ! USER !
@@ -36,10 +35,11 @@ Route::get('/register', function () {
     return view('/auth/register', ['title' => 'Register Page']);
 });
 Route::post('/register', [RegisterController::class, 'register']);
-
-// profile
-Route::get('/profile', function () {
-    return view('/user/profile', ['title' => 'Profile Page']);
+// Profile
+Route::middleware(['auth'])->group(function () {
+    Route::get('/profile/edit', [UserController::class, 'editProfile'])->name('edit-profile');
+    Route::post('/profile/update', [UserController::class, 'updateProfile'])->name('update-profile');
+    Route::post('/logout', [UserController::class, 'logout'])->name('logout');
 });
 // search produk
 Route::get('/search/search_result', [ProductController::class, 'search'])->name('search');
@@ -47,10 +47,6 @@ Route::get('/search/search_result', [ProductController::class, 'search'])->name(
 //route ini belum bisa menambahkan produk ke cart
 Route::get('/cart', function () {
     return view('/user/cart', ['title' => 'Cart']);
-});
-// profile
-Route::get('/profile', function () {
-    return view('/user/profile', ['title' => 'Edit Profile']);
 });
 
 
@@ -80,9 +76,6 @@ Route::get('/detail_kamera/{product:id}', function (Product $product) {
 });
 
 //edit
-// Route::get('/edit_produk/{product:id}', function (Product $product) {
-//     return view('/admin/edit', ['title' => 'Edit Produk', 'product'=>$product]);
-// });
 Route::get('/edit_produk/{product:id}', function (Product $product) {
     return view('admin.edit', ['title' => 'Edit Produk', 'product' => $product]);
 })->name('product.edit');
@@ -108,10 +101,3 @@ Route::post('/update_produk/{product:id}', [ProductController::class, 'update'])
 
 //delete
 Route::delete('/delete_produk/{product:id}', [ProductController::class, 'destroy'])->name('product.destroy');
-
-// // login
-// Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
-
-// // register
-// Route::get('/register', [AuthController::class, 'showRegisterForm'])->name('register');
-// routes/web.php
