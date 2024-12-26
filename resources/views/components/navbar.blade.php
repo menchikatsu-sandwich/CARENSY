@@ -12,7 +12,9 @@
         </button>
       </div>
       <div class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
-        <div class="flex-shrink-0 text-white font-bold text-xl"><img src="img/CARENSY.png" alt="LOGO CARENSY" style="height: 2.5rem; width: auto;"></div>
+        <div class="flex-shrink-0 text-white font-bold text-xl">
+          <img src="{{ asset('img/CARENSY.png') }}" alt="LOGO CARENSY" style="height: 2.5rem; width: auto;">
+        </div>
         <!-- Desktop Menu -->
         <div class="hidden sm:block sm:ml-6">
           <div class="flex space-x-4">

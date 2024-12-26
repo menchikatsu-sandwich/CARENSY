@@ -21,4 +21,10 @@ class Product extends Model
         'harga_sewa',
         'image',
     ];
+
+    // Relasi dengan CartItem
+    public function cartItems()
+    {
+        return $this->hasMany(CartItem::class);
+    }
 }

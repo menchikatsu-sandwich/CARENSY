@@ -2,9 +2,11 @@
 
 use App\Models\Product;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\Auth\RegisterController;
 
 
@@ -35,19 +37,21 @@ Route::get('/register', function () {
     return view('/auth/register', ['title' => 'Register Page']);
 });
 Route::post('/register', [RegisterController::class, 'register']);
-// Profile
+// Profile & Cart
 Route::middleware(['auth'])->group(function () {
     Route::get('/profile/edit', [UserController::class, 'editProfile'])->name('edit-profile');
     Route::post('/profile/update', [UserController::class, 'updateProfile'])->name('update-profile');
     Route::post('/logout', [UserController::class, 'logout'])->name('logout');
+    Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
+    Route::post('/cart/add', [CartController::class, 'addToCart'])->name('cart.add');
+    Route::patch('/cart/update/{cartItem}', [CartController::class, 'updateCartItem'])->name('cart.update');
+    Route::delete('/cart/remove/{cartItem}', [CartController::class, 'removeFromCart'])->name('cart.remove');
+    Route::get('/cart/checkout', [CartController::class, 'showCheckoutForm'])->name('cart.checkout');
+    Route::get('/checkout', [TransactionController::class, 'showCheckoutForm'])->name('checkout.form');
+    Route::post('/checkout', [TransactionController::class, 'processCheckout'])->name('checkout.process');
 });
 // search produk
 Route::get('/search/search_result', [ProductController::class, 'search'])->name('search');
-// cart
-//route ini belum bisa menambahkan produk ke cart
-Route::get('/cart', function () {
-    return view('/user/cart', ['title' => 'Cart']);
-});
 
 
 

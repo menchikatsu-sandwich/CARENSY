@@ -2,18 +2,19 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Transaction extends Model
 {
-    use HasFactory;
+    protected $fillable = ['kode_transaksi', 'user_id', 'tanggal_pinjam', 'tanggal_kembali'];
 
-    protected $table = 'transactions';
-    protected $fillable = ['transaction_code', 'customer_name', 'total_price'];
-
-    public function invoice()
+    public function user()
     {
-        return $this->hasOne(cart::class);
+        return $this->belongsTo(User::class);
+    }
+
+    public function cartItems()
+    {
+        return $this->hasMany(CartItem::class);
     }
 }
