@@ -27,7 +27,7 @@
             <tfoot>
                 <tr>
                     <td colspan="4" class="text-right py-2 px-4 border"><strong>Total Harga:</strong></td>
-                    <td class="py-2 px-4 border"><strong>{{ number_format($cart->cartItems->sum(fn($item) => $item->quantity * $item->price), 2) }}</strong></td>
+                    <td class="py-2 px-4 border"><strong id="totalHarga">0.00</strong></td>
                 </tr>
             </tfoot>
         </table>
@@ -76,4 +76,30 @@
             <button type="submit" class="w-full bg-indigo-600 text-white py-2 px-4 rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 mt-4">Pesan</button>
         </form>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const tanggalPinjam = document.getElementById('tanggal_pinjam');
+            const tanggalKembali = document.getElementById('tanggal_kembali');
+            const totalHargaElement = document.getElementById('totalHarga');
+
+            const calculateTotal = () => {
+                const startDate = new Date(tanggalPinjam.value);
+                const endDate = new Date(tanggalKembali.value);
+                const oneDay = 24 * 60 * 60 * 1000; // Milliseconds in one day
+                const jumlahHari = Math.round((endDate - startDate) / oneDay) + 1;
+                
+                let totalHarga = 0;
+
+                @foreach ($cart->cartItems as $item)
+                    totalHarga += {{ $item->quantity }} * {{ $item->price }} * jumlahHari;
+                @endforeach
+
+                totalHargaElement.textContent = totalHarga.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+            };
+
+            tanggalPinjam.addEventListener('change', calculateTotal);
+            tanggalKembali.addEventListener('change', calculateTotal);
+        });
+    </script>
 </x-layout>

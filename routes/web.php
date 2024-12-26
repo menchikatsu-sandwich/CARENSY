@@ -1,6 +1,8 @@
 <?php
 
+use App\Models\historyTransaksi;
 use App\Models\Product;
+use App\Models\Transaction;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\UserController;
@@ -8,12 +10,12 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\Auth\RegisterController;
-
+use App\Models\CartItem;
 
 // ! USER !
 // home
 Route::get('/', function () {
-    return view('/user/dashboard', ['title' => 'Home','products'=> Product::all()]);
+    return view('/user/dashboard', ['title' => 'Home', 'products' => Product::all()]);
 })->name('home')->middleware('auth');
 // kamera
 Route::get('/kamera', function () {
@@ -25,7 +27,7 @@ Route::get('/link_produk/{product:id}', function (Product $product) {
 });
 // kategori
 Route::get('/kategori', function () {
-    return view('/user/kategori', ['title' => 'Kategori','products' => Product::all() ]);
+    return view('/user/kategori', ['title' => 'Kategori', 'products' => Product::all()]);
 });
 // login
 Route::get('/login', function () {
@@ -68,12 +70,19 @@ Route::get('/form_input', function () {
 });
 //pemesanan
 Route::get('/pemesanan', function () {
-    return view('/admin/Pemesanan', ['title' => 'Pemesanan']);
+    return view('/admin/Pemesanan', ['title' => 'Pemesanan', 'transactions' => Transaction::all()]);
 });
 //history
+// Route::get('/history', function () {
+//     return view('/admin/History', ['title' => 'History Pemesanan'])->name('transactions.history');
+// });
+// routes/web.php
+use App\Models\HistoriTransaksi;
+
 Route::get('/history', function () {
-    return view('/admin/History', ['title' => 'History Pemesanan']);
-});
+    return view('admin.History', ['title' => 'History Pemesanan', 'historyTransaksi' => historyTransaksi::all()]);
+})->name('transactions.history');
+
 //detai produk admin
 Route::get('/detail_kamera/{product:id}', function (Product $product) {
     return view('/admin/Detail_kamera_admin', ['title' => 'Detail Produk', 'product' => $product]);
@@ -86,10 +95,14 @@ Route::get('/edit_produk/{product:id}', function (Product $product) {
 
 
 //detail pemesanan
-Route::get('/detail_pemesanan', function () {
-    return view('/admin/DetailPemesanan', ['title' => 'Detail Pemesanan']);
+// Route::get('/detail_pemesanan/{transaction:id}', function (Transaction $transaction) {
+//     return view('/admin/DetailPemesanan', ['title' => 'Detail Pemesanan', 'cartItems'=> CartItem::all(), 'transaction' => $transaction]);
+// });
+Route::get('/detail_pemesanan/{transaction:id}', function (Transaction $transaction) { 
+    // Mengambil item keranjang yang terkait dengan transaksi spesifik 
+    $cartItems = CartItem::where('transaction_id', $transaction->id)->get();
+    return view('admin.DetailPemesanan', ['title' => 'Detail Pemesanan', 'cartItems' => $cartItems, 'transaction' => $transaction]);
 });
-
 
 
 //route controller push product
@@ -105,3 +118,5 @@ Route::post('/update_produk/{product:id}', [ProductController::class, 'update'])
 
 //delete
 Route::delete('/delete_produk/{product:id}', [ProductController::class, 'destroy'])->name('product.destroy');
+//confirmasi pesanan
+Route::post('/transaksi/{transaction}/confirm', [TransactionController::class, 'confirm'])->name('transactions.confirm');

@@ -18,7 +18,7 @@ class CreateProductsTable extends Migration
             $table->text('detail_product');
             $table->date('tahun_rilis');
             $table->integer('stock');
-            $table->decimal('harga_sewa', 8, 2);
+            $table->decimal('harga_sewa', 13, 2);
             $table->string('image');
             $table->timestamps();
         });
