@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+#search-input {
+    width: 0;
+    padding-left: 2.5rem; /* To make space for the icon */
+  }
+  
+  #search-input.show {
+    width: 16rem; /* Width when search field is visible */
+    opacity: 1;
+    pointer-events: auto; /* Allow interaction when visible */
+  }
+  
