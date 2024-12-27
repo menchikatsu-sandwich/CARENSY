@@ -1,6 +1,21 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+:root {
+  --bg-color: #ffffff;
+  --text-color: #000000;
+}
+
+.dark {
+  --bg-color: #1a202c;
+  --text-color: #a0aec0;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
 
 #search-input {
     width: 0;
@@ -12,4 +27,3 @@
     opacity: 1;
     pointer-events: auto; /* Allow interaction when visible */
   }
-  

@@ -45,8 +45,8 @@
     </style>
 
     <!-- Profile Section -->
-    <div class="max-w-md mx-auto my-8 p-6 bg-gray-200 rounded-lg text-center">
-        <div class="w-24 h-24 bg-gray-300 rounded-full mx-auto flex justify-center items-center text-3xl text-gray-600 overflow-hidden">
+    <div class="max-w-md mx-auto my-8 p-6 bg-gray-200 dark:bg-gray-800 rounded-lg text-center">
+        <div class="w-24 h-24 bg-gray-300 dark:bg-gray-700 rounded-full mx-auto flex justify-center items-center text-3xl text-gray-600 dark:text-gray-300 overflow-hidden">
             @if($profile->foto_profile && Storage::disk('public')->exists($profile->foto_profile))
                 <img src="{{ asset('storage/' . $profile->foto_profile) }}" alt="Profile Picture" 
                      class="profile-pic">
@@ -55,10 +55,10 @@
             @endif
         </div>
         <div class="mt-4">
-            <label for="upload-photo" class="cursor-pointer text-xl">Ubah Foto</label>
+            <label for="upload-photo" class="cursor-pointer text-xl text-gray-700 dark:text-gray-300">Ubah Foto</label>
             <input type="file" id="upload-photo" class="hidden" form="profile-form" name="foto_profile" accept="image/*">
         </div>
-        <h3 class="mt-2 text-xl">{{ $user->username }}</h3>
+        <h3 class="mt-2 text-xl text-gray-900 dark:text-gray-100">{{ $user->username }}</h3>
     </div>
 
     @if(session('success'))
@@ -68,15 +68,15 @@
     @endif
 
     <!-- Edit Profile Section -->
-    <div class="max-w-lg mx-auto my-8 p-6 bg-gray-200 rounded-lg text-left">
-        <h2 class="text-2xl font-bold text-center mb-6">Edit Profile</h2>
+    <div class="max-w-lg mx-auto my-8 p-6 bg-gray-200 dark:bg-gray-800 rounded-lg text-left">
+        <h2 class="text-2xl font-bold text-center mb-6 text-gray-900 dark:text-gray-100">Edit Profile</h2>
         <form action="{{ route('update-profile') }}" method="POST" enctype="multipart/form-data" id="profile-form">
             @csrf
 
             <!-- FullName -->
             <div class="mb-4">
-                <label for="name" class="block">Nama Lengkap</label>
-                <input type="text" name="name" id="name" value="{{ old('name', $user->name) }}" class="form-input">
+                <label for="name" class="block text-gray-700 dark:text-gray-300">Nama Lengkap</label>
+                <input type="text" name="name" id="name" value="{{ old('name', $user->name) }}" class="form-input bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100">
                 @error('name')
                     <div class="error-message">{{ $message }}</div>
                 @enderror
@@ -84,8 +84,8 @@
 
             <!-- Gender -->
             <div class="mb-4">
-                <label for="gender" class="block">Jenis Kelamin</label>
-                <select name="gender" id="gender" class="form-input">
+                <label for="gender" class="block text-gray-700 dark:text-gray-300">Jenis Kelamin</label>
+                <select name="gender" id="gender" class="form-input bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100">
                     <option value="">Pilih Jenis Kelamin</option>
                     <option value="L" {{ old('gender', $profile->gender) == 'L' ? 'selected' : '' }}>Laki-laki</option>
                     <option value="P" {{ old('gender', $profile->gender) == 'P' ? 'selected' : '' }}>Perempuan</option>
@@ -97,8 +97,8 @@
 
             <!-- No. Telp -->
             <div class="mb-4">
-                <label for="no_telp" class="block">No. Telp</label>
-                <input type="text" name="no_telp" id="no_telp" value="{{ old('no_telp', $profile->no_telp) }}" class="form-input" placeholder="081234567890">
+                <label for="no_telp" class="block text-gray-700 dark:text-gray-300">No. Telp</label>
+                <input type="text" name="no_telp" id="no_telp" value="{{ old('no_telp', $profile->no_telp) }}" class="form-input bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100" placeholder="081234567890">
                 @error('no_telp')
                     <div class="error-message">{{ $message }}</div>
                 @enderror
@@ -106,8 +106,8 @@
 
             <!-- Email -->
             <div class="mb-4">
-                <label for="email" class="block">Email</label>
-                <input type="email" name="email" id="email" value="{{ old('email', $profile->email) }}" class="form-input" placeholder="email@example.com">
+                <label for="email" class="block text-gray-700 dark:text-gray-300">Email</label>
+                <input type="email" name="email" id="email" value="{{ old('email', $profile->email) }}" class="form-input bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100" placeholder="email@example.com">
                 @error('email')
                     <div class="error-message">{{ $message }}</div>
                 @enderror
@@ -115,8 +115,8 @@
 
             <!-- Password -->
             <div class="mb-4">
-                <label for="password" class="block">Password Baru (Opsional)</label>
-                <input type="password" name="password" id="password" class="form-input" placeholder="Kosongkan jika tidak ingin mengubah">
+                <label for="password" class="block text-gray-700 dark:text-gray-300">Password Baru (Opsional)</label>
+                <input type="password" name="password" id="password" class="form-input bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100" placeholder="Kosongkan jika tidak ingin mengubah">
                 @error('password')
                     <div class="error-message">{{ $message }}</div>
                 @enderror
@@ -124,8 +124,8 @@
 
             <!-- Konfirmasi Password -->
             <div class="mb-6">
-                <label for="password_confirmation" class="block">Konfirmasi Password Baru</label>
-                <input type="password" name="password_confirmation" id="password_confirmation" class="form-input" placeholder="Konfirmasi password baru">
+                <label for="password_confirmation" class="block text-gray-700 dark:text-gray-300">Konfirmasi Password Baru</label>
+                <input type="password" name="password_confirmation" id="password_confirmation" class="form-input bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100" placeholder="Konfirmasi password baru">
             </div>
 
             <!-- Submit Button -->

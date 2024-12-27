@@ -74,11 +74,6 @@ Route::get('/pemesanan', function () {
     return view('/admin/Pemesanan', ['title' => 'Pemesanan', 'transactions' => Transaction::all()]);
 });
 //history
-// Route::get('/history', function () {
-//     return view('/admin/History', ['title' => 'History Pemesanan'])->name('transactions.history');
-// });
-
-
 Route::get('/history', function () {
     return view('admin.History', ['title' => 'History Pemesanan', 'historyTransaksi' => historyTransaksi::all()]);
 })->name('transactions.history');
@@ -95,9 +90,6 @@ Route::get('/edit_produk/{product:id}', function (Product $product) {
 
 
 //detail pemesanan
-// Route::get('/detail_pemesanan/{transaction:id}', function (Transaction $transaction) {
-//     return view('/admin/DetailPemesanan', ['title' => 'Detail Pemesanan', 'cartItems'=> CartItem::all(), 'transaction' => $transaction]);
-// });
 Route::get('/detail_pemesanan/{transaction:id}', function (Transaction $transaction) {
     // Mengambil item keranjang yang terkait dengan transaksi spesifik 
     $cartItems = CartItem::where('transaction_id', $transaction->id)->get();

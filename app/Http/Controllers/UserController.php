@@ -1,12 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Models\Profile;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Log; 
 
 class UserController extends Controller
 {
@@ -15,6 +15,11 @@ class UserController extends Controller
     {
         $user = Auth::user();
         $profile = $user->profile ?? new Profile();
+        
+        // log untuk path gambar
+        if ($profile->foto_profile) {
+            Log::info('Profile picture path: ' . Storage::disk('public')->path($profile->foto_profile));
+        }
 
         return view('user.edit-profile', [
             'title' => 'Edit Profile',
@@ -22,7 +27,6 @@ class UserController extends Controller
             'profile' => $profile
         ]);
     }
-
     //update profilenya
     public function updateProfile(Request $request)
     {
@@ -33,14 +37,12 @@ class UserController extends Controller
             'password' => 'nullable|confirmed|min:8',
             'foto_profile' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048'
         ]);
-
         $user = Auth::user();
         $user->name = $request->name;
         if ($request->filled('password')) {
             $user->password = bcrypt($request->password);
         }
         $user->save();
-
         // Handle foto profile
         if ($request->hasFile('foto_profile')) {
             // Hapus foto lama jika ada
@@ -49,7 +51,6 @@ class UserController extends Controller
             }
             $fotoPath = $request->file('foto_profile')->store('profile_pictures', 'public');
         }
-
         $profile = Profile::updateOrCreate(
             ['user_id' => $user->id],
             [
@@ -65,7 +66,6 @@ class UserController extends Controller
         // Alert 
         return redirect()->route('edit-profile')->with('success', 'Profile berhasil diperbarui.');
     }
-
     //logout
     public function logout()
     {

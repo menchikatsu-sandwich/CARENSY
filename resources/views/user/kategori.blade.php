@@ -5,13 +5,13 @@
   <h1 class="mb-6 text-2xl font-bold text-center"><img src="img/CARENSY.png" alt="LOGO CARENSY" style="width: 15%; height: auto; margin: 0 auto;"></h1>
   <!-- Judul Utama -->
   <div class="rounded-full px-4 py-2 text-center">
-    <h2 class="text-gray-800 text-lg font-bold">LIST PRODUK</h2>
+    <h2 class="text-gray-800 dark:text-gray-100 text-lg font-bold">LIST PRODUK</h2>
   </div>
 
   <!-- Camera Section -->
   <div class="mt-8" id="camera">
-    <div class="bg-gray-200 rounded-full px-4 py-2 text-center shadow">
-      <h3 class="text-gray-800 text-lg font-bold">Camera</h3>
+    <div class="bg-gray-200 dark:bg-gray-700 rounded-full px-4 py-2 text-center shadow">
+      <h3 class="text-gray-800 dark:text-gray-100 text-lg font-bold">Camera</h3>
     </div>
     <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 mt-6">
       <!-- Camera Produk Card -->
@@ -19,13 +19,13 @@
         
 
       <a href="/link_produk/{{ $product->id }}" class="block transform transition-transform duration-300 hover:scale-105">
-        <div class="bg-white rounded-lg shadow p-4 text-center border border-black">
-          <div class="bg-gray-200 h-48 rounded-lg overflow-hidden flex justify-center items-center">
+        <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-4 text-center border border-black dark:border-gray-700">
+          <div class="bg-gray-200 dark:bg-gray-700 h-48 rounded-lg overflow-hidden flex justify-center items-center">
             <img src="{{ asset($product->image) }}" alt="gambar camera" class="h-full w-full object-cover">
           </div>
-          <div class="bg-gray-200 mt-4 p-2 rounded-lg">
-            <h3 class="text-gray-700 font-medium">{{ $product->nama_product }}</h3>
-            <p class="text-gray-900 font-bold">Rp. {{ number_format($product->harga_sewa, 0, ',', '.') }}</p>
+          <div class="bg-gray-200 dark:bg-gray-700 mt-4 p-2 rounded-lg">
+            <h3 class="text-gray-700 dark:text-gray-300 font-medium">{{ $product->nama_product }}</h3>
+            <p class="text-gray-900 dark:text-gray-100 font-bold">Rp. {{ number_format($product->harga_sewa, 0, ',', '.') }}</p>
           </div>
         </div>
       </a>
@@ -36,8 +36,8 @@
 
   <!-- Gimbal Section -->
   <div class="mt-8" id="gimbal"> 
-    <div class="bg-gray-200 rounded-full px-4 py-2 text-center shadow">
-      <h3 class="text-gray-800 text-lg font-bold">Gimbal</h3>
+    <div class="bg-gray-200 dark:bg-gray-700 rounded-full px-4 py-2 text-center shadow">
+      <h3 class="text-gray-800 dark:text-gray-100 text-lg font-bold">Gimbal</h3>
     </div>
     <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 mt-6">
       <!-- Gimbal Produk Card -->
@@ -45,13 +45,13 @@
         
 
       <a href="/link_produk/{{ $product->id }}" class="block transform transition-transform duration-300 hover:scale-105">
-        <div class="bg-white rounded-lg shadow p-4 text-center border border-black">
-          <div class="bg-gray-200 h-48 rounded-lg overflow-hidden flex justify-center items-center">
+        <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-4 text-center border border-black dark:border-gray-700">
+          <div class="bg-gray-200 dark:bg-gray-700 h-48 rounded-lg overflow-hidden flex justify-center items-center">
             <img src="{{ asset($product->image) }}" alt="gambar camera" class="h-full w-full object-cover">
           </div>
-          <div class="bg-gray-200 mt-4 p-2 rounded-lg">
-            <h3 class="text-gray-700 font-medium">{{ $product->nama_product }}</h3>
-            <p class="text-gray-900 font-bold">Rp. {{ number_format($product->harga_sewa, 0, ',', '.') }}</p>
+          <div class="bg-gray-200 dark:bg-gray-700 mt-4 p-2 rounded-lg">
+            <h3 class="text-gray-700 dark:text-gray-300 font-medium">{{ $product->nama_product }}</h3>
+            <p class="text-gray-900 dark:text-gray-100 font-bold">Rp. {{ number_format($product->harga_sewa, 0, ',', '.') }}</p>
           </div>
         </div>
       </a>
@@ -61,8 +61,8 @@
 
   <!-- Lensa Section -->
   <div class="mt-8" id="lensa">
-    <div class="bg-gray-200 rounded-full px-4 py-2 text-center shadow">
-      <h3 class="text-gray-800 text-lg font-bold">Lensa</h3>
+    <div class="bg-gray-200 dark:bg-gray-700 rounded-full px-4 py-2 text-center shadow">
+      <h3 class="text-gray-800 dark:text-gray-100 text-lg font-bold">Lensa</h3>
     </div>
     <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 mt-6">
       <!-- Lensa Produk Card -->
@@ -70,13 +70,13 @@
         
 
       <a href="/link_produk/{{ $product->id }}" class="block transform transition-transform duration-300 hover:scale-105">
-        <div class="bg-white rounded-lg shadow p-4 text-center border border-black">
-          <div class="bg-gray-200 h-48 rounded-lg overflow-hidden flex justify-center items-center">
+        <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-4 text-center border border-black dark:border-gray-700">
+          <div class="bg-gray-200 dark:bg-gray-700 h-48 rounded-lg overflow-hidden flex justify-center items-center">
             <img src="{{ asset($product->image) }}" alt="gambar camera" class="h-full w-full object-cover">
           </div>
-          <div class="bg-gray-200 mt-4 p-2 rounded-lg">
-            <h3 class="text-gray-700 font-medium">{{ $product->nama_product }}</h3>
-            <p class="text-gray-900 font-bold">Rp. {{ number_format($product->harga_sewa, 0, ',', '.') }}</p>
+          <div class="bg-gray-200 dark:bg-gray-700 mt-4 p-2 rounded-lg">
+            <h3 class="text-gray-700 dark:text-gray-300 font-medium">{{ $product->nama_product }}</h3>
+            <p class="text-gray-900 dark:text-gray-100 font-bold">Rp. {{ number_format($product->harga_sewa, 0, ',', '.') }}</p>
           </div>
         </div>
       </a>
@@ -87,8 +87,8 @@
 
   <!-- Tripod Section -->
   <div class="mt-8" id="tripod">
-    <div class="bg-gray-200 rounded-full px-4 py-2 text-center shadow">
-      <h3 class="text-gray-800 text-lg font-bold">Tripod</h3>
+    <div class="bg-gray-200 dark:bg-gray-700 rounded-full px-4 py-2 text-center shadow">
+      <h3 class="text-gray-800 dark:text-gray-100 text-lg font-bold">Tripod</h3>
     </div>
     <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 mt-6">
       <!-- Tripod Produk Card -->
@@ -96,13 +96,13 @@
         
 
       <a href="/link_produk/{{ $product->id }}" class="block transform transition-transform duration-300 hover:scale-105">
-        <div class="bg-white rounded-lg shadow p-4 text-center border border-black">
-          <div class="bg-gray-200 h-48 rounded-lg overflow-hidden flex justify-center items-center">
+        <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-4 text-center border border-black dark:border-gray-700">
+          <div class="bg-gray-200 dark:bg-gray-700 h-48 rounded-lg overflow-hidden flex justify-center items-center">
             <img src="{{ asset($product->image) }}" alt="gambar camera" class="h-full w-full object-cover">
           </div>
-          <div class="bg-gray-200 mt-4 p-2 rounded-lg">
-            <h3 class="text-gray-700 font-medium">{{ $product->nama_product }}</h3>
-            <p class="text-gray-900 font-bold">Rp. {{ number_format($product->harga_sewa, 0, ',', '.') }}</p>
+          <div class="bg-gray-200 dark:bg-gray-700 mt-4 p-2 rounded-lg">
+            <h3 class="text-gray-700 dark:text-gray-300 font-medium">{{ $product->nama_product }}</h3>
+            <p class="text-gray-900 dark:text-gray-100 font-bold">Rp. {{ number_format($product->harga_sewa, 0, ',', '.') }}</p>
           </div>
         </div>
       </a>
@@ -111,8 +111,8 @@
   </div>
   <!-- Lainnya Section -->
   <div class="mt-8" id="dlll">
-    <div class="bg-gray-200 rounded-full px-4 py-2 text-center shadow">
-      <h3 class="text-gray-800 text-lg font-bold">Lainnya</h3>
+    <div class="bg-gray-200 dark:bg-gray-700 rounded-full px-4 py-2 text-center shadow">
+      <h3 class="text-gray-800 dark:text-gray-100 text-lg font-bold">Lainnya</h3>
     </div>
     <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 mt-6">
       <!-- Lainnya Produk Card -->
@@ -120,13 +120,13 @@
         
 
       <a href="/link_produk/{{ $product->id }}" class="block transform transition-transform duration-300 hover:scale-105">
-        <div class="bg-white rounded-lg shadow p-4 text-center border border-black">
-          <div class="bg-gray-200 h-48 rounded-lg overflow-hidden flex justify-center items-center">
+        <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-4 text-center border border-black dark:border-gray-700">
+          <div class="bg-gray-200 dark:bg-gray-700 h-48 rounded-lg overflow-hidden flex justify-center items-center">
             <img src="{{ asset($product->image) }}" alt="gambar camera" class="h-full w-full object-cover">
           </div>
-          <div class="bg-gray-200 mt-4 p-2 rounded-lg">
-            <h3 class="text-gray-700 font-medium">{{ $product->nama_product }}</h3>
-            <p class="text-gray-900 font-bold">Rp. {{ number_format($product->harga_sewa, 0, ',', '.') }}</p>
+          <div class="bg-gray-200 dark:bg-gray-700 mt-4 p-2 rounded-lg">
+            <h3 class="text-gray-700 dark:text-gray-300 font-medium">{{ $product->nama_product }}</h3>
+            <p class="text-gray-900 dark:text-gray-100 font-bold">Rp. {{ number_format($product->harga_sewa, 0, ',', '.') }}</p>
           </div>
         </div>
       </a>
