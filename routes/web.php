@@ -11,6 +11,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Models\CartItem;
+use App\Models\historyItem;
 
 // ! USER !
 // home
@@ -76,8 +77,7 @@ Route::get('/pemesanan', function () {
 // Route::get('/history', function () {
 //     return view('/admin/History', ['title' => 'History Pemesanan'])->name('transactions.history');
 // });
-// routes/web.php
-use App\Models\HistoriTransaksi;
+
 
 Route::get('/history', function () {
     return view('admin.History', ['title' => 'History Pemesanan', 'historyTransaksi' => historyTransaksi::all()]);
@@ -98,11 +98,16 @@ Route::get('/edit_produk/{product:id}', function (Product $product) {
 // Route::get('/detail_pemesanan/{transaction:id}', function (Transaction $transaction) {
 //     return view('/admin/DetailPemesanan', ['title' => 'Detail Pemesanan', 'cartItems'=> CartItem::all(), 'transaction' => $transaction]);
 // });
-Route::get('/detail_pemesanan/{transaction:id}', function (Transaction $transaction) { 
+Route::get('/detail_pemesanan/{transaction:id}', function (Transaction $transaction) {
     // Mengambil item keranjang yang terkait dengan transaksi spesifik 
     $cartItems = CartItem::where('transaction_id', $transaction->id)->get();
     return view('admin.DetailPemesanan', ['title' => 'Detail Pemesanan', 'cartItems' => $cartItems, 'transaction' => $transaction]);
 });
+//detail histori
+Route::get('/detail_history/{historyTransaksi:id}', function (historyTransaksi $historyTransaksi) {
+    $historyItems = historyItem::where('histori_transaksi_id', $historyTransaksi->id)->get();
+    return view('admin.DetailHistory', ['title' => 'Detail History', 'historyItems' => $historyItems, 'historyTransaksi' => $historyTransaksi]);
+})->name('history.detail');
 
 
 //route controller push product

@@ -3,7 +3,7 @@
     
     <div class="space-y-4">
         @foreach ($historyTransaksi as $history)
-            <a href="" class="flex items-center rounded-lg overflow-hidden bg-white shadow-lg">
+            <a href="/detail_history/{{ $history->id }}" class="flex items-center rounded-lg overflow-hidden bg-white shadow-lg">
                 <!-- Bagian Gambar profile peminjam -->
                 <div class="w-1/3 flex items-center justify-center p-4">
                     <img src="/storage/{{ $history->user->profile->foto_profile }}" alt="">
