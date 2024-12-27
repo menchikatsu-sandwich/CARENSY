@@ -34,6 +34,7 @@ class UserController extends Controller
             'name' => 'required|string|max:255',
             'gender' => 'required|in:L,P',
             'no_telp' => 'required',
+            'alamat_ktp' => 'required',
             'password' => 'nullable|confirmed|min:8',
             'foto_profile' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048'
         ]);

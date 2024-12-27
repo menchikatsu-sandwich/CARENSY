@@ -39,13 +39,17 @@
                     <!-- Card Kiri -->
                     <div class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-md">
                         <div class="form-group">
+                            <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                            <input type="email" name="email" id="email" value="{{ $cart->user->profile->email }}" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required>
+                        </div>
+                        <div class="form-group">
                             <label for="alamat_now" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Alamat Saat ini</label>
                             <textarea name="alamat_now" id="alamat_now" class="mt-1 block w-full border border-gray-300 dark:border-gray-600 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100" required></textarea>
                         </div>
 
                         <div class="form-group mt-4">
                             <label for="alamat_ktp" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Alamat Sesuai KTP</label>
-                            <textarea name="alamat_ktp" id="alamat_ktp" class="mt-1 block w-full border border-gray-300 dark:border-gray-600 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100" required></textarea>
+                            <textarea name="alamat_ktp" id="alamat_ktp" class="mt-1 block w-full border border-gray-300 dark:border-gray-600 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100" required>{{ $cart->user->profile->alamat_ktp }}</textarea>
                         </div>
 
                         <div class="form-group mt-4">

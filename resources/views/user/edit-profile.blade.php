@@ -113,6 +113,15 @@
                 @enderror
             </div>
 
+            <!-- Aalamat KTP -->
+            <div class="mb-4">
+                <label for="alamat_ktp" class="block text-gray-700 dark:text-gray-300">Alamat KTP</label>
+                <input type="text" name="alamat_ktp" id="alamat_ktp" value="{{ old('alamat_ktp', $profile->alamat_ktp) }}" class="form-input bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100" placeholder="JL. Udayana">
+                @error('alamat_ktp')
+                    <div class="error-message">{{ $message }}</div>
+                @enderror
+            </div>
+
             <!-- Password -->
             <div class="mb-4">
                 <label for="password" class="block text-gray-700 dark:text-gray-300">Password Baru (Opsional)</label>
