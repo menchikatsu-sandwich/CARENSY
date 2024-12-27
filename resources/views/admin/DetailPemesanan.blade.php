@@ -34,7 +34,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($cartItems->where('transaction_id', $transaction->id) as $item)
+                    @foreach ($cartItems as $item)
                         <tr>
                             <td class="py-2 px-4 border">{{ $item->product->kode_product }}</td>
                             <td class="py-2 px-4 border">{{ $item->product->nama_product }}</td>
