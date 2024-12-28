@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Transaction extends Model
 {
-    protected $fillable = ['kode_transaksi', 'user_id','email','alamat_now','alamat_ktp','media_sosial', 'tanggal_pinjam', 'tanggal_kembali'];
+    protected $fillable = ['kode_transaksi', 'user_id', 'email', 'alamat_now', 'alamat_ktp', 'media_sosial', 'tanggal_pinjam', 'tanggal_kembali'];
 
     public function user()
     {
@@ -16,5 +16,10 @@ class Transaction extends Model
     public function cartItems()
     {
         return $this->hasMany(CartItem::class);
+    }
+
+    public function receipt()
+    {
+        return $this->hasOne(Receipt::class);
     }
 }

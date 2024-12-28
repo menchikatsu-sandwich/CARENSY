@@ -18,7 +18,6 @@
                 </button>
             </form>
         </div>
-        
     </div>
     <!-- Content -->
     <div class="flex items-center justify-center space-x-4">
