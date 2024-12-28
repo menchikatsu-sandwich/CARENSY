@@ -17,6 +17,12 @@ class User extends Authenticatable
         'name',
         'username',
         'password',
+        'is_admin',
     ];
+
+    public function isAdmin()
+    {
+        return $this->is_admin;
+    }
 
 }

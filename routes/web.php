@@ -7,6 +7,7 @@ use App\Http\Controllers\SearchController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\DashboardController;
 
 
 // ! USER !
@@ -61,7 +62,7 @@ Route::get('/dashboard_admin', function () {
     $products = Product::all();
     $title = 'List Produk';
     return view('admin/Dashboard_admin', compact('products', 'title'));
-})->name('product.index');
+})->name('product.index')->middleware('auth');
 //form
 Route::get('/form_input', function () {
     return view('/admin/Form_input', ['title' => 'Form Input']);
@@ -115,3 +116,7 @@ Route::delete('/delete_produk/{product:id}', [ProductController::class, 'destroy
 // // register
 // Route::get('/register', [AuthController::class, 'showRegisterForm'])->name('register');
 // routes/web.php
+
+
+//dashboard controller(penentu role)
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard')->middleware('auth');
