@@ -117,6 +117,13 @@ class TransactionController extends Controller
 
         return view('user.history', compact('transactions', 'historyTransaksi'));
     }
+    public function pending()
+    {
+        $transactions = Transaction::with('cartItems.product')->where('user_id', Auth::id())->get();
+        $historyTransaksi = HistoryTransaksi::with('historiItems.product')->where('user_id', Auth::id())->get();
+
+        return view('user.berlangsung', compact('transactions', 'historyTransaksi'));
+    }
 
     public function showReceipt($id)
     {
@@ -128,4 +135,15 @@ class TransactionController extends Controller
         
         return view('receipts.show', compact('receipt', 'transaction'));
     }
+    //ini maunya untuk history download recipe tapi karena yang berlangsung gakjadi nampilin recipe bisa hapus ini atau hapus yang di atas nya
+    // public function showReceiptHistory($id)
+    // {
+    //     // Pastikan transaksi milik user yang sedang login
+    //     $transaction = HistoryTransaksi::with('historyItems.product')->where('id', $id)->where('user_id', Auth::id())->firstOrFail();
+        
+    //     // Ambil receipt berdasarkan transaction_id
+    //     $receipt = Receipt::where('transaction_id', $transaction->id)->firstOrFail();
+        
+    //     return view('receipts.show', compact('receipt', 'transaction'));
+    // }
 }

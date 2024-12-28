@@ -44,6 +44,7 @@
             </div>
 
             <a href="{{route('history.index')}}" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">History</a>
+            <a href="{{route('pending.index')}}" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">berlangsung</a>
           </div>
         </div>
       </div>

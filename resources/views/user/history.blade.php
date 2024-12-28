@@ -22,7 +22,7 @@
                     @endphp
                     <p class="text-gray-600 dark:text-gray-400">Jumlah Hari Pinjam: {{ $jumlahHariPinjam }}</p>
                     <p class="text-gray-600 dark:text-gray-400">Total Keseluruhan: Rp {{ number_format($totalKeseluruhan, 0, ',', '.') }}</p>
-                    <a href="{{ route('receipts.show', $historyTransaction->id) }}" class="mt-4 inline-block bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Lihat Receipt</a>
+                    <a href="/detail_pesanan/{{$historyTransaction->id}}" class="mt-4 inline-block bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Lihat Receipt</a>
                 </div>
             </div>
             @endforeach

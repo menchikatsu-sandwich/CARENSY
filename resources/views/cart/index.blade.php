@@ -77,6 +77,12 @@
                 <a href="{{ route('cart.checkout') }}" class="bg-blue-500 dark:bg-blue-700 text-white px-4 py-2 rounded-md hover:bg-blue-600 dark:hover:bg-blue-800">
                     Lanjut ke Checkout
                 </a>
+
+                @if(session('profileIncomplete'))
+                    <div class="bg-red-500 text-white p-2 rounded mt-4">
+                        {{ session('profileIncomplete') }}
+                    </div>
+                @endif
             </div>
         @else
             <p class="text-gray-600 dark:text-gray-400">Keranjang Anda kosong.</p>

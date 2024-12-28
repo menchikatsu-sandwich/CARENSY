@@ -119,7 +119,21 @@ class CartController extends Controller
         if (!$cart || $cart->cartItems->isEmpty()) {
             return redirect()->route('cart.index')->with('error', 'Keranjang Anda kosong.');
         }
-
+    
+        $user = Auth::user();
+        $profileIncomplete = false;
+    
+        // Pastikan objek profile ada sebelum memeriksa propertinya
+        if (!$cart->user->profile || is_null($cart->user->profile->email) || is_null($cart->user->profile->alamat_ktp) || is_null($cart->user->profile->no_telp)) {
+            $profileIncomplete = true;
+        }
+    
+        if ($profileIncomplete) {
+            return redirect()->route('cart.index')->with('profileIncomplete', 'Profil Anda belum lengkap. Silakan lengkapi profil Anda terlebih dahulu.');
+        }
+    
         return view('cart.checkout', ['title' => 'Checkout', 'cart' => $cart]);
     }
+    
+    
 }

@@ -53,6 +53,11 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/cart/checkout', [CartController::class, 'showCheckoutForm'])->name('cart.checkout');
     Route::get('/checkout', [TransactionController::class, 'showCheckoutForm'])->name('checkout.form');
     Route::post('/checkout', [TransactionController::class, 'processCheckout'])->name('checkout.process');
+    //detail pesanan user
+    Route::get('/detail_pesanan/{historyTransaksi:id}', function (historyTransaksi $historyTransaksi) {
+        $historyItems = historyItem::where('histori_transaksi_id', $historyTransaksi->id)->get();
+        return view('user.DetailPemesanan', ['title' => 'Detail History', 'historyItems' => $historyItems, 'historyTransaksi' => $historyTransaksi]);
+    });
 });
 // Receipt
 Route::resource('receipts', ReceiptController::class);
@@ -62,6 +67,9 @@ Route::get('/search/search_result', [ProductController::class, 'search'])->name(
 // history user
 Route::get('/user/history', [TransactionController::class, 'index'])->name('history.index');
 Route::get('/receipt/{id}', [TransactionController::class, 'showReceipt'])->name('receipt.show');
+// pending
+Route::get('/user/pending', [TransactionController::class, 'pending'])->name('pending.index');
+Route::get('/receipt/sistory/{id}', [TransactionController::class, 'showReceipt'])->name('receipt.show');
 
 
 //  ! ADMIN !
