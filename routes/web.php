@@ -103,6 +103,7 @@ Route::get('/detail_pemesanan/{transaction:id}', function (Transaction $transact
     $cartItems = CartItem::where('transaction_id', $transaction->id)->get();
     return view('admin.DetailPemesanan', ['title' => 'Detail Pemesanan', 'cartItems' => $cartItems, 'transaction' => $transaction]);
 });
+Route::post('/transaksi/{transaction}/confirm', [TransactionController::class, 'confirm'])->name('transactions.confirm');
 //detail histori
 Route::get('/detail_history/{historyTransaksi:id}', function (historyTransaksi $historyTransaksi) {
     $historyItems = historyItem::where('histori_transaksi_id', $historyTransaksi->id)->get();
