@@ -64,7 +64,7 @@ Route::get('/dashboard_admin', function () {
     $products = Product::all();
     $title = 'List Produk';
     return view('admin/Dashboard_admin', compact('products', 'title'));
-})->name('product.index');
+})->name('product.index')->middleware('auth');
 //form
 Route::get('/form_input', function () {
     return view('/admin/Form_input', ['title' => 'Form Input']);
@@ -123,5 +123,10 @@ Route::post('/update_produk/{product:id}', [ProductController::class, 'update'])
 
 //delete
 Route::delete('/delete_produk/{product:id}', [ProductController::class, 'destroy'])->name('product.destroy');
-//confirmasi pesanan
-Route::post('/transaksi/{transaction}/confirm', [TransactionController::class, 'confirm'])->name('transactions.confirm');
+
+// // login
+// Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
+
+// // register
+// Route::get('/register', [AuthController::class, 'showRegisterForm'])->name('register');
+// routes/web.php

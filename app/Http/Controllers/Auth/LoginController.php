@@ -26,7 +26,11 @@ class LoginController extends Controller
         // Coba autentikasi
         if (Auth::attempt($request->only('username', 'password'))) {
             // Jika berhasil login
-            return redirect()->route('home'); // Sesuaikan dengan halaman tujuan
+            $user=Auth::user();
+             if($user->is_admin){
+                return redirect()->route('product.index');
+             }
+             return redirect()->route('home');
         }
 
         // Jika gagal login

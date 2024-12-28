@@ -8,6 +8,11 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        return view('dashboard');
+        if (auth()->user()->isAdmin()) {
+            return view('product.index'); // Tampilkan halaman admin
+        }
+    
+        return view('dashboard_user'); // Tampilkan halaman user biasa
     }
+    
 }
