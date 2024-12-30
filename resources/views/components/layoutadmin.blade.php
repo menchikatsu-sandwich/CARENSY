@@ -4,8 +4,6 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>{{ $title }}</title>
-        <meta name="author" content="David Grzyb">
-        <meta name="description" content="">
         <!-- Font Awesome -->
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 
@@ -38,7 +36,7 @@
         <div class="w-full h-screen overflow-x-hidden border-t flex flex-col">
             <main class="w-full flex-grow p-6">
                 <div>
-                <h1 class="text-3xl text-black pb-6 text-center">{{ $title }}</h1>
+                <h1 class="text-3xl text-black pb-6 text-center"><strong>{{ $title }}</strong></h1>
                 </div>
                 <div class="ml-4">{{ $slot }}</div>
                 

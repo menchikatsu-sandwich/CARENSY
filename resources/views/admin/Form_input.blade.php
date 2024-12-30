@@ -15,29 +15,29 @@
         </div>
     @endif
 
-    <div class="p-8">
+    <div class="p-8 bg-gray-50 rounded-lg shadow-lg">
         <form action="{{ route('product.store') }}" method="POST" enctype="multipart/form-data"
-            class="grid grid-cols-2 gap-4 max-w-3xl mx-auto" x-data="{ fileName: '', fileUrl: '' }">
+            class="grid grid-cols-2 gap-6 max-w-3xl mx-auto" x-data="{ fileName: '', fileUrl: '' }">
             @csrf
             <!-- KODE PRODUCT -->
             <div class="flex flex-col">
                 <label for="kode-product" class="mb-2 text-sm font-medium text-gray-700">KODE PRODUCT</label>
                 <input type="text" id="kode-product" name="kode_product"
-                    class="border border-gray-300 rounded-md p-2 focus:outline-none focus:ring focus:ring-blue-200">
+                    class="border border-gray-300 rounded-md p-3 focus:outline-none focus:ring focus:ring-blue-200">
             </div>
 
             <!-- NAMA PRODUCT -->
             <div class="flex flex-col">
                 <label for="nama-camera" class="mb-2 text-sm font-medium text-gray-700">NAMA PRODUCT</label>
                 <input type="text" id="nama-camera" name="nama_product"
-                    class="border border-gray-300 rounded-md p-2 focus:outline-none focus:ring focus:ring-blue-200">
+                    class="border border-gray-300 rounded-md p-3 focus:outline-none focus:ring focus:ring-blue-200">
             </div>
 
             <!-- MEREK PRODUCT -->
             <div class="flex flex-col">
                 <label for="merek-camera" class="mb-2 text-sm font-medium text-gray-700">MEREK PRODUCT</label>
                 <select id="merek-camera" name="merek_product"
-                    class="border border-gray-300 rounded-md p-2 focus:outline-none focus:ring focus:ring-blue-200">
+                    class="border border-gray-300 rounded-md p-3 focus:outline-none focus:ring focus:ring-blue-200">
                     <option value="Canon">Canon</option>
                     <option value="Sony">Sony</option>
                     <option value="Nikon">Nikon</option>
@@ -50,7 +50,7 @@
             <div class="flex flex-col">
                 <label for="kategori-camera" class="mb-2 text-sm font-medium text-gray-700">KATEGORI</label>
                 <select id="kategori-camera" name="kategori_product"
-                    class="border border-gray-300 rounded-md p-2 focus:outline-none focus:ring focus:ring-blue-200">
+                    class="border border-gray-300 rounded-md p-3 focus:outline-none focus:ring focus:ring-blue-200">
                     <option value="Kamera">Kamera</option>
                     <option value="Gimbal">Gimbal</option>
                     <option value="Tripod">Tripod</option>
@@ -63,28 +63,28 @@
             <div class="flex flex-col">
                 <label for="detail-camera" class="mb-2 text-sm font-medium text-gray-700">DETAIL CAMERA</label>
                 <input type="text" id="detail-camera" name="detail_product"
-                    class="border border-gray-300 rounded-md p-2 focus:outline-none focus:ring focus:ring-blue-200">
+                    class="border border-gray-300 rounded-md p-3 focus:outline-none focus:ring focus:ring-blue-200">
             </div>
 
             <!-- TAHUN RILIS -->
             <div class="flex flex-col">
                 <label for="tahun-rilis" class="mb-2 text-sm font-medium text-gray-700">TAHUN RILIS</label>
                 <input type="date" id="tahun-rilis" name="tahun_rilis"
-                    class="border border-gray-300 rounded-md p-2 focus:outline-none focus:ring focus:ring-blue-200">
+                    class="border border-gray-300 rounded-md p-3 focus:outline-none focus:ring focus:ring-blue-200">
             </div>
 
             <!-- STOCK -->
             <div class="flex flex-col">
                 <label for="stock" class="mb-2 text-sm font-medium text-gray-700">STOCK</label>
                 <input type="text" inputmode="numeric" id="stock" name="stock"
-                    class="border border-gray-300 rounded-md p-2 focus:outline-none focus:ring focus:ring-blue-200">
+                    class="border border-gray-300 rounded-md p-3 focus:outline-none focus:ring focus:ring-blue-200">
             </div>
 
             <!-- HARGA SEWA -->
             <div class="flex flex-col">
                 <label for="harga-sewa" class="mb-2 text-sm font-medium text-gray-700">HARGA SEWA</label>
                 <input type="text" inputmode="numeric" id="harga-sewa" name="harga_sewa"
-                    class="border border-gray-300 rounded-md p-2 focus:outline-none focus:ring focus:ring-blue-200">
+                    class="border border-gray-300 rounded-md p-3 focus:outline-none focus:ring focus:ring-blue-200">
             </div>
 
             <!-- UPLOAD IMAGE -->
@@ -112,7 +112,7 @@
             <!-- BUTTON SUBMIT -->
             <div class="col-span-2 flex justify-end">
                 <button type="submit"
-                    class="bg-gray-500 text-white px-6 py-2 rounded-md hover:bg-gray-600 transition">SUBMIT</button>
+                    class="bg-blue-500 text-white px-6 py-3 rounded-md hover:bg-blue-600 transition">SUBMIT</button>
             </div>
         </form>
     </div>
