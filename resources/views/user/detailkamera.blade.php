@@ -4,7 +4,7 @@
     <!-- Header -->
     <div class="flex items-center justify-between mb-4">
         {{-- back --}}
-        <a href="/" class="text-gray-600 dark:text-gray-300">
+        <a href="javascript:window.history.back();" class="text-gray-600">
             <i class="fa-solid fa-angle-left"></i>
         </a>
     </div>

@@ -43,8 +43,8 @@
               </div>
             </div>
 
+            <a href="{{route('pending.index')}}" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Berlangsung</a>
             <a href="{{route('history.index')}}" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">History</a>
-            <a href="{{route('pending.index')}}" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">berlangsung</a>
           </div>
         </div>
       </div>
@@ -117,11 +117,11 @@
           Kamera
         </button>
         <div class="hidden" id="mobile-kamera-dropdown">
-          <a href="/kamera#canon" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Canon</a>
-          <a href="/kamera#nikon" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Nikon</a>
-          <a href="/kamera#fujifilm" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">FujiFilm</a>
-          <a href="/kamera#sony" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Sony</a>
-          <a href="/kamera#dll" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Lainnya</a>
+          <a href="/kamera#canon" class="block px-4 py-2 text-gray-500 hover:bg-gray-100">Canon</a>
+          <a href="/kamera#nikon" class="block px-4 py-2 text-gray-500 hover:bg-gray-100">Nikon</a>
+          <a href="/kamera#fujifilm" class="block px-4 py-2 text-gray-500 hover:bg-gray-100">FujiFilm</a>
+          <a href="/kamera#sony" class="block px-4 py-2 text-gray-500 hover:bg-gray-100">Sony</a>
+          <a href="/kamera#dll" class="block px-4 py-2 text-gray-500 hover:bg-gray-100">Lainnya</a>
         </div>
       </div>
 
@@ -131,27 +131,25 @@
           Kategori
         </button>
         <div class="hidden" id="mobile-kategori-dropdown">
-          <a href="/kategori#camera" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Kamera</a>
-          <a href="/kategori#gimbal" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Gimbal</a>
-          <a href="/kategori#tripod" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Tripod</a>
-          <a href="/kategori#lensa" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Lensa</a>
-          <a href="/kategori#dlll" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Lainnya</a>
+          <a href="/kategori#camera" class="block px-4 py-2 text-gray-500 hover:bg-gray-100">Kamera</a>
+          <a href="/kategori#gimbal" class="block px-4 py-2 text-gray-500 hover:bg-gray-100">Gimbal</a>
+          <a href="/kategori#tripod" class="block px-4 py-2 text-gray-500 hover:bg-gray-100">Tripod</a>
+          <a href="/kategori#lensa" class="block px-4 py-2 text-gray-500 hover:bg-gray-100">Lensa</a>
+          <a href="/kategori#dlll" class="block px-4 py-2 text-gray-500 hover:bg-gray-100">Lainnya</a>
         </div>
       </div>
 
-      <a href="/user/history" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">History</a>
-      <a href="/profile" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Profile</a>
-      <a href="/cart" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Cart</a>
-      <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Sign Out</a>
+      <a href="{{route('pending.index')}}" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium block">Berlangsung</a>
+      <a href="{{route('history.index')}}" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium block">History</a>
 
       <!-- Search Bar for Mobile -->
-      <form action="" method="GET" class="relative block lg:hidden px-3 py-2">
+      <form action="{{ route('search') }}" method="GET" class="relative block lg:hidden px-3 py-2">
         <button type="submit" class="absolute left-5 top-4 text-gray-500">
           <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35M17 10A7 7 0 1 1 3 10a7 7 0 0 1 14 0z" />
           </svg>
         </button>
-        <input type="text" name="q" placeholder="Cari..." class="pl-10 pr-4 py-2 w-full border rounded-md focus:outline-none">
+        <input type="text" name="query" placeholder="Cari..." class="pl-10 pr-4 py-2 w-full border rounded-md focus:outline-none">
       </form>
     </div>
   </div>

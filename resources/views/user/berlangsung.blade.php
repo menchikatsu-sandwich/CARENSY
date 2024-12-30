@@ -1,6 +1,6 @@
 <x-layout>
     <x-slot name="title">
-        History Transaksi
+        Transaksi Berlangsung
     </x-slot>
     <div class="container mx-auto px-4 py-8">
         <h1 class="text-3xl font-bold mb-8 text-center text-gray-800 dark:text-gray-100"> Transaksi Berlangsung </h1>
