@@ -19,11 +19,11 @@
             .font-family-popins { font-family: 'Poppins', sans-serif; }
     
             /* Warna dan gaya */
-            .bg-sidebar { background: #D9D9D9; }
+            .bg-sidebar { background: #ffffff; }
             .cta-btn { color: #D9D9D9; }
             /* .upgrade-btn { background: #1947ee; }
             .upgrade-btn:hover { background: #0038fd; } */
-            .active-nav-link { background: #C3C3C3; }
+            .active-nav-link { background: #d9d9d9; }
             /* .nav-item:hover { background: #C3C3C3; } */
             .account-link:hover { background: #C3C3C3; }
         </style>
