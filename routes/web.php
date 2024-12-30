@@ -73,12 +73,13 @@ Route::get('/receipt/sistory/{id}', [TransactionController::class, 'showReceipt'
 
 
 //  ! ADMIN !
+Route::middleware(['auth', App\Http\Middleware\IsAdmin::class])->group(function () {
 //dashboard admin
 Route::get('/dashboard_admin', function () {
     $products = Product::all();
     $title = 'List Produk';
     return view('admin/Dashboard_admin', compact('products', 'title'));
-})->name('product.index')->middleware('auth');
+})->name('product.index');
 //form
 Route::get('/form_input', function () {
     return view('/admin/Form_input', ['title' => 'Form Input']);
@@ -132,3 +133,7 @@ Route::delete('/delete_produk/{product:id}', [ProductController::class, 'destroy
 Route::post('/transactions/confirm/{id}', [TransactionController::class, 'confirmTransaction'])->name('transactions.confirm');
 
 
+// // register
+// Route::get('/register', [AuthController::class, 'showRegisterForm'])->name('register');
+// routes/web.php
+});
