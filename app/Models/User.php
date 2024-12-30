@@ -17,7 +17,7 @@ class User extends Authenticatable
         'is_admin',
     ];
 
-    public function isAdmin()
+    public function isAdmin(): bool
     {
         return $this->is_admin;
     }
