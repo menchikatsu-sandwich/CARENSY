@@ -26,6 +26,10 @@
                 </tbody>
                 <tfoot class="bg-gray-200 dark:bg-gray-700">
                     <tr>
+                        <td colspan="4" class="text-right py-2 px-4 border dark:border-gray-700"><strong>Jumlah Hari:</strong></td>
+                        <td class="py-2 px-4 border dark:border-gray-700"><strong id="jumlahHari">0</strong></td>
+                    </tr>
+                    <tr>
                         <td colspan="4" class="text-right py-2 px-4 border dark:border-gray-700"><strong>Total Harga:</strong></td>
                         <td class="py-2 px-4 border dark:border-gray-700"><strong id="totalHarga">0.00</strong></td>
                     </tr>
@@ -81,6 +85,7 @@
         document.addEventListener('DOMContentLoaded', function () {
             const tanggalPinjam = document.getElementById('tanggal_pinjam');
             const tanggalKembali = document.getElementById('tanggal_kembali');
+            const jumlahHariElement = document.getElementById('jumlahHari');
             const totalHargaElement = document.getElementById('totalHarga');
 
             const calculateTotal = () => {
@@ -89,12 +94,18 @@
                 const oneDay = 24 * 60 * 60 * 1000; // Milliseconds in one day
                 const jumlahHari = Math.round((endDate - startDate) / oneDay) + 1;
 
+                if (jumlahHari < 2) {
+                    alert('Minimal peminjaman 2 hari atau lebih');
+                    return;
+                }
+                
                 let totalHarga = 0;
-
+                
                 @foreach ($cart->cartItems as $item)
-                    totalHarga += {{ $item->quantity }} * {{ $item->price }} * jumlahHari;
+                totalHarga += {{ $item->quantity }} * {{ $item->price }} * jumlahHari;
                 @endforeach
-
+                
+                jumlahHariElement.textContent = jumlahHari;
                 totalHargaElement.textContent = totalHarga.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
             };
 

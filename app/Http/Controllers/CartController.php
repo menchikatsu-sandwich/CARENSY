@@ -100,6 +100,7 @@ class CartController extends Controller
     public function removeFromCart(CartItem $cartItem)
     {
         $product = $cartItem->product;
+        $cart = $cartItem->cart;
 
         // Restore produk stock
         $product->increment('stock', $cartItem->quantity);
@@ -107,8 +108,11 @@ class CartController extends Controller
         // Delete cart item
         $cartItem->delete();
 
-        // Update cart total
-        $this->updateCartTotal($cartItem->cart);
+        if ($cart->cartItems()->count() === 0) {
+            $cart->update(['total_amount' => 0]);
+        } else {
+            $this->updateCartTotal($cart);
+        }
 
         return redirect()->route('cart.index')->with('success', 'Item berhasil dihapus dari keranjang!');
     }

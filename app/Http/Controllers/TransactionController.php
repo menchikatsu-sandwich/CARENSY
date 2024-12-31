@@ -90,7 +90,7 @@ class TransactionController extends Controller
             // Pindahkan data item ke historiItems dan update stok produk
             foreach ($transaction->cartItems as $cartItem) {
                 HistoryItem::create([
-                    'histori_transaksi_id' => $historyTransaksi->id, // Pastikan histori_transaksi_id disertakan
+                    'histori_transaksi_id' => $historyTransaksi->id, 
                     'product_id' => $cartItem->product_id,
                     'quantity' => $cartItem->quantity,
                     'price' => $cartItem->price,

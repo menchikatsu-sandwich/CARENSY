@@ -42,7 +42,7 @@
           id="password" 
           name="password" 
           class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" 
-          placeholder="Masukkan password">
+          placeholder="Minimal 8 karakter">
       </div>
       <p class="mb-4 text-sm text-center">Sudah punya akun? <a href="/login" class="text-blue-500 hover:underline">Login di sini</a></p>
       <button 
