@@ -2,24 +2,32 @@
     <x-slot:title>{{ $title }}</x-slot:title>
 
     <!-- Header -->
-    <div class="flex items-center justify-between mb-4">
-        {{-- back --}}
+    <div class="flex items-center justify-between mb-4 px-4">
         <a href="javascript:window.history.back();" class="text-gray-600">
             <i class="fa-solid fa-angle-left"></i>
         </a>
     </div>
 
     <!-- Content -->
-    <div class="p-6 bg-white dark:bg-gray-800 shadow-lg rounded-lg">
-        <div class="flex flex-col md:flex-row items-start space-x-0 md:space-x-4 space-y-4 md:space-y-0">
-            <div class="w-full md:w-1/2 h-96 bg-gray-200 dark:bg-gray-700 rounded-md flex items-center justify-center overflow-hidden">
-                <img src="{{ asset($product->image) }}" alt="{{ $product->nama_product }}" class="w-full h-full object-cover rounded-md transition-transform duration-300 hover:scale-105">
-            </div>
+    <div class="p-4 md:p-6 bg-white dark:bg-gray-800 shadow-lg rounded-lg">
+        <div class="flex flex-col md:flex-row items-start space-y-4 md:space-y-0 md:space-x-4">
+            <!-- Image Container -->
             <div class="w-full md:w-1/2">
-                <h2 class="text-3xl font-bold text-gray-800 dark:text-gray-100">{{ $product->nama_product }}</h2>
+                <div class="aspect-[4/3] bg-gray-200 dark:bg-gray-700 rounded-md overflow-hidden">
+                    <img 
+                        src="{{ asset($product->image) }}" 
+                        alt="{{ $product->nama_product }}" 
+                        class="w-full h-full object-contain rounded-md transition-transform duration-300 hover:scale-105"
+                    >
+                </div>
+            </div>
+            
+            <!-- Product Details -->
+            <div class="w-full md:w-1/2 px-2 md:px-0">
+                <h2 class="text-2xl md:text-3xl font-bold text-gray-800 dark:text-gray-100">{{ $product->nama_product }}</h2>
                 <p class="text-gray-600 dark:text-gray-400 mt-2">Kategori: {{ $product->kategori_product }}</p>
                 <p class="text-gray-600 dark:text-gray-400">Merek: {{ $product->merek_product }}</p>
-                <p class="text-gray-800 dark:text-gray-100 font-bold text-2xl mt-4">Rp. {{ number_format($product->harga_sewa, 0, ',', '.') }}</p>
+                <p class="text-gray-800 dark:text-gray-100 font-bold text-xl md:text-2xl mt-4">Rp. {{ number_format($product->harga_sewa, 0, ',', '.') }}</p>
                 <p class="text-gray-600 dark:text-gray-400 mt-2">Stok: {{ $product->stock }}</p>
                 <div class="mt-6">
                     <h3 class="font-semibold text-gray-800 dark:text-gray-100 mb-2">Deskripsi/Kelengkapan Kamera:</h3>

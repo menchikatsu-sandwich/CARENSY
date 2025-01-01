@@ -1,3 +1,37 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+:root {
+  --bg-color: #ffffff;
+  --text-color: #000000;
+}
+
+.dark {
+  --bg-color: #1a202c;
+  --text-color: #a0aec0;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+#search-input {
+    width: 0;
+    padding-left: 2.5rem; /* To make space for the icon */
+  }
+  
+  #search-input.show {
+    width: 16rem; /* Width when search field is visible */
+    opacity: 1;
+    pointer-events: auto; /* Allow interaction when visible */
+  }
+
+
+
+
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -59,3 +93,4 @@ table.products tbody tr.items td {
     margin-top: 1rem;
     font-size: 0.875rem;
 }
+
