@@ -85,7 +85,7 @@
             const totalHargaElement = document.getElementById('totalHarga');
             const totalHariElement = document.getElementById('totalHari');
             const calculateTotal = () => {
-                const oneDay = 24 * 60 * 60 * 1000; // Milliseconds in one day 
+                const oneDay = 24 * 60 * 60 * 1000; // Milliseconds in one day
                 const jumlahHari = Math.round((tanggalKembali - tanggalPinjam) / oneDay) + 1;
                 let totalHarga = 0;
                 @foreach ($historyItems as $item)

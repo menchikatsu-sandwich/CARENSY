@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="img/Logo1.png">
     <title>{{$title}}</title>
     @vite('resources/css/app.css')
     @vite('resources/js/app.js')
@@ -10,7 +11,7 @@
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    
+
 </head>
 <body class="flex flex-col min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100">
   <x-navbar></x-navbar>
@@ -20,7 +21,7 @@
         {{ $slot }}
     </div>
   </main>
-  
+
   <x-footer></x-footer>
 </body>
 
@@ -62,7 +63,7 @@
             setTimeout(function () {
                 alertBox.style.transition = "opacity 0.5s ease";
                 alertBox.style.opacity = '0';
-                
+
                 setTimeout(function () {
                     alertBox.remove();
                 }, 500);

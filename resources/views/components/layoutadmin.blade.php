@@ -3,21 +3,22 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/png" href="img/Logo1.png">
         <title>{{ $title }}</title>
         <!-- Font Awesome -->
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 
-    
+
         <!-- Tailwind -->
         <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
-        
+
         <style>
             /* Mengimpor font Poppins */
             @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
-    
+
             /* Mengganti font-family menjadi Poppins */
             .font-family-popins { font-family: 'Poppins', sans-serif; }
-    
+
             /* Warna dan gaya */
             .bg-sidebar { background: #ffffff; }
             .cta-btn { color: #D9D9D9; }
@@ -28,7 +29,7 @@
             .account-link:hover { background: #C3C3C3; }
         </style>
     </head>
-    
+
 <body class="bg-gray-100 font-family-popins flex">
 
     <x-nav-bar-admin></x-nav-bar-admin>
@@ -39,12 +40,12 @@
                 <h1 class="text-3xl text-black pb-6 text-center"><strong>{{ $title }}</strong></h1>
                 </div>
                 <div class="ml-4">{{ $slot }}</div>
-                
+
             </main>
-    
-            
+
+
         </div>
-        
+
     </div>
 
     <!-- AlpineJS -->
