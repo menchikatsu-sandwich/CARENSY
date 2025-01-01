@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rent Receipt</title>
     <style>
+        
         .w-full { width: 100%; }
         .w-half { width: 50%; }
         .margin-top { margin-top: 1.5rem; }

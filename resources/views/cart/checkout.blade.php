@@ -1,40 +1,42 @@
 <x-layout>
     <x-slot:title>{{ $title }}</x-slot:title>
-    <div class="container mx-auto mb-10 mt-10 px-4">
-        <h1 class="mb-6 text-2xl font-bold text-center text-gray-800 dark:text-gray-100">Checkout</h1>
-        <div class="bg-gray-200 dark:bg-gray-700 rounded-lg shadow p-4">
-            <table class="min-w-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
-                <thead class="bg-gray-200 dark:bg-gray-700">
-                    <tr>
-                        <th class="py-2 px-4 border dark:border-gray-700">Kode Produk</th>
-                        <th class="py-2 px-4 border dark:border-gray-700">Nama Produk</th>
-                        <th class="py-2 px-4 border dark:border-gray-700">Quantity</th>
-                        <th class="py-2 px-4 border dark:border-gray-700">Harga</th>
-                        <th class="py-2 px-4 border dark:border-gray-700">Total</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($cart->cartItems as $item)
-                        <tr class="bg-white dark:bg-gray-800">
-                            <td class="py-2 px-4 border dark:border-gray-700">{{ $item->product->kode_product }}</td>
-                            <td class="py-2 px-4 border dark:border-gray-700">{{ $item->product->nama_product }}</td>
-                            <td class="py-2 px-4 border text-center dark:border-gray-700">{{ $item->quantity }}</td>
-                            <td class="py-2 px-4 border dark:border-gray-700">{{ number_format($item->price, 2) }}</td>
-                            <td class="py-2 px-4 border dark:border-gray-700">{{ number_format($item->quantity * $item->price, 2) }}</td>
+    <div class="container mx-auto mb-6 mt-6 md:mb-10 md:mt-10 px-2 md:px-4">
+        <h1 class="mb-4 md:mb-6 text-xl md:text-2xl font-bold text-center text-gray-800 dark:text-gray-100">Checkout</h1>
+        <div class="bg-gray-200 dark:bg-gray-700 rounded-lg shadow p-2 md:p-4">
+            <div class="overflow-x-auto">
+                <table class="min-w-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
+                    <thead class="bg-gray-200 dark:bg-gray-700">
+                        <tr>
+                            <th class="py-2 px-2 md:px-4 border dark:border-gray-700 text-sm md:text-base">Kode Produk</th>
+                            <th class="py-2 px-2 md:px-4 border dark:border-gray-700 text-sm md:text-base">Nama Produk</th>
+                            <th class="py-2 px-2 md:px-4 border dark:border-gray-700 text-sm md:text-base">Quantity</th>
+                            <th class="py-2 px-2 md:px-4 border dark:border-gray-700 text-sm md:text-base">Harga</th>
+                            <th class="py-2 px-2 md:px-4 border dark:border-gray-700 text-sm md:text-base">Total</th>
                         </tr>
-                    @endforeach
-                </tbody>
-                <tfoot class="bg-gray-200 dark:bg-gray-700">
-                    <tr>
-                        <td colspan="4" class="text-right py-2 px-4 border dark:border-gray-700"><strong>Jumlah Hari:</strong></td>
-                        <td class="py-2 px-4 border dark:border-gray-700"><strong id="jumlahHari">0</strong></td>
-                    </tr>
-                    <tr>
-                        <td colspan="4" class="text-right py-2 px-4 border dark:border-gray-700"><strong>Total Harga:</strong></td>
-                        <td class="py-2 px-4 border dark:border-gray-700"><strong id="totalHarga">0.00</strong></td>
-                    </tr>
-                </tfoot>
-            </table>
+                    </thead>
+                    <tbody>
+                        @foreach ($cart->cartItems as $item)
+                            <tr class="bg-white dark:bg-gray-800">
+                                <td class="py-2 px-2 md:px-4 border dark:border-gray-700 text-sm md:text-base">{{ $item->product->kode_product }}</td>
+                                <td class="py-2 px-2 md:px-4 border dark:border-gray-700 text-sm md:text-base">{{ $item->product->nama_product }}</td>
+                                <td class="py-2 px-2 md:px-4 border text-center dark:border-gray-700 text-sm md:text-base">{{ $item->quantity }}</td>
+                                <td class="py-2 px-2 md:px-4 border dark:border-gray-700 text-sm md:text-base">{{ number_format($item->price, 2) }}</td>
+                                <td class="py-2 px-2 md:px-4 border dark:border-gray-700 text-sm md:text-base">{{ number_format($item->quantity * $item->price, 2) }}</td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                    <tfoot class="bg-gray-200 dark:bg-gray-700">
+                        <tr>
+                            <td colspan="4" class="text-right py-2 px-2 md:px-4 border dark:border-gray-700 text-sm md:text-base"><strong>Jumlah Hari:</strong></td>
+                            <td class="py-2 px-2 md:px-4 border dark:border-gray-700 text-sm md:text-base"><strong id="jumlahHari">0</strong></td>
+                        </tr>
+                        <tr>
+                            <td colspan="4" class="text-right py-2 px-2 md:px-4 border dark:border-gray-700 text-sm md:text-base"><strong>Total Harga:</strong></td>
+                            <td class="py-2 px-2 md:px-4 border dark:border-gray-700 text-sm md:text-base"><strong id="totalHarga">0.00</strong></td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
 
             <form action="{{ route('checkout.process') }}" method="POST" class="mt-4 space-y-4">
                 @csrf
