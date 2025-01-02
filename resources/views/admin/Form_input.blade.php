@@ -61,7 +61,7 @@
 
             <!-- DETAIL CAMERA -->
             <div class="flex flex-col">
-                <label for="detail-camera" class="mb-2 text-sm font-medium text-gray-700">DETAIL CAMERA</label>
+                <label for="detail-camera" class="mb-2 text-sm font-medium text-gray-700">DETAIL PRODUCT</label>
                 <input type="text" id="detail-camera" name="detail_product"
                     class="border border-gray-300 rounded-md p-3 focus:outline-none focus:ring focus:ring-blue-200">
             </div>
@@ -90,19 +90,21 @@
             <!-- UPLOAD IMAGE -->
             <div class="flex items-center">
                 <div
-                    class="w-52 h-52 flex flex-col items-center justify-center border-2 border-dashed border-gray-300 rounded-md p-2 cursor-pointer hover:border-blue-400 hover:bg-blue-50">
-                    <label for="upload-image" class="flex flex-col items-center">
+                    class="w-52 h-52 relative flex flex-col items-center justify-center border-2 border-dashed border-gray-300 rounded-md p-2 cursor-pointer hover:border-blue-400 hover:bg-blue-50 overflow-hidden">
+                    <label for="upload-image" class="flex flex-col items-center w-full h-full">
                         <template x-if="!fileUrl">
-                            <svg class="w-12 h-12 text-gray-400" fill="none" stroke="currentColor"
-                                viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M12 4v16m8-8H4"></path>
-                            </svg>
+                            <div class="flex flex-col items-center">
+                                <svg class="w-12 h-12 text-gray-400" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M12 4v16m8-8H4"></path>
+                                </svg>
+                                <span class="text-sm text-gray-500">Upload Image</span>
+                            </div>
                         </template>
                         <template x-if="fileUrl">
-                            <img :src="fileUrl" alt="" class="w-full h-full object-cover">
+                            <img :src="fileUrl" alt="" class="w-full h-full object-cover absolute inset-0">
                         </template>
-                        <span class="text-sm text-gray-500" x-text="fileName || 'Upload Image'"></span>
                     </label>
                     <input type="file" id="upload-image" name="image" class="hidden"
                         @change="fileName = $event.target.files[0].name; fileUrl = URL.createObjectURL($event.target.files[0])">

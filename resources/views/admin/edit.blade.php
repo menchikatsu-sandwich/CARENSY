@@ -105,7 +105,7 @@
 
             <!-- DETAIL CAMERA -->
             <div class="flex flex-col">
-                <label for="detail-camera" class="mb-2 text-sm font-medium text-gray-700">DETAIL CAMERA</label>
+                <label for="detail-camera" class="mb-2 text-sm font-medium text-gray-700">DETAIL PRODUCT</label>
                 <input type="text" id="detail-camera" name="detail_product" value="{{ $product->detail_product }}"
                     class="border border-gray-300 rounded-md p-3 focus:outline-none focus:ring focus:ring-blue-200">
             </div>
