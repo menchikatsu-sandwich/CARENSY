@@ -3,7 +3,7 @@
 
     <!-- Header -->
     <div class="flex items-center justify-between mb-6">
-        <a href="/pemesanan" class="text-gray-600 hover:text-gray-800">
+        <a href="javascript:window.history.back();" class="text-gray-600 hover:text-gray-800">
             <i class="fa-solid fa-angle-left text-xl"></i>
         </a>
     </div>

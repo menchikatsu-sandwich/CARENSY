@@ -1,41 +1,65 @@
-<aside class="relative text-black bg-gray-800 h-screen w-64 hidden sm:block shadow-xl">
+<aside class="relative text-white bg-gray-800 h-screen w-64 hidden sm:flex flex-col shadow-xl">
     <div class="p-6">
-        <a href="/dashboard_admin" class="text-white text-3xl font-semibold uppercase hover:text-gray-300 ">Dashboard</a>
+        <a href="/dashboard_admin" class="text-white text-3xl font-semibold uppercase hover:text-gray-300">Dashboard</a>
     </div>
-    <nav class=" text-white text-base font-semibold pt-3 ">
-        <x-nav-link-admin href='/dashboard_admin' :active="request()->is('dashboard_admin')" class="px-4 py-2 block {{ request()->is('dashboard_admin') ? 'text-black bg-gray-200' : 'text-white' }}">List Produk</x-nav-link-admin>
-            <x-nav-link-admin href="/form_input" :active="request()->is('form_input')" class="px-4 py-2 block {{ request()->is('form_input') ? 'text-black bg-gray-200' : 'text-white' }}">Form Input</x-nav-link-admin>
-            <x-nav-link-admin href='/pemesanan' :active="request()->is('pemesanan')" class="px-4 py-2 block {{ request()->is('pemesanan') ? 'text-black bg-gray-200' : 'text-white' }}">Pemesanan</x-nav-link-admin>
-            <x-nav-link-admin href='/history' :active="request()->is('history')" class="px-4 py-2 block {{ request()->is('history') ? 'text-black bg-gray-200' : 'text-white' }}">History</x-nav-link-admin>
-        
-       
+    <nav class="text-white text-base font-semibold pt-3 flex-grow space-y-2">
+        <x-nav-link-admin href='/dashboard_admin' :active="request()->is('dashboard_admin')" 
+            class="px-4 py-2 block rounded {{ request()->is('dashboard_admin') ? 'bg-gray-700' : 'hover:bg-gray-700' }}">
+            List Produk
+        </x-nav-link-admin>
+        <x-nav-link-admin href="/form_input" :active="request()->is('form_input')" 
+            class="px-4 py-2 block rounded {{ request()->is('form_input') ? 'bg-gray-700' : 'hover:bg-gray-700' }}">
+            Form Input
+        </x-nav-link-admin>
+        <x-nav-link-admin href='/pemesanan' :active="request()->is('pemesanan')" 
+            class="px-4 py-2 block rounded {{ request()->is('pemesanan') ? 'bg-gray-700' : 'hover:bg-gray-700' }}">
+            Pemesanan
+        </x-nav-link-admin>
+        <x-nav-link-admin href='/history' :active="request()->is('history')" 
+            class="px-4 py-2 block rounded {{ request()->is('history') ? 'bg-gray-700' : 'hover:bg-gray-700' }}">
+            History
+        </x-nav-link-admin>
     </nav>
+    <div class="mt-auto border-t border-gray-700">
+        <form action="{{ route('logout') }}" method="POST" class="p-4">
+            @csrf
+            <button type="submit" class="flex items-center px-4 py-3 text-white hover:bg-gray-700 transition-colors duration-200 rounded">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                </svg>
+                Sign Out
+            </button>
+        </form>
+    </div>
 </aside>
 
-<div class="w-full flex flex-col h-screen overflow-y-hidden">
-    <!-- Desktop Header -->
-    
-
+<div class="w-full flex flex-col h-screen overflow-hidden">
     <!-- Mobile Header & Nav -->
-    <header x-data="{ isOpen: false }" class="w-full bg-sidebar py-5 px-6 sm:hidden">
+    <header x-data="{ isOpen: false }" class="w-full bg-gray-800 py-5 px-6 sm:hidden">
         <div class="flex items-center justify-between">
-            <a href="index.html" class="text-black text-3xl font-semibold uppercase ">Dashboard</a>
+            <a href="/dashboard_admin" class="text-white text-3xl font-semibold uppercase">Dashboard</a>
             <button @click="isOpen = !isOpen" class="text-white text-3xl focus:outline-none">
-                <i x-show="!isOpen" class="fas fa-bars" style="color: #000000;"></i>
-                
-                <i x-show="isOpen" class="fas fa-times" style="color: #000000;"></i>
+                <i x-show="!isOpen" class="fas fa-bars"></i>
+                <i x-show="isOpen" class="fas fa-times"></i>
             </button>
         </div>
-
-        <!-- Dropdown Nav -->
-        <nav :class="isOpen ? 'flex': 'hidden'" class="flex flex-col pt-4">
-            <x-nav-link-admin href='/dashboard_admin' :active="request()->is('dashboard_admin')" >List Produk</x-nav-link-admin>
-            <x-nav-link-admin href="/form_input" :active="request()->is('form_input')">Form Input</x-nav-link-admin>
-            <x-nav-link-admin href='/pemesanan' :active="request()->is('pemesanan')">Pemesanan</x-nav-link-admin>
-            <x-nav-link-admin href='/history' :active="request()->is('history')">History</x-nav-link-admin>
-            
+        <nav :class="isOpen ? 'block' : 'hidden'" class="flex flex-col pt-4 space-y-2">
+            <x-nav-link-admin href='/dashboard_admin' :active="request()->is('dashboard_admin')" 
+                class="px-4 py-2 block rounded text-white hover:bg-gray-700">List Produk</x-nav-link-admin>
+            <x-nav-link-admin href="/form_input" :active="request()->is('form_input')" 
+                class="px-4 py-2 block rounded text-white hover:bg-gray-700">Form Input</x-nav-link-admin>
+            <x-nav-link-admin href='/pemesanan' :active="request()->is('pemesanan')" 
+                class="px-4 py-2 block rounded text-white hover:bg-gray-700">Pemesanan</x-nav-link-admin>
+            <x-nav-link-admin href='/history' :active="request()->is('history')" 
+                class="px-4 py-2 block rounded text-white hover:bg-gray-700">History</x-nav-link-admin>
+            <form action="{{ route('logout') }}" method="POST" class="mt-4">
+                @csrf
+                <button type="submit" class="flex items-center px-4 py-2 text-white hover:bg-gray-700 transition-colors duration-200 rounded">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                    </svg>
+                    Sign Out
+                </button>
+            </form>
         </nav>
-        <!-- <button class="w-full bg-white cta-btn font-semibold py-2 mt-5 rounded-br-lg rounded-bl-lg rounded-tr-lg shadow-lg hover:shadow-xl hover:bg-gray-300 flex items-center justify-center">
-            <i class="fas fa-plus mr-3"></i> New Report
-        </button> -->
     </header>
