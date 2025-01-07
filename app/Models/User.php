@@ -22,7 +22,6 @@ class User extends Authenticatable
         return $this->is_admin;
     }
 
-    // Relasi dengan model Profile
     public function profile()  
     {
         return $this->hasOne(Profile::class);
