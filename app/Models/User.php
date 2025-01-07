@@ -8,7 +8,7 @@ use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
-    use HasFactory, Notifiable;
+    use Notifiable;
 
     protected $fillable = [
         'name',
@@ -22,8 +22,13 @@ class User extends Authenticatable
         return $this->is_admin;
     }
 
-    public function profile()  
+    public function profile()
     {
         return $this->hasOne(Profile::class);
+    }
+
+    public function transactions()
+    {
+        return $this->hasMany(Transaction::class);
     }
 }
