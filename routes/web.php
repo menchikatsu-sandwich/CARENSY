@@ -89,7 +89,8 @@ Route::get('/form_input', function () {
 //pemesanan
 Route::get('/pemesanan', [PemesananController::class, 'index'])->name('pemesanan.index');
 //history
-Route::get('/history', [HistoryController::class, 'index'])->name('transactions.history');
+Route::get('/history', [HistoryController::class, 'search'])->name('transactions.history');
+
 //detai produk admin
 Route::get('/detail_kamera/{product:id}', function (Product $product) {
     return view('/admin/Detail_kamera_admin', ['title' => 'Detail Produk', 'product' => $product]);

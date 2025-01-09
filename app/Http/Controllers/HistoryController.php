@@ -6,37 +6,28 @@ use App\Models\HistoryTransaksi;
 
 class HistoryController extends Controller
 {
-    public function index(Request $request)
+
+    public function search(Request $request)
     {
         $title = 'History Pemesanan';
-        $sortMethod = $request->get('sort', 'tanggal_pinjam_desc');
-        $historyTransaksi = HistoryTransaksi::with('user.profile')->get();
-
-        switch ($sortMethod) {
-            case 'tanggal_pinjam_asc':
-                $historyTransaksi = $historyTransaksi->sortBy('tanggal_pinjam');
-                break;
-            case 'tanggal_pinjam_desc':
-                $historyTransaksi = $historyTransaksi->sortByDesc('tanggal_pinjam');
-                break;
-            case 'tanggal_kembali_asc':
-                $historyTransaksi = $historyTransaksi->sortBy('tanggal_kembali');
-                break;
-            case 'tanggal_kembali_desc':
-                $historyTransaksi = $historyTransaksi->sortByDesc('tanggal_kembali');
-                break;
-            case 'name_asc':
-                $historyTransaksi = $historyTransaksi->sortBy(function($history) {
-                    return $history->user->name;
+        $searchName = $request->input('search_name');
+        $searchDate = $request->input('search_date');
+        
+        $historyTransaksi = HistoryTransaksi::with('user.profile')
+            ->when($searchName, function ($query, $searchName) {
+                return $query->whereHas('user', function ($query) use ($searchName) {
+                    $query->where('name', 'like', "%{$searchName}%");
                 });
-                break;
-            case 'name_desc':
-                $historyTransaksi = $historyTransaksi->sortByDesc(function($history) {
-                    return $history->user->name;
-                });
-                break;
-        }
+            })
+            ->when($searchDate, function ($query, $searchDate) {
+                return $query->where(function ($query) use ($searchDate) {
+                    $query->whereDate('tanggal_pinjam', $searchDate)
+                        ->orWhereDate('tanggal_kembali', $searchDate);
+                    });
+                })
+            ->get();
 
-        return view('admin.history', compact('title', 'historyTransaksi', 'sortMethod'));
+        return view('admin.history', compact('title', 'historyTransaksi', 'searchName', 'searchDate'));
     }
+
 }

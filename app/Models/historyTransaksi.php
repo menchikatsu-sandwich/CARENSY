@@ -11,7 +11,8 @@ class historyTransaksi extends Model
     protected $fillable = [
         'user_id', 
         'tanggal_pinjam', 
-        'tanggal_kembali', 
+        'tanggal_kembali',
+        'media_sosial', 
         'kode_transaksi', 
         'alamat_now', 
         'alamat_ktp', 
