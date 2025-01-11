@@ -9,10 +9,15 @@ use Illuminate\Http\Request;
 class ProductController extends Controller
 {
 
-    public function index()
+    public function index(Request $request)
     {
-        $products = Product::all();
+        $query = $request->input('search'); 
+        $products = Product::when($query, function ($q) use ($query) {
+            $q->where('nama_product', 'like', '%' . $query . '%'); 
+        })->get();
+    
         $title = 'List Produk';
+    
         return view('admin.Dashboard_admin', compact('products', 'title'));
     }
     public function store(Request $request)
