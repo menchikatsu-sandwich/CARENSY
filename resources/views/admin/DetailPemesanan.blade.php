@@ -51,6 +51,9 @@
                         <span class="text-gray-600 text-sm leading-relaxed">
                             <strong>Total Hari Meminjam:</strong> <span id="totalHari">0</span> hari
                         </span>
+                        <span class="text-gray-600 text-sm leading-relaxed">
+                            <strong>jaminan:</strong> {{$transaction->jaminan}}
+                        </span>
                     </div>
                 <h3 class="font-semibold text-gray-800 mb-2 mt-4">Detail Produk:</h3>
                 <table class="min-w-full bg-white rounded-lg shadow-md">

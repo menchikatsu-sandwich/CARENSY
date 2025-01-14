@@ -14,6 +14,7 @@ class Receipt extends Model
         'tgl_pinjam',
         'tgl_kembali',
         'transaction_id',
+        'jaminan'
     ];
 
     public function transaction()

@@ -16,7 +16,8 @@ class historyTransaksi extends Model
         'kode_transaksi', 
         'alamat_now', 
         'alamat_ktp', 
-        'email'
+        'email',
+        'jaminan'
     ];
 
     public function historiItems()

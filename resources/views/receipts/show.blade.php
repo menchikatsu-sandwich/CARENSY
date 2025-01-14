@@ -22,6 +22,7 @@
             <p class="mb-1"><strong>No. Telp:</strong> {{ $receipt->transaction->user->profile->no_telp }}</p>
             <p class="mb-1"><strong>Email:</strong> {{ $receipt->transaction->email }}</p>
             <p><strong>Media Sosial:</strong> {{ $receipt->transaction->media_sosial }}</p>
+            <p><strong>jaminan:</strong> {{ $receipt->transaction->jaminan }}</p>
         </div>
         <table class="table-auto w-full mb-6 border-collapse border border-gray-300">
             <thead>
