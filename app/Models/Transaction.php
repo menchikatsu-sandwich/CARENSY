@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Transaction extends Model
 {
-    protected $fillable = ['kode_transaksi', 'user_id', 'email', 'alamat_now', 'alamat_ktp', 'media_sosial', 'tanggal_pinjam', 'tanggal_kembali'];
+    protected $fillable = ['kode_transaksi', 'user_id', 'email', 'alamat_now', 'alamat_ktp', 'media_sosial', 'tanggal_pinjam', 'tanggal_kembali', 'jaminan'];
 
     public function user()
     {

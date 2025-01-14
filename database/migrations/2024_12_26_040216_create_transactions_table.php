@@ -18,6 +18,7 @@ class CreateTransactionsTable extends Migration
             $table->string('media_sosial');
             $table->date('tanggal_pinjam');
             $table->date('tanggal_kembali');
+            $table->String('jaminan');
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
