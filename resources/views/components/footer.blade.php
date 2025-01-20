@@ -9,7 +9,7 @@
         <div class="flex space-x-4 mt-2">
           <a href="#" class="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white text-sm">Facebook</a>
           <a href="#" class="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white text-sm">Instagram</a>
-          <a href="#" class="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white text-sm">WhatsApp</a>
+          <a href="https://api.whatsapp.com/send/?phone=6281329756879&text&type=phone_number&app_absent=0" class="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white text-sm">WhatsApp</a>
         </div>
       </div>
       <div class="md:w-1/3">
