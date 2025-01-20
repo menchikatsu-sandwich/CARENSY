@@ -85,6 +85,7 @@
             <p><strong>No. Telp:</strong> {{ $receipt->transaction->user->profile->no_telp }}</p>
             <p><strong>Email:</strong> {{ $receipt->transaction->email }}</p>
             <p><strong>Media Sosial:</strong> {{ $receipt->transaction->media_sosial }}</p>
+            <p><strong>Jaminan:</strong> {{ $receipt->transaction->jaminan }}</p>
         </div>
         <table class="w-full margin-top">
             <thead>

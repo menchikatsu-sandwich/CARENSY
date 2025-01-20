@@ -7,15 +7,7 @@
         <a href="/pemesanan" class="text-gray-600 hover:text-gray-800">
             <i class="fa-solid fa-angle-left text-xl"></i>
         </a>
-        {{-- confirm --}}
-        <div class="flex space-x-2">
-            <form action="{{ route('transactions.confirm', $transaction->id) }}" method="POST">
-                @csrf
-                <button class="text-green-600 hover:text-green-800 px-4 py-2 text-lg">
-                    <i class="fa-regular fa-square-check text-xl"></i>
-                </button>
-            </form>
-        </div>
+
     </div>
 
     <!-- Content -->
@@ -23,6 +15,15 @@
         <div class="flex flex-col items-center">
             <div class="w-full">
                 <h2 class="text-3xl font-bold text-gray-800 mb-4 text-center">Detail Pesanan</h2>
+                {{-- confirm --}}
+                <div class="flex justify-end space-x-2">
+                    <form action="{{ route('transactions.confirm', $transaction->id) }}" method="POST">
+                        @csrf
+                        <button class="text-green-600 hover:text-green-800 px-4 py-2 text-lg">
+                            <i class="fa-regular fa-square-check text-xl"></i>
+                        </button>
+                    </form>
+                </div>
                 <div class="mt-6">
                     <h3 class="font-semibold text-gray-800 mb-2">Detail Pemesan:</h3>
                     <div class="flex flex-col space-y-2">
@@ -49,6 +50,9 @@
                         </span>
                         <span class="text-gray-600 text-sm leading-relaxed">
                             <strong>Total Hari Meminjam:</strong> <span id="totalHari">0</span> hari
+                        </span>
+                        <span class="text-gray-600 text-sm leading-relaxed">
+                            <strong>Jaminan:</strong> {{$transaction->jaminan}}
                         </span>
                     </div>
                 <h3 class="font-semibold text-gray-800 mb-2 mt-4">Detail Produk:</h3>

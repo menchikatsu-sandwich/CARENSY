@@ -1,18 +1,20 @@
 <?php
 
-use App\Models\historyTransaksi;
 use App\Models\Product;
+use App\Models\CartItem;
+use App\Models\historyItem;
 use App\Models\Transaction;
+use App\Models\historyTransaksi;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\HistoryController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ReceiptController;
+use App\Http\Controllers\PemesananController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\Auth\RegisterController;
-use App\Models\CartItem;
-use App\Models\historyItem;
-use App\Http\Controllers\ReceiptController;
 
 // ! USER !
 // home
@@ -85,13 +87,10 @@ Route::get('/form_input', function () {
     return view('/admin/Form_input', ['title' => 'Form Input']);
 });
 //pemesanan
-Route::get('/pemesanan', function () {
-    return view('/admin/Pemesanan', ['title' => 'Pemesanan', 'transactions' => Transaction::all()]);
-});
+Route::get('/pemesanan', [PemesananController::class, 'index'])->name('pemesanan.index');
 //history
-Route::get('/history', function () {
-    return view('admin.History', ['title' => 'History Pemesanan', 'historyTransaksi' => historyTransaksi::all()]);
-})->name('transactions.history');
+Route::get('/history', [HistoryController::class, 'search'])->name('transactions.history');
+
 //detai produk admin
 Route::get('/detail_kamera/{product:id}', function (Product $product) {
     return view('/admin/Detail_kamera_admin', ['title' => 'Detail Produk', 'product' => $product]);

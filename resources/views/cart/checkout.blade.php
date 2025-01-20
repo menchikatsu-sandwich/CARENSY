@@ -75,6 +75,17 @@
                             <label for="tanggal_kembali" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Tanggal Kembali</label>
                             <input type="date" name="tanggal_kembali" id="tanggal_kembali" class="mt-1 block w-full border border-gray-300 dark:border-gray-600 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100" required>
                         </div>
+
+                        <div class="form-group mt-4">
+                            <label for="jaminan" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Jaminan</label>
+                            <select id="jaminan" name="jaminan" class="mt-1 block w-full border border-gray-300 dark:border-gray-600 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100" required>
+                            <option value="" disabled selected>Pilih Jaminan</option>
+                            <option value="KTP">KTP</option>
+                            <option value="SIM">SIM</option>
+                            <option value="KartuPelajar">Kartu Pelajar</option>
+                            
+            </select>
+                        </div>
                     </div>
                 </div>
 
@@ -115,4 +126,6 @@
             tanggalKembali.addEventListener('change', calculateTotal);
         });
     </script>
+
+
 </x-layout>

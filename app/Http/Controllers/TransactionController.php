@@ -22,7 +22,13 @@ class TransactionController extends Controller
             return redirect()->route('cart.index')->with('error', 'Keranjang Anda kosong.');
         }
 
-        return view('cart.checkout', ['title' => 'Checkout', 'cart' => $cart]);
+         // Tambahkan data jaminan (opsi dropdown)
+    
+    return view('cart.checkout', [
+        'title' => 'Checkout',
+        'cart' => $cart,
+        // Kirim data ke view
+    ]);
     }
 
     public function processCheckout(Request $request)
@@ -34,6 +40,7 @@ class TransactionController extends Controller
             'media_sosial' => 'required|string',
             'tanggal_pinjam' => 'required|date',
             'tanggal_kembali' => 'required|date|after:tanggal_pinjam',
+            'jaminan' => 'required|in:KTP,SIM,Kartu Pelajar'
         ]);
 
         $cart = Cart::where('user_id', Auth::id())->with('cartItems.product')->first();
@@ -52,6 +59,7 @@ class TransactionController extends Controller
             'media_sosial' => $request->media_sosial,
             'tanggal_pinjam' => $request->tanggal_pinjam,
             'tanggal_kembali' => $request->tanggal_kembali,
+            'jaminan' => $request->jaminan,
         ]);
 
         foreach ($cart->cartItems as $item) {

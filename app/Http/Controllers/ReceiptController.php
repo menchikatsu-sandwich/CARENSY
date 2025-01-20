@@ -16,6 +16,7 @@ class ReceiptController extends Controller
             'receipt_no' => 'required|string|size:4|unique:receipts',
             'tgl_pinjam' => 'required|date',
             'tgl_kembali' => 'required|date',
+            'jaminan'
         ]);
 
         Receipt::create($request->all());
