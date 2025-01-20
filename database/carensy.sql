@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jan 06, 2025 at 03:59 AM
+-- Generation Time: Jan 20, 2025 at 04:32 AM
 -- Server version: 8.0.30
 -- PHP Version: 8.3.12
 
@@ -64,7 +64,7 @@ CREATE TABLE `carts` (
 --
 
 INSERT INTO `carts` (`id`, `user_id`, `total_amount`, `created_at`, `updated_at`) VALUES
-(5, 2, '250000.00', '2024-12-31 23:36:33', '2024-12-31 23:36:33');
+(3, 1, '0.00', '2025-01-19 20:26:57', '2025-01-19 20:31:06');
 
 -- --------------------------------------------------------
 
@@ -82,13 +82,6 @@ CREATE TABLE `cart_items` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `cart_items`
---
-
-INSERT INTO `cart_items` (`id`, `cart_id`, `product_id`, `transaction_id`, `quantity`, `price`, `created_at`, `updated_at`) VALUES
-(11, 5, 2, NULL, 1, '250000.00', '2024-12-31 23:36:33', '2024-12-31 23:36:33');
 
 -- --------------------------------------------------------
 
@@ -111,17 +104,8 @@ CREATE TABLE `histori_items` (
 --
 
 INSERT INTO `histori_items` (`id`, `histori_transaksi_id`, `product_id`, `quantity`, `price`, `created_at`, `updated_at`) VALUES
-(1, 1, 2, 1, '250000.00', '2024-12-30 00:13:06', '2024-12-30 00:13:06'),
-(3, 2, 2, 1, '250000.00', '2024-12-30 16:37:14', '2024-12-30 16:37:14'),
-(4, 3, 2, 1, '250000.00', '2024-12-31 22:28:33', '2024-12-31 22:28:33'),
-(5, 3, 3, 1, '450000.00', '2024-12-31 22:28:33', '2024-12-31 22:28:33'),
-(6, 4, 2, 1, '250000.00', '2025-01-01 02:22:43', '2025-01-01 02:22:43'),
-(7, 5, 3, 1, '450000.00', '2025-01-01 02:22:46', '2025-01-01 02:22:46'),
-(8, 6, 2, 1, '250000.00', '2025-01-02 00:39:17', '2025-01-02 00:39:17'),
-(9, 6, 3, 1, '450000.00', '2025-01-02 00:39:17', '2025-01-02 00:39:17'),
-(10, 7, 12, 1, '1200000.00', '2025-01-02 00:39:21', '2025-01-02 00:39:21'),
-(11, 8, 6, 1, '500000.00', '2025-01-02 00:39:25', '2025-01-02 00:39:25'),
-(12, 9, 4, 1, '630000.00', '2025-01-02 00:48:13', '2025-01-02 00:48:13');
+(2, 1, 4, 1, '630000.00', '2025-01-19 20:08:50', '2025-01-19 20:08:50'),
+(3, 2, 5, 1, '150000.00', '2025-01-19 20:10:40', '2025-01-19 20:10:40');
 
 -- --------------------------------------------------------
 
@@ -147,15 +131,8 @@ CREATE TABLE `histori_transaksis` (
 --
 
 INSERT INTO `histori_transaksis` (`id`, `user_id`, `tanggal_pinjam`, `tanggal_kembali`, `kode_transaksi`, `alamat_now`, `alamat_ktp`, `email`, `created_at`, `updated_at`) VALUES
-(1, 2, '2024-12-31', '2025-01-01', '8e3be552-e88c-42ea-aeef-acb3041cb232', 'Jl. Celuk', 'Jl. Raya Wanayu, Kec. Blahbatuh, Kabupaten Gianyar, Bali, 80581', 'santoevo357@gmail.com', '2024-12-30 00:13:06', '2024-12-30 00:13:06'),
-(2, 2, '2025-01-02', '2025-01-04', '69d42b3c-fbc4-48d6-bf5d-19762e5779e5', 'Jl. Celuk', 'Jl. Raya Wanayu, Kec. Blahbatuh, Kabupaten Gianyar, Bali, 80581', 'santoevo357@gmail.com', '2024-12-30 16:37:13', '2024-12-30 16:37:13'),
-(3, 4, '2025-01-01', '2025-01-03', '1fad7aef-56b7-409c-baba-c40662418ce3', 'Jl. Poltek123', 'JL. Poltek123', 'user1@gmail.com', '2024-12-31 22:28:33', '2024-12-31 22:28:33'),
-(4, 4, '2025-01-02', '2025-01-03', 'bb8df975-650b-4c2b-8a6a-5576e07d2c90', 'Jl. Poltek123', 'JL. Poltek123', 'user1@gmail.com', '2025-01-01 02:22:43', '2025-01-01 02:22:43'),
-(5, 2, '2025-01-03', '2025-01-04', '061cd673-3800-4256-8896-b1b0d73f915e', 'Jl. Celak', 'Jl. Raya Wanayu, Kec. Blahbatuh, Kabupaten Gianyar, Bali, 80581', 'santoevo357@gmail.com', '2025-01-01 02:22:46', '2025-01-01 02:22:46'),
-(6, 4, '2025-01-02', '2025-01-31', '99fb9970-cf2b-41ac-8aab-73d99793e45f', 'Kshsks', 'JL. Poltek123', 'user1@gmail.com', '2025-01-02 00:39:17', '2025-01-02 00:39:17'),
-(7, 5, '2025-01-01', '2025-01-03', 'ac24ef10-b554-496e-aff4-c21644f1f52e', 'a', 'a', 'a@gmail.com', '2025-01-02 00:39:21', '2025-01-02 00:39:21'),
-(8, 6, '2025-01-01', '2025-01-15', 'e697ff3a-cf0c-4d5c-b607-a4dee50e4122', 'Rumah gweh', 'Jalan Raya Unud', 'udin@gmail.com', '2025-01-02 00:39:25', '2025-01-02 00:39:25'),
-(9, 4, '2025-01-03', '2025-01-04', '01cd30e4-11e2-4e43-9699-5d22b0ff894c', 'Jl. Poltek123', 'JL. Poltek123', 'user1@gmail.com', '2025-01-02 00:48:13', '2025-01-02 00:48:13');
+(1, 1, '2025-01-21', '2025-01-22', '198c8447-2858-4b5e-843b-dab45fb17dca', 'Jl. Poltek', 'Jl. Poltek', 'xixixixi@gmail.com', '2025-01-19 20:08:50', '2025-01-19 20:08:50'),
+(2, 1, '2025-01-21', '2025-01-22', '090ec1ac-3126-449d-9278-dd8c8c9a8d6c', 'Jl. Poltek', 'Jl. Poltek', 'xixixixi@gmail.com', '2025-01-19 20:10:40', '2025-01-19 20:10:40');
 
 -- --------------------------------------------------------
 
@@ -212,42 +189,41 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `kode_product`, `nama_product`, `merek_product`, `kategori_product`, `detail_product`, `tahun_rilis`, `stock`, `harga_sewa`, `image`, `created_at`, `updated_at`) VALUES
-(2, 'K002', 'Fujifilm X-T300', 'FujiFilm', 'Kamera', 'Vantage camera with 17500 px', '2024-12-10', 1, '250000.00', 'img/produk/cam6.jpeg', '2024-12-30 00:09:10', '2025-01-02 00:39:17'),
-(3, 'K003', 'Canon EOS Mark1', 'Canon', 'Kamera', 'Promo PPN 11%', '2025-01-03', 1, '450000.00', 'img/produk/cam4.jpeg', '2024-12-31 22:14:31', '2025-01-02 00:39:17'),
-(4, 'K004', 'Sony FIXCAM', 'Sony', 'Kamera', 'Kamera syuting terbaik 2050', '2024-12-29', 9, '630000.00', 'img/produk/cam3.jpeg', '2025-01-01 00:36:01', '2025-01-02 00:48:13'),
-(5, 'G001', 'Gimbal C-002', 'Dll', 'Gimbal', 'Gimbal dengan ke stabilan seperti kepala ayam', '2024-12-31', 3, '150000.00', 'img/produk/Screenshot 2024-12-23 101003.png', '2025-01-01 00:37:51', '2025-01-01 00:48:28'),
-(6, 'K004', 'Nikon Z fc', 'Nikon', 'Kamera', 'NIKONIKONI', '2024-12-29', 3, '500000.00', 'img/produk/review-kamera-nikon-z-fc_169.jpeg', '2025-01-01 00:39:53', '2025-01-02 00:39:25'),
-(7, 'G002', 'Insta 360 Flow', 'Dll', 'Gimbal', 'Gimbal yang bisa berputar 360 derajat', '2024-12-29', 12, '75000.00', 'img/produk/Screenshot 2025-01-01 164057.png', '2025-01-01 00:43:12', '2025-01-01 23:47:16'),
-(8, 'L001', 'Sigma 50mm F1.4 Art DG HSM Lens', 'Dll', 'Lensa', 'Lensa super cepat dengan aperture f/1.4 benar-benar lensa yang bagus untuk dimiliki jika Anda memiliki uang ekstra. Ini akan memberi Anda keunggulan yang Anda butuhkan dalam situasi cahaya redup, serta menghasilkan depth of field yang lebih dangkal untuk bokeh Anda (latar belakang buram).', '2024-12-31', 3, '400000.00', 'img/produk/Screenshot 2025-01-01 164351.png', '2025-01-01 00:45:20', '2025-01-02 00:42:46'),
-(9, 'L002', 'Sony 24-70mm f/2.8 DSLR lenses', 'Sony', 'Lensa', 'Setiap merek besar memiliki lensa 24-70mm f/2.8, tetapi lensa ini ditujukan untuk para profesional.', '2024-12-31', 2, '700000.00', 'img/produk/Screenshot 2025-01-01 164558.png', '2025-01-01 00:47:43', '2025-01-01 00:47:43'),
-(10, 'T001', 'Manfrotto', 'Dll', 'Tripod', 'Dirancang untuk mendukung muatan yang besar, tripod ini memiliki berat lebih dari 2 kg sendiri dan memiliki ketinggian maksimum hingga 150 cm.   Tapi tenang saja, karena tinggi tripod ini normalnya hanya memakan 40 cm saja sehingga dapat kamu masukan ke dalam tas', '2024-12-11', 5, '150000.00', 'img/produk/Screenshot 2025-01-01 164956.png', '2025-01-01 00:51:10', '2025-01-01 23:46:58'),
-(11, 'T002', 'Takara', 'Dll', 'Tripod', 'Produk Takara tripod kamu dapat memanjangkan leher tripod ini hingga 145 cm. Dengan kekohoan tersebut, berat tripod ini hanya 850 gram.  Kaki yang menopang nya hingga dapat digunakan dengan stabil dan konsisten adalah 3 kaki section yang berbahan alumunium nya.', '2024-07-15', 9, '50000.00', 'img/produk/Screenshot 2025-01-01 165009.png', '2025-01-01 00:51:51', '2025-01-01 23:46:44'),
-(12, 'K005', 'Canon EOS 5D', 'Canon', 'Kamera', 'Kamera lengkap dengan lensa tambahan', '2024-12-10', 1, '1200000.00', 'img/produk/cam5.jpeg', '2025-01-01 01:14:52', '2025-01-02 00:39:21'),
-(13, 'K006', 'Sony HXR-MC2500', 'Sony', 'Kamera', 'Kamera video dilengkapi dengan mic tambahan serta mampu zoom 50x', '2024-09-24', 3, '1500000.00', 'img/produk/hxr-mc2500.jpg', '2025-01-01 01:17:25', '2025-01-01 01:17:25'),
-(14, 'K007', 'Nikon COOLPIX', 'Nikon', 'Kamera', 'Kamera yang seukuran kanton dan mudah dibawa', '2024-12-30', 3, '450000.00', 'img/produk/Screenshot 2025-01-01 171825.png', '2025-01-01 01:19:37', '2025-01-01 01:19:37'),
-(15, 'K008', 'FujiFilm X-S20', 'FujiFilm', 'Kamera', 'Untuk pertama kalinya dalam model seri X-S, sensor X Trans CMOS 4 26,1 megapiksel dipasangkan dengan mesin pencitraan X-Processor 5, menghasilkan pemrosesan gambar dan video berkecepatan tinggi, kecepatan dan akurasi fokus otomatis yang lebih baik, FUJIFILM color science, dan stabilisasi IBIS (In-Body Image Stabilization) hingga tujuh stops. X-S20 unggul dalam video dan menampilkan mode Vlog yang memungkinkan rekaman berkualitas profesional dengan penyesuaian pengaturan layar sentuh yang mudah saat merekam.', '2024-09-17', 4, '350000.00', 'img/produk/Screenshot 2025-01-01 172101.png', '2025-01-01 01:22:08', '2025-01-01 01:22:08'),
-(16, 'G003', 'Leofoto PG-1 Gimbal Tripod Head', 'Dll', 'Gimbal', 'Bepergianlah dengan ringan dengan Leofoto PG-1 Gimbal Head hitam 2,2 lb, yang dibuat dari aluminium T6061. Seiring dengan tripod ringan Anda, ini memungkinkan Anda untuk melakukan perjalanan jarak yang lebih jauh dengan pengaturan Anda dengan nyaman. Kepala gimbal memungkinkan Anda menangkap subjek yang bergerak cepat dengan lensa telefoto besar dan berat yang tidak dapat Anda lakukan hanya dengan memegang lensa dengan tangan.', '2024-11-06', 4, '250000.00', 'img/produk/Screenshot 2025-01-02 153647.png', '2025-01-01 23:37:36', '2025-01-01 23:37:36'),
-(17, 'G004', 'Feiyu Scrop Pro F4 3-Axis Handheld Gimbal Stabilizer', 'Dll', 'Gimbal', 'FeiyuTech Scorp adalah desain baru penstabil gimbal genggam 3 sumbu untuk DSLR dan Kamera Mirrorless. Ini memiliki pegangan pegangan belakang underslung terintegrasi untuk pengalaman pemotretan yang lebih baik. 5.5lbs payload, yang dapat mendukung sebagian besar kamera Sony, Canon, Panasonic Lumix, Nikon, Fujifilm. Ini juga dapat mendukung motor fokus untuk kontrol fokus dan zoom yang lebih baik.', '2024-11-04', 2, '180000.00', 'img/produk/Screenshot 2025-01-02 153804.png', '2025-01-01 23:39:41', '2025-01-01 23:39:41'),
-(18, 'T003', 'Tripod Bexin', 'Dll', 'Tripod', 'Mini tripod ini sangat praktis untuk dibawa kemana-mana karena bentuknya yang kecil. Selain itu, alat tripod ini sangat kokoh dan stabil, sehingga dapat kamu gunakan dengan kualitas yang tidak perlu dihiraukan lagi.  Dipersenjati dengan ball head untuk mendapatkan kemudahan mengambil sudut hingga 360 derajat untuk profesional fotografi.', '2024-12-30', 3, '90000.00', 'img/produk/Screenshot 2025-01-02 154432.png', '2025-01-01 23:45:45', '2025-01-01 23:45:45'),
-(19, 'T004', 'Gorilla MaxiGrip Flexible Tripod', 'Dll', 'Tripod', 'Gorilla MaxiGrip Flexible yang punya tiga kaki kuat dan fleksibel, ini bisa menunjang berat hingga 3 kg.', '2025-01-01', 1, '85000.00', 'img/produk/Screenshot 2025-01-02 154910.png', '2025-01-01 23:50:03', '2025-01-01 23:50:03'),
-(20, 'L003', '7Artisans 35mm F1.2', 'Canon', 'Lensa', 'Brand 7Artisans ini dikenal memiliki lensa berkualitas yang dapat melengkapi berbagai merk kamera profesional denga sensor APS-C. Seperti kamera Fujifilm, Canon, Sony, Olympus, dan lain sebagainya.', '2024-12-29', 4, '150000.00', 'img/produk/Screenshot 2025-01-02 155103.png', '2025-01-01 23:51:59', '2025-01-01 23:51:59'),
-(21, 'L004', 'Canon EF-S 24mm f/2.8 STM', 'Canon', 'Lensa', 'Lensa dengan desain yang slim dan ringan serta motor autofocus yang canggih. Merupakan tipe lensa wide-angle yang dapat menangkap gambar dengan jangkauan yang lebih luas dan lebar. Cocok digunakan untuk pengambilan video dengan jangkauan pengambilan yang luas, fokus, smooth dan tanpa blur.', '2024-12-29', 2, '200000.00', 'img/produk/Screenshot 2025-01-02 155217.png', '2025-01-01 23:52:53', '2025-01-01 23:52:53'),
-(22, 'LK001', 'National Geographic NG A4470', 'Dll', 'Dll', 'Kompartemen utamanya terdiri dari tiga bagian. Dimana satu saku untuk kamera dengan lensanya, satu lagi untuk smartphone dan dompet, sedangkan satu di bagian belakang untuk menempatkan barang-barang kecil dan datar. Tak hanya itu, pada bagian sisi kiri dan kanan ada dua buah saku kecil. Saku tersebut bisa digunakan menyimpan SD Card cadangan, lap mikrofiber, earphone, dan lainnya.', '2024-09-11', 2, '100000.00', 'img/produk/Screenshot 2025-01-02 155447.png', '2025-01-01 23:57:57', '2025-01-01 23:57:57'),
-(23, 'LK002', 'Manfrotto NX CSC', 'Dll', 'Dll', 'Kompartemennya dapat disesuaikan dengan kebutuhan pengguna. Bahkan, tas juga bisa digunakan untuk menyimpan drone dengan ukuran mini. Jika dikustomisasi sedemikian rupa, tas dapat membawa laptop berukuran 15 inci maupun tablet.  Dimana setiap kompartemennya dilapisi dengan bantalan yang empuk. Membawa tripod pun tidak masalah, sebab pengguna dapat memanfaatkan strap khusus yang dimilikinya. Walaupun terlihat simpel, tas berukuran besar ini bisa digunakan indoor maupun outdoor.', '2024-12-17', 4, '85000.00', 'img/produk/Screenshot 2025-01-02 155838.png', '2025-01-01 23:59:36', '2025-01-01 23:59:36'),
-(24, 'LK003', 'Canon Wireless Remote Controller RC-6', 'Canon', 'Dll', 'Berdesain sederhana dan praktis, ukuran release ini hanya sekitar 6,35 cm. Dengan ukuran yang kecil, release ini mudah dimasukkan ke dalam kantung. Walaupun kecil, produk ini dapat membantu Anda mengambil foto hingga jarak 4,8 meter.     Release ini juga dilengkapi fungsi mirror lock, bulb, dan delay shoot. Dengan fitur yang lengkap tersebut, Anda para pengguna kamera Canon profesional tentu tidak boleh melewatkan produk ini.', '2024-12-30', 2, '5000.00', 'img/produk/Screenshot 2025-01-02 160138.png', '2025-01-02 00:02:55', '2025-01-02 00:02:55'),
-(25, 'LK004', 'Cuely Remote Switch ｜ MC-DC2', 'Dll', 'Dll', 'Dilihat dari desainnya yang simpel dan sederhana, Anda mungkin tidak terlalu berekspektasi terhadap produk ini. Terlebih lagi, untuk ukuran shutter release berkabel, harganya pun cukup terjangkau. Meski demikian, produk ini sudah dibekali fitur half press, dan lock untuk bulb, lho. Anda bisa menggunakan shutter release ini untuk foto resmi, selfie, video time lapse, dan lainnya', '2024-12-29', 5, '7500.00', 'img/produk/Screenshot 2025-01-02 160331.png', '2025-01-02 00:04:17', '2025-01-02 00:04:42'),
-(26, 'K009', 'Panasonic Lumix DMC-GX80', 'Dll', 'Kamera', 'Kamera mirrorless dengan sensor four thirds dan resolusi kamera 16MP serta resolusi video maksimal 4K', '2024-12-29', 2, '430000.00', 'img/produk/Screenshot 2025-01-02 160649.png', '2025-01-02 00:09:38', '2025-01-02 00:11:57'),
-(27, 'K010', 'Canon EOS M200', 'Canon', 'Kamera', 'Kamera dengan sensor APS-C dan resolusi sebesar 24,1MP', '2024-12-29', 2, '450000.00', 'img/produk/Screenshot 2025-01-02 161000.png', '2025-01-02 00:11:39', '2025-01-02 00:11:39'),
-(28, 'K011', 'FujiFilm X-T200', 'FujiFilm', 'Kamera', 'Tipe kamera: Mirrorless,  Sensor: APS-C,  Resolusi kamera: 24,2 MP,  Layar: 3,5 inci, 2.780k, layar sentuh', '2024-12-31', 1, '450000.00', 'img/produk/Screenshot 2025-01-02 161231.png', '2025-01-02 00:13:55', '2025-01-02 00:13:55'),
-(29, 'K012', 'Canon EOS 250D', 'Canon', 'Kamera', 'Tipe kamera: DSLR,  Sensor: APS-C,  Resolusi kamera: 24,1MP,  Layar: 3 inci, 1.040k, layar sentuh.  Lensa: Canon EF-S', '2024-12-30', 3, '750000.00', 'img/produk/Screenshot 2025-01-02 161433.png', '2025-01-02 00:15:57', '2025-01-02 00:15:57'),
-(30, 'K013', 'Sony A6100', 'Sony', 'Kamera', 'Tipe kamera: Mirrorless  Sensor: APS-C  Resolusi kamera: 24,2 MP  Layar: 3 inci, TFT, layar sentuh  Lensa: Lensa E-mount Sony', '2024-12-30', 6, '800000.00', 'img/produk/Screenshot 2025-01-02 161623.png', '2025-01-02 00:17:11', '2025-01-02 00:17:11'),
-(31, 'K014', 'Panasonic Lumix G100', 'Dll', 'Kamera', 'Tipe kamera: Mirrorless  Sensor: Micro Four Thirds  Resolusi kamera: 20,3 MP  Layar: 3 inci, 1.840k, layar sentuh  Lensa: Micro Four Thirds', '2024-12-31', 2, '950000.00', 'img/produk/Screenshot 2025-01-02 161726.png', '2025-01-02 00:18:45', '2025-01-02 00:18:45'),
-(32, 'K015', 'Nikon D5600', 'Nikon', 'Kamera', 'Tipe kamera: DSLR  Sensor: APS-C  Resolusi kamera: 24,2 MP  Layar: 3,2 inci, 1.040k, layar sentuh  Lensa: 27-210mm', '2024-12-31', 2, '600000.00', 'img/produk/Screenshot 2025-01-02 162018.png', '2025-01-02 00:21:10', '2025-01-02 00:21:10'),
-(33, 'K016', 'Niikon D3500', 'Nikon', 'Kamera', 'Tipe kamera: DLSR  Sensor: APS-C CMOS  Resolusi kamera: 24,2 MP  Layar: 3 inci, 921k  Lensa: Nikon DX', '2024-10-08', 1, '350000.00', 'img/produk/Screenshot 2025-01-02 162147.png', '2025-01-02 00:22:31', '2025-01-02 00:22:31'),
-(34, 'K017', 'FujiFilm X70', 'FujiFilm', 'Kamera', 'Produk ini memiliki lensa fixed 18 mm (bisa disamakan kegunaannya dengan lensa 28 mm) dengan sensor 16,3 MP. Meskipun kecil, kamera ini terbuat dari bahan alloy yang kuat. Karena ukurannya tersebut, ia sangat mudah dimasukkan ke dalam saku atau tas pinggang kalian.', '2024-12-31', 2, '550000.00', 'img/produk/Screenshot 2025-01-02 162319.png', '2025-01-02 00:25:52', '2025-01-02 00:25:52'),
-(35, 'K018', 'Sony FX3', 'Sony', 'Kamera', 'Sony FX3 dibekali dengan sensitivitas yang sangat tinggi serta ISO yang dapat ditingkatkan hingga 409.600 bahkan untuk kondisi pencahayaan yang sangat sulit sekalipun. productnation', '2024-12-31', 3, '2700000.00', 'img/produk/Screenshot 2025-01-02 162732.png', '2025-01-02 00:28:57', '2025-01-02 00:28:57'),
-(36, 'K019', 'Olympus OM-D E-M10 Mark II', 'Dll', 'Kamera', 'Kamera ini dilengkapi Touch AF Shutter yang populer karena kecepatannya. Ia dapat menangkap ekspresi subjek yang bergerak dengan cepat secara akurat. Kamera mirrorless Olympus OM-D E-M10 Mark II cocok untuk menangkap momen sehari-hari bersama orang terdekat Anda. Model ini sangat direkomendasikan untuk Anda yang mencari kemudahan penggunaan.', '2024-12-29', 3, '250000.00', 'img/produk/Screenshot 2025-01-02 163041.png', '2025-01-02 00:31:43', '2025-01-02 00:31:43'),
-(38, 'K021', 'SAMSUNG SMART CAMERA NX210', 'Dll', 'Kamera', 'Samsung NX210 dapat bekerja sempurna dengan ketepatan tinggi tanpa waktu lama dengan dukungan ultra-high speed Auto Focus (AF) yang ciamik. Samsung NX210 juga dibekali dengan ISO Sensitivity hingga 12.800, sehingga dapat menghasilkan foto pada kondisi low light secara sempurna, tanpa flash sekalipun. Samsung NX210 juga mampu menghasilkan bidik sempurna dengan teknologi 1080 30p Full HD Movie Recording.', '2024-12-29', 2, '650000.00', 'img/produk/Screenshot 2025-01-02 163206.png', '2025-01-02 00:42:07', '2025-01-02 00:42:07');
+(2, 'K002', 'Fujifilm X-T300', 'FujiFilm', 'Kamera', 'Vantage camera with 17500 px', '2024-12-10', 1, '250000.00', 'img/produk/cam6.jpeg', '2024-12-29 16:09:10', '2025-01-01 16:39:17'),
+(4, 'K004', 'Sony FIXCAM', 'Sony', 'Kamera', 'Kamera syuting terbaik 2050', '2024-12-29', 9, '630000.00', 'img/produk/cam3.jpeg', '2024-12-31 16:36:01', '2025-01-19 20:08:50'),
+(5, 'G001', 'Gimbal C-002', 'Dll', 'Gimbal', 'Gimbal dengan ke stabilan seperti kepala ayam', '2024-12-31', 3, '150000.00', 'img/produk/Screenshot 2024-12-23 101003.png', '2024-12-31 16:37:51', '2025-01-19 20:10:40'),
+(6, 'K004', 'Nikon Z fc', 'Nikon', 'Kamera', 'NIKONIKONI', '2024-12-29', 3, '500000.00', 'img/produk/review-kamera-nikon-z-fc_169.jpeg', '2024-12-31 16:39:53', '2025-01-01 16:39:25'),
+(7, 'G002', 'Insta 360 Flow', 'Dll', 'Gimbal', 'Gimbal yang bisa berputar 360 derajat', '2024-12-29', 12, '75000.00', 'img/produk/Screenshot 2025-01-01 164057.png', '2024-12-31 16:43:12', '2025-01-01 15:47:16'),
+(8, 'L001', 'Sigma 50mm F1.4 Art DG HSM Lens', 'Dll', 'Lensa', 'Lensa super cepat dengan aperture f/1.4 benar-benar lensa yang bagus untuk dimiliki jika Anda memiliki uang ekstra. Ini akan memberi Anda keunggulan yang Anda butuhkan dalam situasi cahaya redup, serta menghasilkan depth of field yang lebih dangkal untuk bokeh Anda (latar belakang buram).', '2024-12-31', 3, '400000.00', 'img/produk/Screenshot 2025-01-01 164351.png', '2024-12-31 16:45:20', '2025-01-01 16:42:46'),
+(9, 'L002', 'Sony 24-70mm f/2.8 DSLR lenses', 'Sony', 'Lensa', 'Setiap merek besar memiliki lensa 24-70mm f/2.8, tetapi lensa ini ditujukan untuk para profesional.', '2024-12-31', 2, '700000.00', 'img/produk/Screenshot 2025-01-01 164558.png', '2024-12-31 16:47:43', '2024-12-31 16:47:43'),
+(10, 'T001', 'Manfrotto', 'Dll', 'Tripod', 'Dirancang untuk mendukung muatan yang besar, tripod ini memiliki berat lebih dari 2 kg sendiri dan memiliki ketinggian maksimum hingga 150 cm.   Tapi tenang saja, karena tinggi tripod ini normalnya hanya memakan 40 cm saja sehingga dapat kamu masukan ke dalam tas', '2024-12-11', 5, '150000.00', 'img/produk/Screenshot 2025-01-01 164956.png', '2024-12-31 16:51:10', '2025-01-01 15:46:58'),
+(11, 'T002', 'Takara', 'Dll', 'Tripod', 'Produk Takara tripod kamu dapat memanjangkan leher tripod ini hingga 145 cm. Dengan kekohoan tersebut, berat tripod ini hanya 850 gram.  Kaki yang menopang nya hingga dapat digunakan dengan stabil dan konsisten adalah 3 kaki section yang berbahan alumunium nya.', '2024-07-15', 9, '50000.00', 'img/produk/Screenshot 2025-01-01 165009.png', '2024-12-31 16:51:51', '2025-01-01 15:46:44'),
+(12, 'K005', 'Canon EOS 5D', 'Canon', 'Kamera', 'Kamera lengkap dengan lensa tambahan', '2024-12-10', 1, '1200000.00', 'img/produk/cam5.jpeg', '2024-12-31 17:14:52', '2025-01-01 16:39:21'),
+(13, 'K006', 'Sony HXR-MC2500', 'Sony', 'Kamera', 'Kamera video dilengkapi dengan mic tambahan serta mampu zoom 50x', '2024-09-24', 3, '1500000.00', 'img/produk/hxr-mc2500.jpg', '2024-12-31 17:17:25', '2024-12-31 17:17:25'),
+(14, 'K007', 'Nikon COOLPIX', 'Nikon', 'Kamera', 'Kamera yang seukuran kanton dan mudah dibawa', '2024-12-30', 3, '450000.00', 'img/produk/Screenshot 2025-01-01 171825.png', '2024-12-31 17:19:37', '2024-12-31 17:19:37'),
+(15, 'K008', 'FujiFilm X-S20', 'FujiFilm', 'Kamera', 'Untuk pertama kalinya dalam model seri X-S, sensor X Trans CMOS 4 26,1 megapiksel dipasangkan dengan mesin pencitraan X-Processor 5, menghasilkan pemrosesan gambar dan video berkecepatan tinggi, kecepatan dan akurasi fokus otomatis yang lebih baik, FUJIFILM color science, dan stabilisasi IBIS (In-Body Image Stabilization) hingga tujuh stops. X-S20 unggul dalam video dan menampilkan mode Vlog yang memungkinkan rekaman berkualitas profesional dengan penyesuaian pengaturan layar sentuh yang mudah saat merekam.', '2024-09-17', 4, '350000.00', 'img/produk/Screenshot 2025-01-01 172101.png', '2024-12-31 17:22:08', '2024-12-31 17:22:08'),
+(16, 'G003', 'Leofoto PG-1 Gimbal Tripod Head', 'Dll', 'Gimbal', 'Bepergianlah dengan ringan dengan Leofoto PG-1 Gimbal Head hitam 2,2 lb, yang dibuat dari aluminium T6061. Seiring dengan tripod ringan Anda, ini memungkinkan Anda untuk melakukan perjalanan jarak yang lebih jauh dengan pengaturan Anda dengan nyaman. Kepala gimbal memungkinkan Anda menangkap subjek yang bergerak cepat dengan lensa telefoto besar dan berat yang tidak dapat Anda lakukan hanya dengan memegang lensa dengan tangan.', '2024-11-06', 4, '250000.00', 'img/produk/Screenshot 2025-01-02 153647.png', '2025-01-01 15:37:36', '2025-01-01 15:37:36'),
+(17, 'G004', 'Feiyu Scrop Pro F4 3-Axis Handheld Gimbal Stabilizer', 'Dll', 'Gimbal', 'FeiyuTech Scorp adalah desain baru penstabil gimbal genggam 3 sumbu untuk DSLR dan Kamera Mirrorless. Ini memiliki pegangan pegangan belakang underslung terintegrasi untuk pengalaman pemotretan yang lebih baik. 5.5lbs payload, yang dapat mendukung sebagian besar kamera Sony, Canon, Panasonic Lumix, Nikon, Fujifilm. Ini juga dapat mendukung motor fokus untuk kontrol fokus dan zoom yang lebih baik.', '2024-11-04', 2, '180000.00', 'img/produk/Screenshot 2025-01-02 153804.png', '2025-01-01 15:39:41', '2025-01-01 15:39:41'),
+(18, 'T003', 'Tripod Bexin', 'Dll', 'Tripod', 'Mini tripod ini sangat praktis untuk dibawa kemana-mana karena bentuknya yang kecil. Selain itu, alat tripod ini sangat kokoh dan stabil, sehingga dapat kamu gunakan dengan kualitas yang tidak perlu dihiraukan lagi.  Dipersenjati dengan ball head untuk mendapatkan kemudahan mengambil sudut hingga 360 derajat untuk profesional fotografi.', '2024-12-30', 3, '90000.00', 'img/produk/Screenshot 2025-01-02 154432.png', '2025-01-01 15:45:45', '2025-01-01 15:45:45'),
+(19, 'T004', 'Gorilla MaxiGrip Flexible Tripod', 'Dll', 'Tripod', 'Gorilla MaxiGrip Flexible yang punya tiga kaki kuat dan fleksibel, ini bisa menunjang berat hingga 3 kg.', '2025-01-01', 1, '85000.00', 'img/produk/Screenshot 2025-01-02 154910.png', '2025-01-01 15:50:03', '2025-01-01 15:50:03'),
+(20, 'L003', '7Artisans 35mm F1.2', 'Canon', 'Lensa', 'Brand 7Artisans ini dikenal memiliki lensa berkualitas yang dapat melengkapi berbagai merk kamera profesional denga sensor APS-C. Seperti kamera Fujifilm, Canon, Sony, Olympus, dan lain sebagainya.', '2024-12-29', 4, '150000.00', 'img/produk/Screenshot 2025-01-02 155103.png', '2025-01-01 15:51:59', '2025-01-01 15:51:59'),
+(21, 'L004', 'Canon EF-S 24mm f/2.8 STM', 'Canon', 'Lensa', 'Lensa dengan desain yang slim dan ringan serta motor autofocus yang canggih. Merupakan tipe lensa wide-angle yang dapat menangkap gambar dengan jangkauan yang lebih luas dan lebar. Cocok digunakan untuk pengambilan video dengan jangkauan pengambilan yang luas, fokus, smooth dan tanpa blur.', '2024-12-29', 2, '200000.00', 'img/produk/Screenshot 2025-01-02 155217.png', '2025-01-01 15:52:53', '2025-01-01 15:52:53'),
+(22, 'LK001', 'National Geographic NG A4470', 'Dll', 'Dll', 'Kompartemen utamanya terdiri dari tiga bagian. Dimana satu saku untuk kamera dengan lensanya, satu lagi untuk smartphone dan dompet, sedangkan satu di bagian belakang untuk menempatkan barang-barang kecil dan datar. Tak hanya itu, pada bagian sisi kiri dan kanan ada dua buah saku kecil. Saku tersebut bisa digunakan menyimpan SD Card cadangan, lap mikrofiber, earphone, dan lainnya.', '2024-09-11', 2, '100000.00', 'img/produk/Screenshot 2025-01-02 155447.png', '2025-01-01 15:57:57', '2025-01-01 15:57:57'),
+(23, 'LK002', 'Manfrotto NX CSC', 'Dll', 'Dll', 'Kompartemennya dapat disesuaikan dengan kebutuhan pengguna. Bahkan, tas juga bisa digunakan untuk menyimpan drone dengan ukuran mini. Jika dikustomisasi sedemikian rupa, tas dapat membawa laptop berukuran 15 inci maupun tablet.  Dimana setiap kompartemennya dilapisi dengan bantalan yang empuk. Membawa tripod pun tidak masalah, sebab pengguna dapat memanfaatkan strap khusus yang dimilikinya. Walaupun terlihat simpel, tas berukuran besar ini bisa digunakan indoor maupun outdoor.', '2024-12-17', 4, '85000.00', 'img/produk/Screenshot 2025-01-02 155838.png', '2025-01-01 15:59:36', '2025-01-01 15:59:36'),
+(24, 'LK003', 'Canon Wireless Remote Controller RC-6', 'Canon', 'Dll', 'Berdesain sederhana dan praktis, ukuran release ini hanya sekitar 6,35 cm. Dengan ukuran yang kecil, release ini mudah dimasukkan ke dalam kantung. Walaupun kecil, produk ini dapat membantu Anda mengambil foto hingga jarak 4,8 meter.     Release ini juga dilengkapi fungsi mirror lock, bulb, dan delay shoot. Dengan fitur yang lengkap tersebut, Anda para pengguna kamera Canon profesional tentu tidak boleh melewatkan produk ini.', '2024-12-30', 2, '5000.00', 'img/produk/Screenshot 2025-01-02 160138.png', '2025-01-01 16:02:55', '2025-01-01 16:02:55'),
+(25, 'LK004', 'Cuely Remote Switch ｜ MC-DC2', 'Dll', 'Dll', 'Dilihat dari desainnya yang simpel dan sederhana, Anda mungkin tidak terlalu berekspektasi terhadap produk ini. Terlebih lagi, untuk ukuran shutter release berkabel, harganya pun cukup terjangkau. Meski demikian, produk ini sudah dibekali fitur half press, dan lock untuk bulb, lho. Anda bisa menggunakan shutter release ini untuk foto resmi, selfie, video time lapse, dan lainnya', '2024-12-29', 5, '7500.00', 'img/produk/Screenshot 2025-01-02 160331.png', '2025-01-01 16:04:17', '2025-01-01 16:04:42'),
+(26, 'K009', 'Panasonic Lumix DMC-GX80', 'Dll', 'Kamera', 'Kamera mirrorless dengan sensor four thirds dan resolusi kamera 16MP serta resolusi video maksimal 4K', '2024-12-29', 2, '430000.00', 'img/produk/Screenshot 2025-01-02 160649.png', '2025-01-01 16:09:38', '2025-01-01 16:11:57'),
+(27, 'K010', 'Canon EOS M200', 'Canon', 'Kamera', 'Kamera dengan sensor APS-C dan resolusi sebesar 24,1MP', '2024-12-29', 2, '450000.00', 'img/produk/Screenshot 2025-01-02 161000.png', '2025-01-01 16:11:39', '2025-01-01 16:11:39'),
+(28, 'K011', 'FujiFilm X-T200', 'FujiFilm', 'Kamera', 'Tipe kamera: Mirrorless,  Sensor: APS-C,  Resolusi kamera: 24,2 MP,  Layar: 3,5 inci, 2.780k, layar sentuh', '2024-12-31', 1, '450000.00', 'img/produk/Screenshot 2025-01-02 161231.png', '2025-01-01 16:13:55', '2025-01-01 16:13:55'),
+(29, 'K012', 'Canon EOS 250D', 'Canon', 'Kamera', 'Tipe kamera: DSLR,  Sensor: APS-C,  Resolusi kamera: 24,1MP,  Layar: 3 inci, 1.040k, layar sentuh.  Lensa: Canon EF-S', '2024-12-30', 3, '750000.00', 'img/produk/Screenshot 2025-01-02 161433.png', '2025-01-01 16:15:57', '2025-01-01 16:15:57'),
+(30, 'K013', 'Sony A6100', 'Sony', 'Kamera', 'Tipe kamera: Mirrorless  Sensor: APS-C  Resolusi kamera: 24,2 MP  Layar: 3 inci, TFT, layar sentuh  Lensa: Lensa E-mount Sony', '2024-12-30', 6, '800000.00', 'img/produk/Screenshot 2025-01-02 161623.png', '2025-01-01 16:17:11', '2025-01-01 16:17:11'),
+(31, 'K014', 'Panasonic Lumix G100', 'Dll', 'Kamera', 'Tipe kamera: Mirrorless  Sensor: Micro Four Thirds  Resolusi kamera: 20,3 MP  Layar: 3 inci, 1.840k, layar sentuh  Lensa: Micro Four Thirds', '2024-12-31', 2, '950000.00', 'img/produk/Screenshot 2025-01-02 161726.png', '2025-01-01 16:18:45', '2025-01-01 16:18:45'),
+(32, 'K015', 'Nikon D5600', 'Nikon', 'Kamera', 'Tipe kamera: DSLR  Sensor: APS-C  Resolusi kamera: 24,2 MP  Layar: 3,2 inci, 1.040k, layar sentuh  Lensa: 27-210mm', '2024-12-31', 2, '600000.00', 'img/produk/Screenshot 2025-01-02 162018.png', '2025-01-01 16:21:10', '2025-01-01 16:21:10'),
+(33, 'K016', 'Niikon D3500', 'Nikon', 'Kamera', 'Tipe kamera: DLSR  Sensor: APS-C CMOS  Resolusi kamera: 24,2 MP  Layar: 3 inci, 921k  Lensa: Nikon DX', '2024-10-08', 1, '350000.00', 'img/produk/Screenshot 2025-01-02 162147.png', '2025-01-01 16:22:31', '2025-01-01 16:22:31'),
+(34, 'K017', 'FujiFilm X70', 'FujiFilm', 'Kamera', 'Produk ini memiliki lensa fixed 18 mm (bisa disamakan kegunaannya dengan lensa 28 mm) dengan sensor 16,3 MP. Meskipun kecil, kamera ini terbuat dari bahan alloy yang kuat. Karena ukurannya tersebut, ia sangat mudah dimasukkan ke dalam saku atau tas pinggang kalian.', '2024-12-31', 2, '550000.00', 'img/produk/Screenshot 2025-01-02 162319.png', '2025-01-01 16:25:52', '2025-01-01 16:25:52'),
+(35, 'K018', 'Sony FX3', 'Sony', 'Kamera', 'Sony FX3 dibekali dengan sensitivitas yang sangat tinggi serta ISO yang dapat ditingkatkan hingga 409.600 bahkan untuk kondisi pencahayaan yang sangat sulit sekalipun. productnation', '2024-12-31', 3, '2700000.00', 'img/produk/Screenshot 2025-01-02 162732.png', '2025-01-01 16:28:57', '2025-01-01 16:28:57'),
+(36, 'K019', 'Olympus OM-D E-M10 Mark II', 'Dll', 'Kamera', 'Kamera ini dilengkapi Touch AF Shutter yang populer karena kecepatannya. Ia dapat menangkap ekspresi subjek yang bergerak dengan cepat secara akurat. Kamera mirrorless Olympus OM-D E-M10 Mark II cocok untuk menangkap momen sehari-hari bersama orang terdekat Anda. Model ini sangat direkomendasikan untuk Anda yang mencari kemudahan penggunaan.', '2024-12-29', 3, '250000.00', 'img/produk/Screenshot 2025-01-02 163041.png', '2025-01-01 16:31:43', '2025-01-01 16:31:43'),
+(38, 'K021', 'SAMSUNG SMART CAMERA NX210', 'Dll', 'Kamera', 'Samsung NX210 dapat bekerja sempurna dengan ketepatan tinggi tanpa waktu lama dengan dukungan ultra-high speed Auto Focus (AF) yang ciamik. Samsung NX210 juga dibekali dengan ISO Sensitivity hingga 12.800, sehingga dapat menghasilkan foto pada kondisi low light secara sempurna, tanpa flash sekalipun. Samsung NX210 juga mampu menghasilkan bidik sempurna dengan teknologi 1080 30p Full HD Movie Recording.', '2024-12-29', 2, '650000.00', 'img/produk/Screenshot 2025-01-02 163206.png', '2025-01-01 16:42:07', '2025-01-01 16:42:07');
 
 -- --------------------------------------------------------
 
@@ -274,10 +250,7 @@ CREATE TABLE `profiles` (
 --
 
 INSERT INTO `profiles` (`id`, `user_id`, `foto_profile`, `gender`, `no_telp`, `alamat_now`, `alamat_ktp`, `media_sosial`, `email`, `created_at`, `updated_at`) VALUES
-(1, 2, 'profile_pictures/CNZ3JzEFL9K4DYM0jr9JJqEkFW4iRTStRnYwfgYe.png', 'L', '081329756879', NULL, 'Jl. Raya Wanayu, Kec. Blahbatuh, Kabupaten Gianyar, Bali, 80581', NULL, 'santoevo357@gmail.com', '2024-12-30 00:10:37', '2024-12-30 00:11:29'),
-(2, 4, 'profile_pictures/5AWfK7GVdTqdUUDM6Tja2B7BC4oI9ffkAy4LuLLO.png', 'L', '088888888888', NULL, 'JL. Poltek123', NULL, 'user1@gmail.com', '2024-12-31 22:17:00', '2024-12-31 22:17:00'),
-(3, 5, NULL, 'L', '0812345679', NULL, 'a', NULL, 'a@gmail.com', '2025-01-01 02:32:12', '2025-01-01 02:32:12'),
-(4, 6, NULL, 'L', '081234567891', NULL, 'Jalan Raya Unud', NULL, 'udin@gmail.com', '2025-01-01 02:35:43', '2025-01-01 02:35:43');
+(1, 1, 'profile_pictures/Dpqhu0y3rz4NsFb5qsCvaC2QVdWwnicVYjtJuvT7.png', 'L', '081329756879', NULL, 'Jl. Poltek', NULL, 'xixixixi@gmail.com', '2025-01-19 20:02:37', '2025-01-19 20:02:37');
 
 -- --------------------------------------------------------
 
@@ -315,8 +288,7 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('14rpIFZGIlSPylPrxcx0F4hQXukIvjZEihYnJ7Jc', 4, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoiY0l0UmoxamZnejJDZjF6WWlIMmFpaVlLRllkdVlXWUhUam5ueTRmaiI7czozOiJ1cmwiO2E6MTp7czo4OiJpbnRlbmRlZCI7czoyMDoiaHR0cDovL2NhcmVuc3kubG9sb2siO31zOjk6Il9wcmV2aW91cyI7YToxOntzOjM6InVybCI7czozNzoiaHR0cDovL2NhcmVuc3kubG9sb2svZGV0YWlsX3Blc2FuYW4vOSI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjQ7fQ==', 1735807799),
-('rXpiOSKQfZIsPaPUwxr6xvr5eqpjLCbNL6egEaUN', 3, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoiSm9Pekd3UWU5djFaUUpUYlhWVHNQUFA4ZVJnUDFNUUE3VkNsdGhrUCI7czozOiJ1cmwiO2E6MTp7czo4OiJpbnRlbmRlZCI7czozNjoiaHR0cDovL2NhcmVuc3kubG9sb2svZGFzaGJvYXJkX2FkbWluIjt9czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzY6Imh0dHA6Ly9jYXJlbnN5LmxvbG9rL2Rhc2hib2FyZF9hZG1pbiI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjM7fQ==', 1735807766);
+('PaqnbiCRBn4sRrYjFjU2HTTUuQBVanKpRW9tE2ij', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoiS21rMHZSbFZkNTRDQ1dPSnZldXFzNm9CbzNrclU1RTlGMmlVdWRZZCI7czozOiJ1cmwiO2E6MTp7czo4OiJpbnRlbmRlZCI7czoyMDoiaHR0cDovL2NhcmVuc3kubG9sb2siO31zOjk6Il9wcmV2aW91cyI7YToxOntzOjM6InVybCI7czoyMDoiaHR0cDovL2NhcmVuc3kubG9sb2siO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxO30=', 1737347553);
 
 -- --------------------------------------------------------
 
@@ -334,6 +306,7 @@ CREATE TABLE `transactions` (
   `media_sosial` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `tanggal_pinjam` date NOT NULL,
   `tanggal_kembali` date NOT NULL,
+  `jaminan` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -359,11 +332,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `username`, `password`, `is_admin`, `created_at`, `updated_at`) VALUES
-(2, 'Santo Evorius Jehu', 'sans', '$2y$12$S.XJnKX6eRZxUqGn6nJGR.6Tf2D22VVCtD8UQ2SJAbrTDFXWQ0zAm', 0, '2024-12-30 00:04:04', '2024-12-30 00:04:04'),
-(3, 'admin', 'admin', '$2y$12$1eTg/FB9NZkdkKbe2M3L4eTi9Z3uFE4IEqCZGDbkaDmqxA1E4nJAC', 1, '2024-12-30 00:07:08', '2024-12-30 00:07:08'),
-(4, 'PRESIDENXI', 'user1', '$2y$12$YulEnDHj4nfdhRuvKraAUOayQ8YoQrfYX.0w8at0qxCb2HS4q1Rwm', 0, '2024-12-31 22:15:14', '2024-12-31 22:17:44'),
-(5, 'adi', 'adi', '$2y$12$Zzgr6Sl1SnCictkpX9JqaukYCik5IPVJsBkTThnOze7Q6ihK5Tgpm', 0, '2025-01-01 02:30:57', '2025-01-01 02:30:57'),
-(6, 'Udin', 'Udin', '$2y$12$DCtYH9OdbO3NGqACdzOPYe2YPUH16flqK3SqSFcVGTkDwkxwwxVHO', 0, '2025-01-01 02:31:18', '2025-01-01 02:31:18');
+(1, 'PREXIDENXI', 'user1', '$2y$12$sxCJWVQ5Zsq7IlJAKP1U9OVaoi9XRGzhWEmRNpY3qQOvq4ULpwPLq', 0, '2025-01-19 20:01:15', '2025-01-19 20:01:15'),
+(2, 'admin', 'admin', '$2y$12$mNKT5auRCHO1hV6tweOVSudA8HHN3bE1NrCyFviMbpF5F1vqED1Dy', 1, '2025-01-19 20:05:56', '2025-01-19 20:05:56');
 
 --
 -- Indexes for dumped tables
@@ -471,25 +441,25 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `carts`
 --
 ALTER TABLE `carts`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `cart_items`
 --
 ALTER TABLE `cart_items`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `histori_items`
 --
 ALTER TABLE `histori_items`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `histori_transaksis`
 --
 ALTER TABLE `histori_transaksis`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -507,25 +477,25 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `profiles`
 --
 ALTER TABLE `profiles`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `receipts`
 --
 ALTER TABLE `receipts`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `transactions`
 --
 ALTER TABLE `transactions`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables
