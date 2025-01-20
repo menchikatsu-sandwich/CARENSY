@@ -16,7 +16,11 @@ class PemesananController extends Controller
                     $query->where('name', 'like', "%{$search}%");
                 });
             })
-            ->get();
+            ->get()
+            ->sortByDesc('created_at')
+            ->groupBy(function ($transaction) {
+                return (new \DateTime($transaction->created_at))->format('F Y'); // Group by month and year
+            });
 
         return view('admin.pemesanan', compact('title','transactions', 'search'));
     }
