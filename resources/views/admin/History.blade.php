@@ -15,8 +15,8 @@
     <div id="history-container">
         @php
             // Group transactions by month and year, sorted in descending order
-            $groupedHistory = $historyTransaksi->sortByDesc('tanggal_pinjam')->groupBy(function ($history) {
-                return (new DateTime($history->tanggal_pinjam))->format('F Y'); // Format: "Bulan Tahun"
+            $groupedHistory = $historyTransaksi->sortByDesc('created_at')->groupBy(function ($history) {
+                return (new DateTime($history->created_at))->format('F Y'); // Format: "Bulan Tahun"
             });
         @endphp
         @foreach ($groupedHistory as $monthYear => $transactions)
