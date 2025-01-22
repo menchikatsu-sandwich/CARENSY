@@ -40,6 +40,9 @@
                             <span class="text-gray-600 text-sm leading-relaxed">
                                 <strong>Total Hari Meminjam:</strong> <span id="totalHari">0</span> hari
                             </span>
+                            <span class="text-gray-600 text-sm leading-relaxed">
+                                <strong>jaminan:</strong> {{ $historyTransaksi->jaminan }}
+                            </span>
                         </div>
                     </div>
                     <div class="sm:col-span-2 mt-6">
