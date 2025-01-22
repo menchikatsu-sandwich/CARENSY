@@ -93,6 +93,7 @@ class TransactionController extends Controller
                 'alamat_now' => $transaction->alamat_now,
                 'alamat_ktp' => $transaction->alamat_ktp,
                 'email' => $transaction->email,
+                'jaminan' => $transaction->jaminan,
             ]);
 
             // Pindahkan data item ke historiItems dan update stok produk

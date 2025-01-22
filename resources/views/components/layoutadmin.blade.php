@@ -4,6 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>{{ $title }}</title>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <!-- Font Awesome -->
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 
@@ -30,6 +31,16 @@
     </head>
     
 <body class="bg-gray-100 font-family-popins flex">
+@if (session('success'))
+
+    <script>
+        Swal.fire({
+  title: "{{ session('success')}}",
+  icon: "success",
+  draggable: true
+});
+    </script>
+@endif
 
     <x-nav-bar-admin></x-nav-bar-admin>
     <div>
@@ -46,7 +57,8 @@
         </div>
         
     </div>
-
+    
+    
     <!-- AlpineJS -->
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     <!-- Font Awesome -->

@@ -1,7 +1,6 @@
 <x-layout>
     <x-slot:title>{{ $title }}</x-slot:title>
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="text-xl sm:text-2xl font-bold mb-4 text-gray-900 dark:text-gray-100">Keranjang Anda</h2>
+
 
         @if(session('error'))
             <div class="bg-red-500 text-white p-2 rounded mb-4">
@@ -141,7 +140,18 @@
                 @endif
             </div>
         @else
-            <p class="text-gray-600 dark:text-gray-400">Keranjang Anda kosong.</p>
+        <div class="flex flex-col items-center justify-center h-64">
+        <!-- Ikon Keranjang dengan Perubahan Warna -->
+        <svg xmlns="http://www.w3.org/2000/svg" 
+             class="h-16 w-16 text-gray-800 dark:text-white animate-bounce" 
+             fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-4 8h18M9 21h6m-6-4h6" />
+        </svg>
+        <!-- Teks -->
+        <p class="text-gray-600 dark:text-gray-400 mt-4 text-lg font-semibold">
+            Keranjang Anda kosong.
+        </p>
+    </div>
         @endif
     </div>
 </x-layout>

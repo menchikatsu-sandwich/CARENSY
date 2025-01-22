@@ -15,6 +15,8 @@
         </div>
     @endif
 
+
+
     <div class="p-8 bg-gray-50 rounded-lg shadow-lg">
         <form action="{{ route('product.store') }}" method="POST" enctype="multipart/form-data"
             class="grid grid-cols-2 gap-6 max-w-3xl mx-auto" x-data="{ fileName: '', fileUrl: '' }">
@@ -113,9 +115,23 @@
 
             <!-- BUTTON SUBMIT -->
             <div class="col-span-2 flex justify-end">
-                <button type="submit"
+                <button type="submit" id="submit-btn"
                     class="bg-blue-500 text-white px-6 py-3 rounded-md hover:bg-blue-600 transition">SUBMIT</button>
             </div>
         </form>
     </div>
+    
+    
+    <!-- @if (Session::has('success'))
+<script>
+   Swal.fire({
+    title: 'Test SweetAlert',
+    text: 'If you see this, SweetAlert is working!',
+    icon: 'info',
+    confirmButtonText: 'OK'
+});
+</script>
+@endif -->
+
+
 </x-layoutadmin>

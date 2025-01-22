@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('alamat_now');
             $table->string('alamat_ktp');
             $table->string('email');
+            $table->string('jaminan');
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
